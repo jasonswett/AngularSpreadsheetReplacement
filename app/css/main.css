@@ -1,0 +1,196 @@
+body {
+  font-size: 12px;
+}
+
+a:link,
+a:visited {
+  color: #3dabff;
+}
+
+a.btn {
+  color: #fff;
+}
+
+
+
+.header {
+  background: #0c75c8;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.userControls {
+  text-align: right;
+  padding-right: 20px;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.userControls span {
+  color: #333;
+}
+
+.logo {
+  margin-top: 20px;
+}
+
+.nav {
+  float: right;
+  margin-top: 30px;
+  margin-bottom: 0;
+  border-bottom: 0;
+}
+
+.nav a {
+  color: #fff;
+}
+
+.nav li:hover a {
+  color: #999;
+}
+
+#inventorySubnavTab.nav-tabs {
+  margin-right: 0 !important;
+  position: relative;
+  z-index: 99;
+  margin-top: 75px;
+}
+
+.tab-content {
+  margin: 20px 0;
+  overflow: visible;
+}
+
+.tab-content.span10 {
+  width: 810px;
+  margin-left: -1px;
+}
+
+.tabs-left a {
+  color: #555;
+}
+
+.tab-pane {
+  min-height: 600px;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-right: -1px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.table th, .table td {
+  text-align: center;
+}
+
+.table th {
+  background: #999;
+  color: #fff;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.table th.sortable {
+  cursor: pointer;
+}
+
+.table th i {
+  margin-top: -1px;
+}
+
+.table th.lastFile, .table td.lastFile {
+  text-align: left;
+}
+
+.lastFile a{
+  float: right;
+}
+.exportbtn {
+  margin-top: 20px;
+  float: right;
+}
+
+td.status {
+  text-transform: uppercase;
+}
+.form-search {
+  margin-top: 20px;
+}
+
+.table {
+  font-size: 10px
+}
+
+.table a {
+  text-decoration: underline;
+}
+#landingTable {
+  margin-top: 20px;
+}
+
+span.text-success {
+  text-transform: uppercase;
+}
+
+#comments > div {
+  margin: 20px;
+}
+
+#comments .commentBtn,
+#comments .commentMeta {
+  text-align: right;
+}
+
+#commentForm .btn {
+  margin-top: 40px;
+  margin-right: 40px;
+}
+
+#commentForm textarea {
+  margin: 0;
+}
+
+#feedDetails .span5 {
+  width: 374px;
+}
+
+.feedDetailRow .detailLeft {
+  width: 150px;
+}
+
+.feedDetailRow .detailRight {
+  font-weight: bold;
+  text-align: right;
+  width: 200px;
+}
+
+.feedDetailRow {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#changeDetailTable {
+
+}
+
+#changeDetailTable td,
+#changeDetailTable th {
+  text-align: left;
+}
+.editbtn {
+  margin: 40px 0px 40px 350px;
+}
+
+.userControls {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  vertical-align: middle;
+}
+
+h2 span {
+  vertical-align: middle !important;
+}
