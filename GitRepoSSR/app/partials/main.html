@@ -1,0 +1,85 @@
+
+	<div class="contentWrap row-fluid">
+      <div class="mainWrap">
+        <!--<div class="alert">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Warning!</strong> 
+        </div>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Warning!</strong> 
+        </div>
+        <div class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Warning!</strong> 
+        </div>
+        <div class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Warning!</strong> 
+        </div> -->
+        <button class="exportbtn btn pull-right">Export All</button>
+        <form class="form-search">
+          <div class="input-append">
+            <input type="text" class="search-query" ng-model="query">
+            <button type="submit" class="btn">Search</button>
+          </div>
+        </form>
+        <table id="landingTable" class="table table-striped table-bordered">
+          <thead>
+            <tr ng-model="orderProp">
+              <th class="status sortable">Status <i class="icon-chevron-down icon-white"></i></th>
+              <th class="id sortable">ID <i class="icon-chevron-down icon-white"></i></th>
+              <th class="interface sortable">Interface <i class="icon-chevron-down icon-white"></i></th>
+              <th class="Istrategy ">Istrategy</th>
+              <th class="lastActive  sortable" value="lastActive">Last Active<i class="icon-chevron-down icon-white"></i></th>
+              <th class="lastFile sortable">Last File Transfered <i class="icon-chevron-down icon-white"></i></th>
+              <th class="fileName sortable">IL File Name <i class="icon-chevron-down icon-white"></i></th>
+              <th class="messageType sortable">Message Type <i class="icon-chevron-down icon-white"></i></th>
+              <th class="mainContact">Main Contact</th>
+              <th class="actions sortable">Actions <i class="icon-chevron-down icon-white"></i></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="feed in feedList | filter:query | orderBy:orderProp">
+              <td class="status text-success">
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.status}}</a>
+              </td>
+              <td class="id">
+                <a href="index.html#/feeds/{{feed.id}}/{{feed.status}}/{{feed.interface}}">{{feed.id}}</a>
+              </td>
+              <td class="interface">
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.interface}}</a>
+              </td>
+              <td class="Istrategy">
+				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.istrategy}}</a>
+              </td>
+              <td class="lastActive">
+                {{feed.lastActive}}
+              </td>
+              <td class="lastFile">
+				<a href="#" class="viewAll btn btn-inverse btn-mini" ng-click="do(); $event.preventDefault()">View All</a>
+                <a href="partials/file.html">{{feed.lastFileTransferred}}</a>
+              </td>
+              <td class="fileName">
+				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.ilFileName}}</a>
+              </td>
+              <td class="messageType">
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.messageType}}</a>
+              </td>
+              <td class="mainContant">
+                <a href="partials/user.html">{{feed.mainContact}}</a>
+              </td>
+              <td class="actions">
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.actions}}</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+	Debug View
+	{{feedList | json}}
+	
+	Debug View
+	{{feedDetailsList | json}}
