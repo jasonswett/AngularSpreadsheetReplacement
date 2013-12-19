@@ -33,7 +33,7 @@
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
 						<p ng-controller="usersCtrl"><strong ng-bind="userName"></strong></p>
-						<p ng-bind="dateFormat"></p>
+						<p>{{dateFormat | date:'medium'}} </p>
 					</div>
 					<div class="comment span8">
 						<p>{{Services.name}}</p>

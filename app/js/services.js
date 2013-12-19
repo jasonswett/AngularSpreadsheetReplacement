@@ -32,7 +32,7 @@ var feedServices = angular.module('feedServices', ['ngResource']);
 var commentServices = angular.module('commentServices', ['ngResource']);
 
   commentServices.factory('Comment', ['$resource', function($resource) {
-    var getComment = $resource('JSON/comments.json', {}, 
+    var getComment = $resource('JSON/comments.json', {id: '@id'}, 
 		{ post: {method: 'POST'}, get: {method: 'GET', isArray: true}, update: {method:'PUT'} });	
 	return getComment;
   }]);

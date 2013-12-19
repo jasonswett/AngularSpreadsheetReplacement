@@ -20,18 +20,55 @@ angular.module('Services', ['ngResource', 'ngRoute'])
   })
 
 //Feeds Controller
-  .controller('feedsCtrl', ['$scope', 'Feed', '$resource', '$routeParams', '$route', '$location', function($scope, Feed, $resource, $routeParams, $route, $location) {
+  .controller('feedsCtrl', ['$scope', 'Feed', '$resource', '$routeParams', '$route', '$location', '$filter', function($scope, Feed, $resource, $routeParams, $route, $location, $filter) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.feedList = Feed.get();
+	$scope.feedList = Feed.get({id:'@id'});
+	
 	//$scope.params = $scope.feedList.params;
 	
-	//Order the feeds by lastActive
-	$scope.orderProp = 'lastActive';
+	//Default Order the feeds by lastActive
+	//$scope.orderProp = 'lastActive';
+	//Order the Feeds by each column
+	var sortOrder = 'lastActive';
+	$scope.sortOrder = sortOrder;
+	$scope.reverse = false;
 	
+	// change sorting order
+	$scope.sort = function(newSortOrder) {
+	  if ($scope.sortOrder == newSortOrder)
+	    $scope.reverse = !$scope.reverse;
+	    $scope.sortOrder = newSortOrder;
+	//Change arrow direction
+	// icon setup
+        $('th i').each(function(){
+            // icon reset
+			if ($scope.reverse)
+            	$(this).removeClass().addClass('icon-chevron-up icon-white');
+			
+	           // $('th.'+newSortOrder+'i').removeClass().addClass('icon-chevron-up icon-white');
+	        else
+	            $(this).removeClass().addClass('icon-chevron-down icon-white');
+			
+       }); 
+    };
 
+//Get Feed By ID
+	var feedId = '';
+	$scope.feedId = feedId;
+	$scope.feedAttr = {};
+	$scope.getFeedId = function(newFeedId) {
+		for (var i = 0, ii = $scope.feedList.length; i < ii; i++) {
+			
+			if (newFeedId == $scope.feedList[i].id)  
+				{$scope.feedId = newFeedId;
+				$scope.feedAttr = $scope.feedList[i];
+				return $scope.feedAttr;}
+		};	
+	};
+	
 	//Edit Feeds
 /*	$scope.editFeed = function() {
 		$scope.feedList.push({interface:$scope.feed.interface});
@@ -56,8 +93,8 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.dateFormat = 'M/d/yy h:mm:ss a';
-	$scope.commentList = Comment.get();
+	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
+	$scope.commentList = Comment.get({id:'@id'});
 
 	$scope.save = function () {
 		var newComment = { name: $scope.Services.name };

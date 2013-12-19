@@ -13,11 +13,8 @@ function main(argv) {
     'GET': createServlet(StaticServlet),
     'HEAD': createServlet(StaticServlet),
 	'HEAD': createServlet(StaticServlet),
-	     // Accept POST method
-	'POST': createServlet(StaticServlet),
-	'HEAD': createServlet(StaticServlet),
-	     // Accept POST method
-	'PUT': createServlet(StaticServlet)
+		     // Accept POST method
+	'POST': createServlet(StaticServlet)
   }).start(Number(argv[2]) || DEFAULT_PORT);
 }
 
@@ -97,23 +94,8 @@ StaticServlet.prototype.handleRequest = function(req, res) {
     return String.fromCharCode(parseInt(hex, 16));
   });
   var parts = path.split('/');
-// catch the POST request  
-   if (req.method === 'POST') {
-     return self.sendJson_(req, res, path);
-   }
-  if (parts[parts.length-1].charAt(0) === '.')
-    return self.sendForbidden_(req, res, path);
-  fs.stat(path, function(err, stat) {
-    if (err)
-      return self.sendMissing_(req, res, path);
-    if (stat.isDirectory())
-      return self.sendDirectory_(req, res, path);
-    return self.sendFile_(req, res, path);
-  });
-// catch the PUT request  
-   if (req.method === 'PUT') {
-     return self.sendJson_(req, res, path);
-   }
+
+
   if (parts[parts.length-1].charAt(0) === '.')
     return self.sendForbidden_(req, res, path);
   fs.stat(path, function(err, stat) {
@@ -263,30 +245,7 @@ StaticServlet.prototype.writeDirectoryIndex_ = function(req, res, path, files) {
   res.end();
 };
 
-// Add a sendJson_ function to the StaticServlet prototype
- StaticServlet.prototype.sendJson_ = function(req, res, path) {
-   var self = this,
-       reqBody = '';
- 
-   req.on('data', function(chunk) {
-     // Append the current chunk of data to the reqBody variable
-     reqBody += chunk;
-   });
- 
-   req.on('end', function() {
-     // Request ended -> do something with the data
-     res.writeHead(200, "OK", {'Content-Type': 'application/json'});
-     res.write(reqBody);
-     res.end();
-     fs.writeFile(path, reqBody, function(err){
-       if (err) {
-         util.puts(err);
-       } else {
-         util.puts('The file has been saved at ' + path);
-       }
-     });
-   });
- };
+
 
 // Must be last,
 main(process.argv);

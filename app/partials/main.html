@@ -24,28 +24,29 @@
             <button type="submit" class="btn">Search</button>
           </div>
         </form>
+		<form name="feedForm" ng-model="feedAttributes">
         <table id="landingTable" class="table table-striped table-bordered">
           <thead>
-            <tr ng-model="orderProp">
-              <th class="status sortable">Status <i class="icon-chevron-down icon-white"></i></th>
-              <th class="id sortable">ID <i class="icon-chevron-down icon-white"></i></th>
-              <th class="interface sortable">Interface <i class="icon-chevron-down icon-white"></i></th>
-              <th class="Istrategy ">Istrategy</th>
-              <th class="lastActive  sortable" value="lastActive">Last Active<i class="icon-chevron-down icon-white"></i></th>
-              <th class="lastFile sortable">Last File Transfered <i class="icon-chevron-down icon-white"></i></th>
-              <th class="fileName sortable">IL File Name <i class="icon-chevron-down icon-white"></i></th>
-              <th class="messageType sortable">Message Type <i class="icon-chevron-down icon-white"></i></th>
-              <th class="mainContact">Main Contact</th>
-              <th class="actions sortable">Actions <i class="icon-chevron-down icon-white"></i></th>
+            <tr>
+              <th class="status sortable">Status <i class="icon-chevron-down icon-white" ng-click="sort('status')"></i></th>
+              <th class="id sortable">ID <i class="icon-chevron-down icon-white" ng-click="sort('id')"></i></th>
+              <th class="interface sortable">Interface <i class="icon-chevron-down icon-white" ng-click="sort('interface')"></i></th>
+              <th class="Istrategy ">Istrategy <i class="icon-chevron-down icon-white" ng-click="sort('Istrategy')"></i></th>
+              <th class="lastActive  sortable" value="lastActive">Last Active<i class="icon-chevron-down icon-white" ng-click="sort('lastActive')"></i></th>
+              <th class="lastFile sortable">Last File Transfered <i class="icon-chevron-down icon-white" ng-click="sort('lastFile')"></i></th>
+              <th class="fileName sortable">IL File Name <i class="icon-chevron-down icon-white" ng-click="sort('fileName')"></i></th>
+              <th class="messageType sortable">Message Type <i class="icon-chevron-down icon-white" ng-click="sort('messageType')"></i></th>
+              <th class="mainContact">Main Contact <i class="icon-chevron-down icon-white" ng-click="sort('mainContact')"></i></th>
+              <th class="actions sortable">Actions <i class="icon-chevron-down icon-white" ng-click="sort('actions')"></i></th>
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="feed in feedList | filter:query | orderBy:orderProp">
+            <tr ng-repeat="feed in feedList | filter:query | orderBy:sortOrder:reverse">
               <td class="status text-success">
-                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.status}}</a>
+                <a href="#" ng-click="do(); $event.preventDefault()" contentEditable="false" ng-model="feed.status">{{feed.status}}</a>
               </td>
-              <td class="id">
-                <a href="index.html#/feeds/{{feed.id}}/{{feed.status}}/{{feed.interface}}">{{feed.id}}</a>
+              <td class="id" >
+                <a href="index.html#/feeds/{{feed.id}}/{{feed.status}}/{{feed.interface}}" ng-click="getFeedId('{{feed.id}}')" contentEditable="false" ng-model="feed.id">{{feed.id}}</a>
               </td>
               <td class="interface">
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.interface}}</a>
@@ -75,11 +76,14 @@
             </tr>
           </tbody>
         </table>
+		</form>
       </div>
     </div>
 
 	Debug View
-	{{feedList | json}}
-	
-	Debug View
-	{{feedDetailsList | json}}
+	{{feedList[0].id}}
+	<br>
+	{{feed[0]}}
+	<br>
+	{{feed.status}}
+	 
