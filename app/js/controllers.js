@@ -25,7 +25,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.feedList = Feed.get({id:'@id'});
+	$scope.feedList = Feed.get();
 	
 	//$scope.params = $scope.feedList.params;
 	
@@ -56,7 +56,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
     };
 
 //Get Feed By ID
-	var feedId = '';
+/*	var feedId = '';
 	$scope.feedId = feedId;
 	$scope.feedAttr = {};
 	$scope.getFeedId = function(newFeedId) {
@@ -68,7 +68,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 				return $scope.feedAttr;}
 		};	
 	};
-	
+*/	
 	//Edit Feeds
 /*	$scope.editFeed = function() {
 		$scope.feedList.push({interface:$scope.feed.interface});
@@ -94,7 +94,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
-	$scope.commentList = Comment.get({id:'@id'});
+	$scope.commentList = Comment.get({feed:$routeParams.id});
 
 	$scope.save = function () {
 		var newComment = { name: $scope.Services.name };

@@ -1,4 +1,16 @@
-[
-{"id": "DDDD", "name":"DDDD"},
-{"id": "BBBB", "name":"BBBB"}
-]
+{
+	"BBBB": [
+		{"name":"BBBB"}
+	],
+	"DDDD":[
+		{"name":"DDDD"}
+	],
+	"CCCC":[
+		{"name":"CCCC"}
+	],
+	"D121":[
+		{"name":"D121"}
+	]
+
+}
+

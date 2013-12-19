@@ -2,8 +2,8 @@
     <div class="contentWrap row-fluid">
       <div class="mainWrap clearfix">
         <div class="page-header">
-          <h1>{{feed.id}}</h1>
-          <p class="lead">Current status: <span class="text-success">{{params.status}}</span></p>
+          <h1>{{feedList[params.id].id}}</h1>
+          <p class="lead">Current status: <span class="text-success">{{feedList[params.id].status}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
@@ -334,8 +334,8 @@
     </div>
 
 	Debug View
-	{{feedList[0].id}} <br>
-	Debug FeedID
-	{{feedId}}
-	FeedAttr
-	{{Attr}}
+	{{feedList[params.id]}} <br>
+
+	<br>
+	Params
+	{{params.id}}

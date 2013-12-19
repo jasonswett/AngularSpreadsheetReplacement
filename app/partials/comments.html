@@ -29,7 +29,7 @@
                 </div> <!-- /commentForm -->
 				</form>
                 <hr />
-			<div ng-repeat="Services in commentList track by $index">
+			<div ng-repeat="Services in commentList[params.id] track by $index">
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
 						<p ng-controller="usersCtrl"><strong ng-bind="userName"></strong></p>
@@ -45,6 +45,8 @@
 				
 				Debug View
 				{{commentList | json}}	
+				
+				
                 
               </div>
             </div>

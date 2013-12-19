@@ -1,5 +1,5 @@
-[
-	{
+{
+	"DDDD": {
 	"status": "Inactive",
 	"id": "DDDD",
 	"interface": "F1008",
@@ -11,7 +11,7 @@
 	"mainContact": "Bill Pearson",
 	"actions": "Edit"
 	},
-	{
+	"D121": {
 	"status": "Active",
 	"id": "D121",
 	"interface": "F1008",
@@ -23,7 +23,7 @@
 	"mainContact": "Bill Pearson",
 	"actions": "Edit"
 	},
-	{
+	"CCCC": {
 	"status": "Active",
 	"id": "CCCC",
 	"interface": "F1008",
@@ -35,7 +35,7 @@
 	"mainContact": "Aaron Lieberman",
 	"actions": "Edit"
 	},
-	{
+	"BBBB": {
 	"status": "Inactive",
 	"id": "BBBB",
 	"interface": "FC012",
@@ -47,4 +47,4 @@
 	"mainContact": "Bill Pearson",
 	"actions": "Edit"
 	}
-]
+}
