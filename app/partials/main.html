@@ -24,7 +24,7 @@
             <button type="submit" class="btn">Search</button>
           </div>
         </form>
-		<form name="feedForm" ng-model="feedAttributes">
+		
         <table id="landingTable" class="table table-striped table-bordered">
           <thead>
             <tr>
@@ -43,10 +43,10 @@
           <tbody>
             <tr ng-repeat="feed in feedList | filter:query | orderBy:sortOrder:reverse">
               <td class="status text-success">
-                <a href="#" ng-click="do(); $event.preventDefault()" contentEditable="false" ng-model="feed.status">{{feed.status}}</a>
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.status}}</a>
               </td>
               <td class="id" >
-                <a href="index.html#/feeds/{{feed.id}}/{{feed.status}}/{{feed.interface}}" ng-click="getFeedId('{{feed.id}}')" contentEditable="false" ng-model="feed.id">{{feed.id}}</a>
+                <a href="index.html#/feeds/{{feed.id}}">{{feed.id}}</a>
               </td>
               <td class="interface">
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.interface}}</a>
@@ -68,15 +68,14 @@
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.messageType}}</a>
               </td>
               <td class="mainContant">
-                <a href="partials/user.html">{{feed.mainContact}}</a>
+                <a href="index.html#/users/{{feed.mainContact}}">{{feed.mainContact}}</a>
               </td>
               <td class="actions">
-                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.actions}}</a>
+                <a href="index.html#/feeds/{{feed.id}}">{{feed.actions}}</a>
               </td>
             </tr>
           </tbody>
         </table>
-		</form>
       </div>
     </div>
 

@@ -27,6 +27,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.get();
 	
+	
 	//$scope.params = $scope.feedList.params;
 	
 	//Default Order the feeds by lastActive
@@ -41,6 +42,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	  if ($scope.sortOrder == newSortOrder)
 	    $scope.reverse = !$scope.reverse;
 	    $scope.sortOrder = newSortOrder;
+
 	//Change arrow direction
 	// icon setup
         $('th i').each(function(){

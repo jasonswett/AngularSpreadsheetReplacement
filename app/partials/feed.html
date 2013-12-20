@@ -38,7 +38,7 @@
                     Interface Name:
                   </div>
                   <div class="detailRight">
-                    {{params.interface}}
+                    {{feedList[params.id].interface}}
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -78,7 +78,7 @@
                     Interface Owner:
                   </div>
                   <div class="detailRight">
-                    <a href="user.html">Bill Pearson</a>
+                    <a href="index.html#/users/{{feedList[params.id].mainContact}}">{{feedList[params.id].mainContact}}</a>
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -176,7 +176,7 @@
                     IL File Name:
                   </div>
                   <div class="detailRight">
-                    N/A
+                    {{feedList[params.id].ilFileName}}
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -192,7 +192,7 @@
                     Istrategy:
                   </div>
                   <div class="detailRight">
-                    2022
+                    {{feedList[params.id].istrategy}}
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -325,7 +325,7 @@
                 </div>
               </div>
               <div class="userControls text-center">
-                <a href="index.html#/feedEdit/{{params.id}}/{{params.status}}/{{params.interface}}" class="editBtn btn btn-large btn-success">Edit</a>
+                <a href="index.html#/feedEdit/{{params.id}}" class="editBtn btn btn-large btn-success">Edit</a>
               </div>
             </div>
           </div>

@@ -20,7 +20,7 @@ var feedServices = angular.module('feedServices', ['ngResource']);
 
 	feedServices.factory('Feed', ['$resource', function($resource) { 
 		var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'}, 
-		{ post: {method: 'POST'}, get: {method: 'GET', isArray: false}, update: {method:'PUT'} });
+		{ post: {method: 'POST'}, get: {method: 'GET', isArray: true}, update: {method:'PUT'} });
 		return getFeed;			
 	}]);
 	
