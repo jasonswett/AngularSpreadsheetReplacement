@@ -1,16 +1,7 @@
-{
-	"BBBB": [
-		{"name":"BBBB"}
-	],
-	"DDDD":[
-		{"name":"DDDD"}
-	],
-	"CCCC":[
-		{"name":"CCCC"}
-	],
-	"D121":[
-		{"name":"D121"}
-	]
-
-}
+[
+	{"name":"BBBB"},
+	{"name":"DDDD"},
+	{"name":"CCCC"},
+	{"name":"D121"}
+]
 

@@ -19,8 +19,9 @@
 var feedServices = angular.module('feedServices', ['ngResource']);
 
 	feedServices.factory('Feed', ['$resource', function($resource) { 
-		var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'}, 
-		{ post: {method: 'POST'}, get: {method: 'GET', isArray: true}, update: {method:'PUT'} });
+		//var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
+		var getFeed = $resource('http://dev.bigcompass.com:2222/rest/AaronL/Feeds', {id:'@id', status:'@status', interface:'@interface'}, 
+		{ post: {method: 'POST'}, get: {method: 'GET', isArray:true}, update: {method:'PUT'} });
 		return getFeed;			
 	}]);
 	
@@ -32,8 +33,8 @@ var feedServices = angular.module('feedServices', ['ngResource']);
 var commentServices = angular.module('commentServices', ['ngResource']);
 
   commentServices.factory('Comment', ['$resource', function($resource) {
-    var getComment = $resource('JSON/comments.json', {feed: '@id'}, 
-		{ post: {method: 'POST'}, get: {method: 'GET', isArray: false}, update: {method:'PUT'} });	
+    var getComment = $resource('JSON/comments.json', {id: '@id'}, 
+		{ post: {method: 'POST'}, get: {method: 'GET'}, update: {method:'PUT'} });	
 	return getComment;
   }]);
 
