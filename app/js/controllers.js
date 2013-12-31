@@ -27,6 +27,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.query();
 	$scope.singleFeed = Feed.get({id:$routeParams.id});
+	console.log($scope.feedList);
 	
 	
 	//$scope.params = $scope.feedList.params;
