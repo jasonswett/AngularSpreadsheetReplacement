@@ -15,6 +15,16 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	console.log(typeof($scope.feedList1));
 	console.log(typeof($scope.feedList));
 	
+	var global = new Array();
+	$.ajax({
+	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
+	    success: function(reports){
+	        global = reports;
+	        return global;
+			console.log(global);
+	        }
+	    });
+	
 	//Default Order the feeds by lastActive
 	var sortOrder = 'lastActive';
 	$scope.sortOrder = sortOrder;
