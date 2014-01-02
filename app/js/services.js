@@ -1,7 +1,6 @@
 'use strict';
-
+					
 /* Services */
-
 
 // Demonstrate how to register services
 // In this case it is a simple value service.
@@ -19,9 +18,12 @@
 //var feedServices = angular.module('feedServices', ['ngResource']);
 
 	mftApp.factory('Feed', ['$resource', function($resource) { 
-		var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
-		//var getFeed = $resource('http://dev.bigcompass.com:2222/rest/AaronL/Feeds', {id:'@id', status:'@status', interface:'@interface'}, 
-		{ post: {method: 'POST'}, get: {method: 'GET'}, update: {method:'PUT'} });
+		//var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
+		var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Feeds/:id', {id:'@id', status:'@status', interface:'@interface'}, 
+		{ post: {method: 'POST'}, 
+		get: {method: 'GET'}, 
+		update: {method:'PUT'}, 
+		query: {method:'GET', isArray:true, headers: {'Content-Type': 'application/json'}}});
 		return getFeed;			
 	}]);
 	
