@@ -16,6 +16,11 @@
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
   <script src="js/controllers.js"></script>
+  <script src="js/controllers/FeedIndexCtrl.js"></script>
+  <script src="js/controllers/FeedShowCtrl.js"></script>
+  <script src="js/controllers/FeedEditCtrl.js"></script>
+  <script src="js/controllers/UserIndexCtrl.js"></script>
+  <script src="js/controllers/CommentIndexCtrl.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
   <script src="js/bootstrap.js"></script>
@@ -23,11 +28,11 @@
   <script src="http://code.jquery.com/jquery.js"></script>
 </head>
 
-	<div class="headerWrap row-fluid" ng-controller="usersCtrl">
+	<div class="headerWrap row-fluid" ng-controller="UserIndexCtrl">
       <div class="header clearfix">
           <div class="userControls pull-right">
             Logged in as 
- <a href="#" ng-click="do(); $event.preventDefault()" ng-bind="userName"> </a>
+ <a href="#" ng-click="do(); $event.preventDefault()">{{userName}}</a>
 			<a href="index.html" class="btn btn-inverse btn-mini">Logout</a>
           </div>
           <a class="logo" href="main.html"><img src="img/disney-logo-large.png" alt="Disney" /></a>

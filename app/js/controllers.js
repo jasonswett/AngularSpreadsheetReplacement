@@ -14,20 +14,17 @@ var mftController = angular.module('mftController', []);
 
 angular.module('Services', ['ngResource', 'ngRoute'])
   
-//Users Controller
-  .controller('usersCtrl', function($scope) {
-	$scope.userName = "aaron@bigcompass.com";
-  })
+
 
 //Feeds Controller
-  .controller('feedsCtrl', ['$scope', 'Feed', '$resource', '$routeParams', '$route', '$location', '$filter', function($scope, Feed, $resource, $routeParams, $route, $location, $filter) {
-	$scope.$route = $route;
+  //.controller('feedsCtrl', ['$scope', 'Feed', '$resource', '$routeParams', '$route', '$location', '$filter', function($scope, Feed, $resource, $routeParams, $route, $location, $filter) {
+	/*$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.query();
 	$scope.feedList1 = angular.toJson($scope.feedList);
-	$scope.singleFeed = Feed.get({id:$routeParams.id});
+	
 	console.log($scope.feedList);
 	console.log($scope.feedList1);
 	console.log(typeof($scope.feedList1));
@@ -61,7 +58,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 	            $(this).removeClass().addClass('icon-chevron-down icon-white');
 			
        }); 
-    };
+    };*/
 
 //Get Feed By ID
 /*	var feedId = '';
@@ -84,7 +81,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 		$scope.feedList = Feed.$save();
 	};*/
 
-	$scope.editFeed = function() {
+/*	$scope.editFeed = function() {
 	  //$scope.Services.$save();
 	  //$location.path('index.html#/feeds/$routeParams.id/$routeParams.status/$routeParams.interface'); //{{feed.id}}/{{feed.status}}/{{feed.interface}}');
 	  var updateFeed = {status: $scope.feed.status, interface: $scope.feed.interface};
@@ -93,10 +90,10 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 		$scope.feedList.push(nf);
 	  });
 	};
-  }])
+  }])*/
 
 //Comments Controller
-  .controller('commentsCtrl', function($scope, Comment, $resource, $routeParams, $route, $location) {
+  /*.controller('commentsCtrl', function($scope, Comment, $resource, $routeParams, $route, $location) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
@@ -112,7 +109,7 @@ angular.module('Services', ['ngResource', 'ngRoute'])
 			$scope.Services.name = '';
 		});
 	};
-  });
+  });*/
 
 //Comments Controller
 /*function commentsCtrl($scope, Comment, $resource) {
