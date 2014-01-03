@@ -14,8 +14,6 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	console.log($scope.feedList1);
 	console.log(typeof($scope.feedList1));
 	console.log(typeof($scope.feedList));
-	var json = $.xml2json($scope.feedList); 
-	alert(json.message);
 	
 	//Ajax Call
 	$.ajax({
