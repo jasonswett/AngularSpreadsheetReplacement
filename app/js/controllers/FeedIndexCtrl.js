@@ -16,8 +16,20 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	console.log(typeof($scope.feedList));
 	
 	//Ajax Call
-	$scope.jsonString = findJSON;
-	console.log($scope.jsonString);
+	$.ajax({
+	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
+	    success: function(reports){
+			findJson = $('td');
+	        global = reports;
+	        return global;
+			return findJson;
+			console.log(findJson);
+			console.log(global);
+			$scope.jsonString = findJSON;
+			console.log($scope.jsonString);
+	        }
+	    });
+	
 	
 	//Default Order the feeds by lastActive
 	var sortOrder = 'lastActive';

@@ -28,22 +28,6 @@
 		var global = new Array();
 		
 	}]);
-	
-	mftApp.factory('findJSON', ['$resource', function($resource) {
-	$.ajax({
-	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
-	    success: function(reports){
-			findJson = $('td');
-	        global = reports;
-	        return global;
-			return findJson;
-			console.log(findJson);
-			console.log(global);
-
-	        }
-	    });
-	}]);
-
 
 //Comment Services
 
