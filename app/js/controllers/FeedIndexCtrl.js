@@ -8,7 +8,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.feedList = Feed.query();
+	$scope.feedList = Feed;
 	console.log($scope.feedList);
 	console.log(typeof($scope.feedList));
 	
