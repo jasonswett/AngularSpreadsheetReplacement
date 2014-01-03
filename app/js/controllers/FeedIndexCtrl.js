@@ -2,8 +2,8 @@
 
 /* Query For Feeds Controller */
 
-mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter', 'findJSON', 
-  function($scope, $resource, Feed, $routeParams, $route, $location, $filter, findJSON) {
+mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter',  
+  function($scope, $resource, Feed, $routeParams, $route, $location, $filter) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
@@ -14,13 +14,17 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	console.log($scope.feedList1);
 	console.log(typeof($scope.feedList1));
 	console.log(typeof($scope.feedList));
+	var json = $.xml2json($scope.feedList); 
+	alert(json.message);
 	
 	//Ajax Call
 	$.ajax({
 	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
 	    success: function(reports){
-			findJson = $('td');
-	        global = reports;
+			var findJson = $("td");
+	        var global = reports;
+			var json = $.xml2json(global)
+			alert(json.message);
 	        return global;
 			return findJson;
 			console.log(findJson);
