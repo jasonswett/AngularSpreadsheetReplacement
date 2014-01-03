@@ -22,6 +22,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	        global = reports;
 	        return global;
 			console.log(global);
+			alert(global)
 	        }
 	    });
 	
