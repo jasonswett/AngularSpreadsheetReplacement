@@ -24,9 +24,29 @@
 		get: {method: 'GET'}, 
 		update: {method:'PUT'}, 
 		query: {method:'GET', isArray:true, headers: {'Content-Type': 'application/json'}}});
-		return getFeed;		
-		var global = new Array();
 		
+		//Ajax Call
+		$.ajax({
+		    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
+		    success: function(reports){
+
+		        var global = reports;
+				// Create x2js instance with default config
+				var x2js = new X2JS();
+				var xmlText = global;
+				var jsonObj = x2js.xml_str2json( xmlText );
+		        return global;
+				return jsonObj;
+				console.log(jsonObj);
+				console.log(global);
+				$scope.jsonString = findJSON;
+				console.log($scope.jsonString);
+		        }
+		    });
+		var x2js = new X2JS();
+		var xmlText = getFeed;
+		var jsonObj = x2js.xml_str2json( xmlText );
+		return jsonObj;
 	}]);
 
 //Comment Services

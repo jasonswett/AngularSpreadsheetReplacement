@@ -9,10 +9,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.query();
-	$scope.feedList1 = angular.toJson($scope.feedList);
 	console.log($scope.feedList);
-	console.log($scope.feedList1);
-	console.log(typeof($scope.feedList1));
 	console.log(typeof($scope.feedList));
 	
 	//Ajax Call
