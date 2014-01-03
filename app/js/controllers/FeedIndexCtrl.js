@@ -21,13 +21,15 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$.ajax({
 	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
 	    success: function(reports){
-			var findJson = $("td");
+			
 	        var global = reports;
-			var json = $.xml2json(global)
-			alert(json.message);
+			// Create x2js instance with default config
+			var x2js = new X2JS();
+			var xmlText = global;
+			var jsonObj = x2js.xml_str2json( xmlText );
 	        return global;
-			return findJson;
-			console.log(findJson);
+			return jsonObj;
+			console.log(jsonObj);
 			console.log(global);
 			$scope.jsonString = findJSON;
 			console.log($scope.jsonString);
