@@ -16,7 +16,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	console.log(typeof($scope.feedList));
 	
 	//Ajax Call
-	$scope.jsonString = findJSON.query();
+	$scope.jsonString = findJSON;
 	console.log($scope.jsonString);
 	
 	//Default Order the feeds by lastActive

@@ -33,7 +33,7 @@
 	$.ajax({
 	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
 	    success: function(reports){
-			findJson = $('td[]');
+			findJson = $('td');
 	        global = reports;
 	        return global;
 			return findJson;
