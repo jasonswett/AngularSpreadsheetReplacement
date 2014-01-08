@@ -18,10 +18,10 @@ var mftApp = angular.module('mftApp', [
 //Feeds
   $routeProvider.when('/feeds/:id', {templateUrl: 'partials/feed.html', controller: 'FeedShowCtrl'});
     $routeProvider.when('/feeds/:id/edit', {templateUrl: 'partials/feedEdit.html', controller: 'FeedEditCtrl'});
-  $routeProvider.when('/transfers/:id', {templateUrl: 'partials/transfers.html', controller: 'MyCtrl1'});
+  $routeProvider.when('/transfers/:id', {templateUrl: 'partials/transfers.html', controller: 'FeedShowCtrl'});
   $routeProvider.when('/comments/:id', {templateUrl: 'partials/comments.html', controller: 'CommentIndexCtrl'});
-  $routeProvider.when('/changeLog/:id', {templateUrl: 'partials/changeLog.html', controller: 'MyCtrl1'});
-    $routeProvider.when('/changeDetail/:id', {templateUrl: 'partials/changeDetail.html', controller: 'MyCtrl1'});
+  $routeProvider.when('/changeLog/:id', {templateUrl: 'partials/changeLog.html', controller: 'FeedShowCtrl'});
+    $routeProvider.when('/changeDetail/:id', {templateUrl: 'partials/changeDetail.html', controller: 'FeedShowCtrl'});
 
 //User Profile
   $routeProvider.when('/users/:userId', {templateUrl: 'partials/user.html', controller: 'UserIndexCtrl'});
