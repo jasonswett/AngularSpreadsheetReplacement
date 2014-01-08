@@ -18,10 +18,10 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		$scope.editFeed = function() {
 		  //$scope.Services.$save();
 		  //$location.path('index.html#/feeds/$routeParams.id/$routeParams.status/$routeParams.interface'); //{{feed.id}}/{{feed.status}}/{{feed.interface}}');
-		  var updateFeed = {status: $scope.feed.status, interface: $scope.feed.interface};
-		  var nf = new Feed(updateFeed);
+		  var updateFeed = {$scope.singleFeed};
+		  var nf = new SingleFeed(updateFeed);
 		  nf.$update(function() {
-			$scope.feedList.push(nf);
+			$scope.singleFeed.push(nf);
 		  });
 		};
 	
