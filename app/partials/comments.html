@@ -1,18 +1,18 @@
 
 
-    <div class="contentWrap row-fluid">
+    <div class="contentWrap row-fluid" ng-controller="FeedShowCtrl">
       <div class="mainWrap clearfix">
         <div class="page-header">
-          <h1>Feed ID: {{params.id}}</h1>
-          <p class="lead">Current status: <span class="text-success">Active</span></p>
+          <h1>Feed ID: {{singleFeed.ID}}</h1>
+          <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">
-				<li><a href="index.html#/feeds/{{params.id}}">Feed Details</a></li>
-                <li><a href="index.html#/transfers/{{params.id}}">Transfers</a></li>
-                <li class="active"><a href="index.html#/comments/{{params.id}}">Comments</a></li>
-                <li><a href="index.html#/changeLog/{{params.id}}">Change Log</a></li>
+				<li><a href="index.html#/feeds/{{singleFeed.ID}}">Feed Details</a></li>
+                <li><a href="index.html#/transfers/{{singleFeed.ID}}">Transfers</a></li>
+                <li class="active"><a href="index.html#/comments/{{singleFeed.ID}}">Comments</a></li>
+                <li><a href="index.html#/changeLog/{{singleFeed.ID}}">Change Log</a></li>
             </ul>
           </div>
           <div class="tabbable-content pull-left">

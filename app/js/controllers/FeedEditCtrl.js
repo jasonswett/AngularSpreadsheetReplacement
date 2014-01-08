@@ -2,13 +2,13 @@
 
 /* Edit Feed Controller */
 
-mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter', 
-  function($scope, $resource, Feed, $routeParams, $route, $location, $filter) {
+mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 
+  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	return $scope.singleFeed = Feed.get({id: $routeParams.id});
+	return $scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	/*	$scope.editFeed = function() {
 			$scope.feedList.push({interface:$scope.feed.interface});
 			alert($scope.feed.interface)
