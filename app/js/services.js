@@ -23,13 +23,7 @@
 		{ post: {method: 'POST'}, 
 		get: {method: 'GET'}, 
 		update: {method:'PUT'}, 
-		query: {method:'GET', isArray:true, headers: {'Content-Type': 'application/json'}}});
-		
-		//Ajax Call
-		var x2js = new X2JS();
-		var xmlText = getFeed;
-		var jsonObj = x2js.xml_str2json( xmlText );
-		getFeed = jsonObj;
+		query: {method:'GET', isArray:false}});
 		return getFeed;
 	}]);
 

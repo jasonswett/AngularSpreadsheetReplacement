@@ -8,12 +8,10 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.feedList = Feed;
-	console.log($scope.feedList);
-	console.log(typeof($scope.feedList));
+	$scope.feedList = Feed.query();
 	
 	//Ajax Call
-	$.ajax({
+	/*$.ajax({
 	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
 	    success: function(reports){
 			
@@ -29,7 +27,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 			$scope.jsonString = findJSON;
 			console.log($scope.jsonString);
 	        }
-	    });
+	    });*/
 	
 	
 	//Default Order the feeds by lastActive

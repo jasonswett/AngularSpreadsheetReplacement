@@ -41,37 +41,37 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="feed in feedList | filter:query | orderBy:sortOrder:reverse">
+            <tr ng-repeat="feed in feedList.results | filter:query | orderBy:sortOrder:reverse">
               <td class="status text-success">
-                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.status}}</a>
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.IS_ACTIVE}}</a>
               </td>
               <td class="id" >
-                <a href="index.html#/feeds/{{feed.id}}">{{feed.id}}</a>
+                <a href="index.html#/feeds/{{feed.ID}}">{{feed.ID}}</a>
               </td>
               <td class="interface">
-                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.interface}}</a>
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.INTERFACE_NAME}}</a>
               </td>
               <td class="Istrategy">
-				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.istrategy}}</a>
+				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.ISTRATEGY}}</a>
               </td>
               <td class="lastActive">
-                {{feed.lastActive}}
+                {{feed.LAST_CHANGE_DATE}}
               </td>
               <td class="lastFile">
 				<a href="#" class="viewAll btn btn-inverse btn-mini" ng-click="do(); $event.preventDefault()">View All</a>
                 <a href="partials/file.html">{{feed.lastFileTransferred}}</a>
               </td>
               <td class="fileName">
-				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.ilFileName}}</a>
+				<a href="#" ng-click="do(); $event.preventDefault()">{{feed.IL_FILE_NAME}}</a>
               </td>
               <td class="messageType">
-                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.messageType}}</a>
+                <a href="#" ng-click="do(); $event.preventDefault()">{{feed.MESSAGE_TYPE_}}</a>
               </td>
               <td class="mainContant">
-                <a href="index.html#/users/{{feed.mainContact}}">{{feed.mainContact}}</a>
+                <a href="index.html#/users/{{feed.mainContact}}">{{feed.SITE_CONTACT}}</a>
               </td>
               <td class="actions">
-                <a href="index.html#/feeds/{{feed.id}}">{{feed.actions}}</a>
+                <a href="index.html#/feeds/{{feed.ID}}">Edit</a>
               </td>
             </tr>
           </tbody>
@@ -80,7 +80,7 @@
     </div>
 
 	Debug View
-	{{feedList | json}}
+	{{feedList.results[0] | json}}
 	<br>
 	
 	 
