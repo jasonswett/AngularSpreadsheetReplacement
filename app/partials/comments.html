@@ -3,16 +3,16 @@
     <div class="contentWrap row-fluid">
       <div class="mainWrap clearfix">
         <div class="page-header">
-          <h1>D121</h1>
+          <h1>Feed ID: {{params.id}}</h1>
           <p class="lead">Current status: <span class="text-success">Active</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">
-				<li><a href="index.html#/feeds">Feed Details</a></li>
-                <li><a href="index.html#/transfers">Transfers</a></li>
+				<li><a href="index.html#/feeds/{{params.id}}">Feed Details</a></li>
+                <li><a href="index.html#/transfers/{{params.id}}">Transfers</a></li>
                 <li class="active"><a href="index.html#/comments/{{params.id}}">Comments</a></li>
-                <li><a href="index.html#/changeLog">Change Log</a></li>
+                <li><a href="index.html#/changeLog/{{params.id}}">Change Log</a></li>
             </ul>
           </div>
           <div class="tabbable-content pull-left">
@@ -24,19 +24,19 @@
                     <button class="btn btn-info btn-large" ng-click="save()">Comment</button>
                   </div>
                   <div class="textareaWrap span8">
-                    <textarea name="name" type="text" rows="5" class="" ng-model="Services.name"></textarea>
+                    <textarea name="name" type="text" rows="5" class="" ng-model="commentList.name"></textarea>
                   </div>  
                 </div> <!-- /commentForm -->
 				</form>
                 <hr />
-			<div ng-repeat="Services in commentList[params.id] track by $index">
+			<div ng-repeat="comment in commentList track by $index">
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
-						<p ng-controller="UserIndexCtrl"><strong ng-bind="userName"></strong></p>
+						<p ng-controller="UserIndexCtrl"><strong>{{userName}}</strong></p>
 						<p>{{dateFormat | date:'medium'}} </p>
 					</div>
 					<div class="comment span8">
-						<p>{{Services.name}}</p>
+						<p>{{comment.name}}</p>
 					</div>
 				</div><!-- /commentWrap clearfix -->
 				<hr/>

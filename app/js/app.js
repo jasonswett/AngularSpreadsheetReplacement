@@ -7,8 +7,8 @@ var mftApp = angular.module('mftApp', [
   'ngResource',
   'mftApp.filters',
   'mftApp.directives',
-  'mftController',
-  'Services'
+  'mftController'
+  
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {
 
@@ -24,7 +24,7 @@ var mftApp = angular.module('mftApp', [
     $routeProvider.when('/changeDetail/:id', {templateUrl: 'partials/changeDetail.html', controller: 'MyCtrl1'});
 
 //User Profile
-  $routeProvider.when('/users/:userId', {templateUrl: 'partials/user.html', controller: 'feedsCtrl'});
+  $routeProvider.when('/users/:userId', {templateUrl: 'partials/user.html', controller: 'UserIndexCtrl'});
 
 //Alerts and Warnings
   $routeProvider.when('/alerts', {templateUrl: 'partials/alerts.html', controller: 'MyCtrl1'});
