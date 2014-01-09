@@ -11,23 +11,23 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	return $scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 
 	$scope.editFeed = function() {
-		SingleFeed.$update($scope.singleFeed, function(data){
-			$scope.singleFeed.push(data);
-			console.log(data);
-			console.log($scope.singleFeed);
-		});
+		var updateFeed = $scope.singleFeed;
+		var ef = new SingleFeed(updateFeed);
+		  ef.$update(function() {
+		  $scope.singleFeed.push(ef);
+		  });
 	};
   }
 ]);	  
-	/*var updateFeed = {};
-	  var nf = new SingleFeed(updateFeed);
-		nf.$update(function() {
-			$scope.singleFeed.push(nf);
-		  });
-		};*/
+	/*SingleFeed.$update($scope.singleFeed, function(data){
+		$scope.singleFeed.push(data);
+		console.log(data);
+		console.log($scope.singleFeed);
+	});
+};*/
 	
 
   
-	
+		
 
  
