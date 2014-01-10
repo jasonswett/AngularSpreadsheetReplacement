@@ -11,7 +11,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	
 	$scope.save = function() {
-		console.log($scope.singleFeed.ID);
 		SingleFeed.update($scope.singleFeed, function() {
 			console.log("saved!");
 		},
@@ -19,22 +18,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 			console.log("error");
 		});
 	};
-	
-	/*$scope.editFeed = function() {
-		var updateFeed = $scope.singleFeed;
-		var ef = new SingleFeed(updateFeed);
-		  ef.$update(function() {
-		  $scope.singleFeed.push(ef);
-		  });
-	};*/
   }
 ]);	  
-	/*SingleFeed.$update($scope.singleFeed, function(data){
-		$scope.singleFeed.push(data);
-		console.log(data);
-		console.log($scope.singleFeed);
-	});
-};*/
+
 	
 
   

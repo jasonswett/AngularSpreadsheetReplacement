@@ -10,15 +10,24 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
 	$scope.commentList = Comment.get({id: $routeParams.id});
-	$scope.id = $routeParams.id;
-	$scope.save = function () {
+
+	$scope.save = function() {
+		Comment.save($scope.commentList, function() {
+			console.log("saved!");
+		},
+		function() {
+			console.log("error");
+		});
+	};
+
+	/*$scope.save = function () {
 		var newComment = $scope.comment;
 		var nc = new Comment( newComment );
 		nc.$post(function() {
 			$scope.commentList.push(nc);
 			$scope.comment.COMMENT_FEED = '';
 		});
-	};
+	};*/
   }
 ]);
 
