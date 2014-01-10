@@ -9,11 +9,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
-	console.log("In Feed Edit Ctrl")
+	
 	$scope.save = function() {
-		console.log("Save fcn");
-		SingleFeed.$update($scope.singleFeed, function() {
-			$location.path('index.html#/feeds/$routeParams.id');
+		SingleFeed.update($scope.singleFeed, function() {
 			console.log("saved!");
 		},
 		function() {

@@ -8,7 +8,7 @@ mftApp.controller('FeedShowCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	return $scope.singleFeed = SingleFeed.get({id: $routeParams.id});
+	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 
   }
 ]);
