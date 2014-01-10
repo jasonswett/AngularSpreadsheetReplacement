@@ -30,7 +30,7 @@
                     Interface Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" ng-model="singleFeed.TD_INTERF_TYPE">
+					<input type="text" ng-model="feed[0].TD_INTERF_TYPE">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -551,3 +551,6 @@
 
 	Debug View
 	{{singleFeed | json}}
+	<br>
+	feed
+	{{feed | json}}
