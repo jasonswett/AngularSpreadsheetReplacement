@@ -2,8 +2,8 @@
 
 /* Edit Feed Controller */
 
-mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Feed', 'FeedIndexCtrl', 
-  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Feed, FeedIndexCtrl) {
+mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Feed',  
+  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Feed) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
