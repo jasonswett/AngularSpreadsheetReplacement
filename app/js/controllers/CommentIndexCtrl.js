@@ -10,10 +10,9 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
 	$scope.commentList = Comment.get({id: $routeParams.id});
-
+	$scope.id = $routeParams.id;
 	$scope.save = function () {
 		var newComment = $scope.comment;
-		$scope.comment.FEED_ID = $routeParams.id;
 		var nc = new Comment( newComment );
 		nc.$post(function() {
 			$scope.commentList.push(nc);
