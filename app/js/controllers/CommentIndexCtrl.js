@@ -12,11 +12,11 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.commentList = Comment.query();
 
 	$scope.save = function () {
-		var newComment = { name: $scope.Services.name };
+		var newComment = { COMMENT_FEED: $scope.comment.COMMENT_FEED };
 		var nc = new Comment( newComment );
 		nc.$post(function() {
 			$scope.commentList.push(nc);
-			$scope.Services.name = '';
+			$scope.comment.COMMENT_FEED = '';
 		});
 	};
   }

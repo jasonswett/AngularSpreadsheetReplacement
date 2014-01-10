@@ -24,7 +24,7 @@
                     <button class="btn btn-info btn-large" ng-click="save()">Comment</button>
                   </div>
                   <div class="textareaWrap span8">
-                    <textarea name="name" type="text" rows="5" class="" ng-model="commentList.name"></textarea>
+                    <textarea name="name" type="text" rows="5" class="" ng-model="comment.COMMENT_FEED"></textarea>
                   </div>  
                 </div> <!-- /commentForm -->
 				</form>
@@ -32,11 +32,11 @@
 			<div ng-repeat="comment in commentList track by $index">
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
-						<p ng-controller="UserIndexCtrl"><strong>{{userName}}</strong></p>
-						<p>{{dateFormat | date:'medium'}} </p>
+						<p ng-controller="UserIndexCtrl"><strong>{{comment.CURRENT_USER}}</strong></p>
+						<p>{{comment.TIME}} </p>
 					</div>
 					<div class="comment span8">
-						<p>{{comment.name}}</p>
+						<p>{{comment.COMMENT_FEED}}</p>
 					</div>
 				</div><!-- /commentWrap clearfix -->
 				<hr/>
