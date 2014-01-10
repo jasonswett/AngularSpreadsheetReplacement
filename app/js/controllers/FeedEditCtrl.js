@@ -11,7 +11,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	
 	$scope.save = function() {
-		SingleFeed.update({id: $routeParams.id}, $scope.singleFeed, function() {
+		SingleFeed.update($scope.singleFeed, function() {
 			console.log("saved!");
 		},
 		function() {
