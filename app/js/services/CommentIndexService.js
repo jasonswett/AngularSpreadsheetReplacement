@@ -4,7 +4,7 @@
 
 mftApp.factory('Comment', ['$resource', function($resource) {
     //var getComment = $resource('JSON/comments.json', {id: '@id'},
- 	var getComment = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Comments/:id', {id: '@FEED_ID'}, 
+ 	var getComment = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Comments/:id', {id: '@results.FEED_ID'}, 
 		{ post: {method: 'POST'}, 
 		get: {method: 'GET'}, 
 		update: {method:'PUT'}, 
