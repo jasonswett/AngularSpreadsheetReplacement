@@ -12,7 +12,7 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.commentList = Comment.get({id: $routeParams.id});
 
 	$scope.save = function () {
-		var newComment = { results.COMMENT_FEED: $scope.comment.COMMENT_FEED };
+		var newComment = $scope.comment;
 		var nc = new Comment( newComment );
 		nc.$post(function() {
 			$scope.commentList.push(nc);
