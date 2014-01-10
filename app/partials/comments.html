@@ -29,7 +29,7 @@
                 </div> <!-- /commentForm -->
 				</form>
                 <hr />
-			<div ng-repeat="comment in commentList track by $index">
+			<div ng-repeat="comment in commentList.results track by $index">
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
 						<p ng-controller="UserIndexCtrl"><strong>{{comment.CURRENT_USER}}</strong></p>
