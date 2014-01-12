@@ -12,7 +12,8 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.commentList = Comment.get({id: $routeParams.id});
 
 	$scope.save = function() {
-		Comment.save({id: $routeParams.id}, $scope.commentList, function() {
+		Comment.save({id: $routeParams.id}, $scope.commentList, function(data) {
+			console.log("Data:" + data);
 			console.log("saved!");
 		},
 		function() {
