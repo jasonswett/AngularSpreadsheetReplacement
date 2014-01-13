@@ -42,16 +42,16 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	    $scope.sortOrder = newSortOrder;
 
 	//Change arrow direction
-        $('th i').each(function(){
+        //$('th i').each(function(){
             // icon reset
 			if ($scope.reverse)
-            	$(this).removeClass().addClass('icon-chevron-up icon-white');
+            	removeClass().addClass('icon-chevron-up icon-white');
 			
 	           // $('th.'+newSortOrder+'i').removeClass().addClass('icon-chevron-up icon-white');
 	        else
-	            $(this).removeClass().addClass('icon-chevron-down icon-white');
+	            removeClass().addClass('icon-chevron-down icon-white');
 			
-       }); 
+       //}); 
     };
   }
 ]);
