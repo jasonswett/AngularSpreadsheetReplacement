@@ -10,13 +10,18 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
 	$scope.commentList = Comment.get({id: $routeParams.id});
+	
+	//Sort Comments By Time
+	$scope.commentTime = $scope.commentList.results.TIME;
 
+	//Save Comments; POST to DB
 	$scope.save = function() {
 		Comment.post({id:$routeParams.id, CURRENT_USER:'aaron@bigcompass.com', COMMENT_FEED:$scope.commentList.results.COMMENT_FEED}, 
 		$scope.commentList, 
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";
-			$location.path('/comments/' + $routeParams.id);
+			//$location.path('/comments/' + $routeParams.id);
+			$route.reload();
 			console.log("saved!");
 		},
 		function() {
@@ -25,30 +30,10 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		});
 	};
 
-	/*$scope.save = function () {
-		var newComment = $scope.comment;
-		var nc = new Comment( newComment );
-		nc.$post(function() {
-			$scope.commentList.push(nc);
-			$scope.comment.COMMENT_FEED = '';
-		});
-	};*/
   }
 ]);
 
-//Comments Controller
-/*function commentsCtrl($scope, Comment, $resource) {
-  $scope.commentList = Comment.query();
-  $scope.dateFormat = 'M/d/yy h:mm:ss a';
-  $scope.createNewComment = function() {
-    $scope.commentList.push({name:$scope.commentText});
 
-    $scope.commentText = '';
-  };
-};
-
-  }
-]);*/
 
 
 	
