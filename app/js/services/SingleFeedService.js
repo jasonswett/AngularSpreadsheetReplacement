@@ -8,7 +8,7 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	{ post: {method: 'POST'}, 
 	get: {method: 'GET'}, 
 	update: {method:'PUT', params:{active:'@IS_ACTIVE'}, transformRequest:function(data, headersGetter){
-		var result = JSON.stringify(data.productIntro);
+		var result = JSON.stringify(data);
 		console.log("Result:" + result);             
 		console.log("Data:" + data);
 		console.log("headers:" + headersGetter);
