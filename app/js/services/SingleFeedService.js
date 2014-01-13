@@ -7,7 +7,10 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/SingleFeed/:id', {id:'@ID'}, 	
 	{ post: {method: 'POST'}, 
 	get: {method: 'GET'}, 
-	update: {method:'PUT', params:{IS_ACTIVE:'@IS_ACTIVE', PCI:'@PCI'}}, 
+	update: {method:'PUT', params:{IS_ACTIVE:'@IS_ACTIVE', PCI:'@PCI'}, transformRequest:function(data, headersGetter){
+		var result = JSON.stringify(data);
+		console.log("Result:" + result);             
+	}}, 
 	query: {method:'GET', isArray:false}});
 	return getFeed;
 }]);
