@@ -13,6 +13,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.save = function() {
 		SingleFeed.update($scope.singleFeed, function(data) {
 			$location.path('/feeds/' + $routeParams.id);
+			$route.reload();
 			$scope.items = data;
 			console.log("$scope.items" + $scope.items[0]);
 			console.log("saved!");
