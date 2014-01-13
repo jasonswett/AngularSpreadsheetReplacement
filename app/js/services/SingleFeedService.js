@@ -9,7 +9,7 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	get: {method: 'GET'}, 
 	update: {method:'PUT', params:{active:'@IS_ACTIVE'}, transformRequest:function(data, headersGetter){
 		console.log("Data:" + data);
-		console.log("product intro" + data.productIntro)
+		console.log("product intro" + data.productIntro);
 		console.log("headers:" + headersGetter);
 	}}, 
 	query: {method:'GET', isArray:false}});
