@@ -31,7 +31,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	
 	//Default Order the feeds by lastActive
-	var sortOrder = 'lastActive';
+	var sortOrder = 'ID';
 	$scope.sortOrder = sortOrder;
 	$scope.reverse = false;
 	
