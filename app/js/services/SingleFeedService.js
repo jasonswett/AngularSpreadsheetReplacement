@@ -5,9 +5,9 @@
 mftApp.factory('SingleFeed', ['$resource', function($resource) { 
 	//var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
 	var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/SingleFeed/:id', {id:'@ID'}, 	
-	{ post: {method: 'POST', transformRequest : function(data, headersGetter)}, 
+	{ post: {method: 'POST'}, 
 	get: {method: 'GET'}, 
-	update: {method:'PUT', transformRequest : function(data, headersGetter)}, 
+	update: {method:'PUT', transformRequest: function(data, headersGetter)}, 
 	query: {method:'GET', isArray:false}});
 	return getFeed;
 }]);
