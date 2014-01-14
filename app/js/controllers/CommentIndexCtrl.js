@@ -10,7 +10,6 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
 	$scope.commentList = Comment.get({id: $routeParams.id});
-	//console.log(typeof($scope.commentList.results[1].TIME));
 
 	//Save Comments; POST to DB
 	$scope.save = function() {
@@ -18,7 +17,6 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		$scope.commentList, 
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";
-			//$location.path('/comments/' + $routeParams.id);
 			$route.reload();
 			console.log("saved!");
 		},

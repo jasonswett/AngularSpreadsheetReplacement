@@ -45,11 +45,11 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
         //$('th i').each(function(){
             // icon reset
 			if ($scope.reverse)
-            	removeClass().addClass('icon-chevron-up icon-white');
+            	removeClass('icon-chevron-down').addClass('icon-chevron-up');
 			
 	           // $('th.'+newSortOrder+'i').removeClass().addClass('icon-chevron-up icon-white');
 	        else
-	            removeClass().addClass('icon-chevron-down icon-white');
+	            removeClass('icon-chevron-up').addClass('icon-chevron-down');
 			
        //}); 
     };
