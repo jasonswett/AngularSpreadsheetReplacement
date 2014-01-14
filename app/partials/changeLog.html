@@ -2,7 +2,7 @@
     <div class="contentWrap row-fluid">
       <div class="mainWrap clearfix">
         <div class="page-header">
-          <h1>Feed ID: {{singleFeed.ID}}</h1>
+          <h1>Change Log - Feed ID: {{singleFeed.ID}}</h1>
           <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
@@ -33,7 +33,7 @@
                       name@email.com
                     </td>
                     <td>
-                      <a href="index.html#/changeDetail">Click for full description</a>
+                      <a href="index.html#/changeDetail/{{singleFeed.ID}}">Click for full description</a>
                     </td>
                   </tr>
                   <tr>
