@@ -25,7 +25,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="audit in auditFeed.results | orderBy:'LAST_CHANGE_DATE'">
+                  <tr ng-repeat="audit in auditFeed.results | orderBy:'-LAST_CHANGE_DATE'">
                     <td>
                       {{audit.LAST_CHANGE_DATE}}
                     </td>

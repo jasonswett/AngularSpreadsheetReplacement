@@ -22,7 +22,7 @@
                     In/Out:
                   </div>
                   <div class="detailRight">
-                    <input type="text" ng-model="singleFeed.TD_IN_OUT" ng-change="audit()">
+                    <input type="text" ng-model="singleFeed.TD_IN_OUT">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -541,7 +541,7 @@
                 </div>
               </div><!--/FeedDetailColumnRight-->
 			  <div class="userControls text-center">
-                <button ng-click="save()" class="editBtn btn btn-large btn-success">Save</button>
+                <button ng-click="audit(); save()" class="editBtn btn btn-large btn-success">Save</button>
               </div>
             </div>
           </div>
