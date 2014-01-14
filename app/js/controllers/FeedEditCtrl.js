@@ -10,8 +10,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	
+	
 	$scope.save = function() {
-		SingleFeed.update($scope.singleFeed, function(data) {
+		SingleFeed.update($scope.singleFeed, function() {
 			$location.path('/feeds/' + $routeParams.id);
 			console.log("saved!");
 		},
@@ -21,10 +22,4 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	};
   }
 ]);	  
-
-	
-
-  
-		
-
  

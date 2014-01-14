@@ -1,5 +1,5 @@
 
-    <div class="contentWrap row-fluid">
+    <div class="contentWrap row-fluid" ng-controller="AuditFeedCtrl">
       <div class="mainWrap clearfix">
         <div class="page-header">
           <h1>Feed ID: {{singleFeed.ID}}</h1>
@@ -22,7 +22,7 @@
                     In/Out:
                   </div>
                   <div class="detailRight">
-                    <input type="text" ng-model="singleFeed.TD_IN_OUT">
+                    <input type="text" ng-model="singleFeed.TD_IN_OUT" ng-change="audit()">
                   </div>
                 </div>
                 <div class="feedDetailRow">

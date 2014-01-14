@@ -1,13 +1,10 @@
 'use strict';
 					
-/* Get Single Feed From DB Service */
+/* Keep Audit Trail Service */
 
-mftApp.factory('SingleFeed', ['$resource', function($resource) { 
-	//var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
-	var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/SingleFeed/:id', {id:'@ID'}, 	
-	{ post: {method: 'POST'}, 
-	get: {method: 'GET'}, 
-	update: {method:'PUT', params:{TD_IN_OUT:'@TD_IN_OUT',TD_INTERF_TYPE:'@TD_INTERF_TYPE',INTERFACE_NAME:'@INTERFACE_NAME',
+mftApp.factory('AuditFeed', ['$resource', function($resource) { 
+	var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Audits/:id', {id:'@ID'}, 	
+	{ post: {method: 'POST', params:{FEED_ID:'@FEED_ID',TD_IN_OUT:'@TD_IN_OUT',TD_INTERF_TYPE:'@TD_INTERF_TYPE',INTERFACE_NAME:'@INTERFACE_NAME',
 	IS_WM_INTERFACE:'@IS_WM_INTERFACE',IS_ACTIVE:'@IS_ACTIVE',PCI:'@PCI',IS_PII_III:'@IS_PII_III',PII_III_SPECIFIC_DATA:'@PII_III_SPECIFIC_DATA',
 	IS_SAFE_HARBOR:'@IS_SAFE_HARBOR',SAFE_HARBOR_SPECIFIC_DATA:'@SAFE_HARBOR_SPECIFIC_DATA',INTERFACE_DATA_CLASSIF:'@INTERFACE_DATA_CLASSIF',
 	DATA_CLASSIF:'@DATA_CLASSIF',IS_TO_OR_FROM_SAFE_HARBOR:'@IS_TO_OR_FROM_SAFE_HARBOR',MEETS_WHICH_POLICIES:'@MEETS_WHICH_POLICIES',
@@ -23,11 +20,13 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	PEAK_MESSAGE_VOLUME:'@PEAK_MESSAGE_VOLUME',FREQUENCY:'@FREQUENCY',TRANSFER_DEADLINE:'@TRANSFER_DEADLINE',SYSTEM_CONTACTS:'@SYSTEM_CONTACTS',
 	SITE_CONTACT:'@SITE_CONTACT',INTERFACE_OWNER:'@INTERFACE_OWNER',OUTBOUND_SERVER_HOST:'@OUTBOUND_SERVER_HOST',
 	OUTBOUND_RESPONSIBLE_GROUP:'@OUTBOUND_RESPONSIBLE_GROUP',SSN:'@SSN',SALARY:'@SALARY',PGP:'@PGP',CYBER_DOC:'@CYBER_DOC',STATUS:'@STATUS',
-	COMMENTS:'@COMMENTS',LAST_CHANGE_DATE:'@LAST_CHANGE_DATE',LAST_CHANGE_BY:'@LAST_CHANGE_BY',LAST_CHANGE_COMMENT:'@LAST_CHANGE_COMMENT'}, 
+	COMMENTS:'@COMMENTS',LAST_CHANGE_BY:'@LAST_CHANGE_BY',LAST_CHANGE_COMMENT:'@LAST_CHANGE_COMMENT'},
 	transformRequest:function(data, headersGetter){
 		var result = JSON.stringify(data);
 		console.log("Result:" + result);             
 	}}, 
+	get: {method: 'GET'}, 
+	update: {method:'PUT'}, 
 	query: {method:'GET', isArray:false}});
 	return getFeed;
 }]);
