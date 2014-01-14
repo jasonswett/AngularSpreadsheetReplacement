@@ -11,6 +11,9 @@ var mftApp = angular.module('mftApp', [
   
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {
+	
+//Login Page
+  //$routeProvider.when('/login', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
@@ -35,5 +38,6 @@ var mftApp = angular.module('mftApp', [
 //Monitoring
   $routeProvider.when('/monitoring', {templateUrl: 'partials/monitoring.html', controller: 'MyCtrl1'});
   
-  //$routeProvider.otherwise({redirectTo: 'partials/main.html'});
+//All other URLs
+  $routeProvider.otherwise({redirectTo: '/'});
 }]);
