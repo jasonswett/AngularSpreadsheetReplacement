@@ -9,12 +9,12 @@ mftApp.controller('AuditFeedCtrl', ['$scope', '$resource', 'AuditFeed', '$routeP
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;     
 	$scope.auditFeed = AuditFeed.get({id: $routeParams.id});
-	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
+	$scope.singleFeedOld = SingleFeed.get({id: $routeParams.id});
 
 	//Add Old Data To DB; POST to DB
 	$scope.audit = function() {
 		AuditFeed.post({id:$routeParams.id}, 
-		$scope.singleFeed, 
+		$scope.singleFeedOld, 
 		function() {
 			console.log("saved!");
 		},
