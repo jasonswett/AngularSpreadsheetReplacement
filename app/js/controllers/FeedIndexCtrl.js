@@ -14,13 +14,12 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var feedList = res;
 		
 		console.log("feedList:" + feedList.results.length);
-		console.log("feedList.results" + feedList.results);
 		var items = feedList.results;
 		for (var i = 0; i < items.length; i++) {
 		  feedList.results.push(feedList.results[i]);
-		  $scope.feedList = feedList;
-		  console.log("$scope.feedList.results" + $scope.feedList.results);
 		}
+		$scope.feedList = feedList;
+		console.log("$scope.feedList.results" + $scope.feedList.results);
 	},
 	function() {
 		console.log("error");
