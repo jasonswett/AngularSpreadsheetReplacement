@@ -12,10 +12,11 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	
 	//Infinite Scrolling
+	var counter = 0;
 	$scope.loadMore = function() {
-	    var last = $scope.feedList.results[1367 - 1];
-	    for(var i = 1; i <= 20; i++) {
-	      $scope.feedList.results.push(last + i);
+	    for(var i = 0; i < 50; i++) {
+	      $scope.feedList.results.push({$scope.feedList.results[counter]});
+		  counter += 1;
 	    }
 	};
 	
