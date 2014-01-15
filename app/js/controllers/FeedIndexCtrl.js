@@ -12,7 +12,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		console.log("queried!");
 		var last = $scope.feedList.results[data.length - 1];
 		for(var i = 0; i < 50; i++) {
-	      $scope.feedList.results.push(last + i);
+	      $scope.feedList.results.push(last);
 	    }
 	},
 	function() {
