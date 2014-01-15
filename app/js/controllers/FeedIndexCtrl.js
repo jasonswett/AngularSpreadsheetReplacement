@@ -9,8 +9,9 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.query({}, $scope.loadMore = function(data) {
+		console.log("Data:" + data);
 		console.log("queried!");
-		var last = $scope.feedList.results[data.length - 1];
+		var last = $scope.feedList.results[$scope.feedList.results.length - 1];
 		for(var i = 0; i < 50; i++) {
 	      $scope.feedList.results.push(last);
 	    }
