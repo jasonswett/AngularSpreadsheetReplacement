@@ -24,8 +24,8 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 				break;
 			}	  
 		  }
-		$scope.feedList = listOfFeeds;
 		console.log("feedList:" + $scope.feedList.length);
+		return $scope.feedList = listOfFeeds;
 		};
 	},
 	function() {
