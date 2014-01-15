@@ -11,10 +11,8 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	$scope.loadMore = function() {
 	Feed.query(function(res) {
+		$scope.feedList = res;
 		console.log("res:" + res);
-		console.log("res.feedList:" + res.feedList);
-		console.log("res.data:" + res.data);
-		$scope.feedList = res.feedList.data
 		console.log("res.feedList:" + res.feedList);
 		console.log("res.data:" + res.data);
 		console.log("res.feedList.data:" + res.feedList.data);
