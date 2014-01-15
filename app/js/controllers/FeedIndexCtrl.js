@@ -15,7 +15,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	var counter = 0;
 	$scope.loadMore = function() {
 	    for(var i = 0; i < 50; i++) {
-	      $scope.feedList.results.push({$scope.feedList.results[counter]});
+	      $scope.feedList.results.push({ID: counter});
 		  counter += 1;
 	    }
 	};
