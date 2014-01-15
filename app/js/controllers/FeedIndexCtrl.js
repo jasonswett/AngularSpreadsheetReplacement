@@ -11,7 +11,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	$scope.loadMore = function() {
 	$scope.feedList = Feed.query({}, function(data) {
-		console.log(data.data.children);
+		console.log(data.data);
 		var items = data.data.children;
 		for (var i = 0; i < items.length; i++) {
 		  this.items.push(items[i].data);
