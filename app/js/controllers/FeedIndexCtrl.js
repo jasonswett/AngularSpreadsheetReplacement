@@ -8,19 +8,19 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	$scope.feedList = Feed.query({}, $scope.loadMore = function() {
-		console.log("queried!");
-		for(var i = 0; i <= 1367; i++) {
-		  var last = $scope.feedList.results[i];
-		  for(var i = 0; i < 100; i++) {
-	        $scope.feedList.results.push(last);
-	      }
+	
+	$scope.loadMore = function() {
+	$scope.feedList = Feed.query({}, function(data) {
+		console.log(data.data.children);
+		var items = data.data.children;
+		for (var i = 0; i < items.length; i++) {
+		  this.items.push(items[i].data);
 		}
 	},
 	function() {
 		console.log("error");
 	});
-	
+    };
 	//Infinite Scrolling
 	/*var counter = 0;
 	$scope.loadMore = function() {
