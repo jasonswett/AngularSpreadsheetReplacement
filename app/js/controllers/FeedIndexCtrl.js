@@ -13,20 +13,19 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	Feed.query(function(res) {
 		$scope.max = res.results.length;
 		var listOfFeeds = [];
-		var keepGoing = true;
-		for (var i = 0; i < 25; i++) {
+		for (var i = 0; i < 10; i++) {
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
 		$scope.loadMore = function() {
-		  if(keepGoing) {
-		  for (var i = 25; i < res.results.length; i++) {
+		  for (var i = 10; i < res.results.length; i++) {
 		    listOfFeeds.push(res.results[i]);
 			if (i == res.results.length) {
-				keepGoing = false;
-			}	  
+				break;
+			}
+			break;	  
 		  }
-	  	  }
+	  	  
 		$scope.feedList = listOfFeeds;
 		console.log("feedList:" + $scope.feedList.length);
 		};
