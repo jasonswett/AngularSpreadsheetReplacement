@@ -17,7 +17,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
-		  for (var i = 50; i < 100; i++) {
+		  for (var i = 50; i < res.results.length; i++) {
 		    listOfFeeds.push(res.results[i]);
 		  }
 		$scope.feedList = listOfFeeds;
