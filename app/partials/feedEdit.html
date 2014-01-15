@@ -1,5 +1,5 @@
 
-    <div class="contentWrap row-fluid" ng-controller="AuditFeedCtrl">
+    <div class="contentWrap row-fluid">
       <div class="mainWrap clearfix">
         <div class="page-header">
           <h1>Feed ID: {{singleFeed.ID}}</h1>
@@ -540,7 +540,7 @@
                   </div>
                 </div>
               </div><!--/FeedDetailColumnRight-->
-			  <div class="userControls text-center">
+			  <div class="userControls text-center" ng-controller="AuditFeedCtrl">
                 <button ng-click="audit(); save()" class="editBtn btn btn-large btn-success">Save</button>
               </div>
             </div>

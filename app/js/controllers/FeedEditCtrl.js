@@ -10,7 +10,12 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	
+	$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
+	  console.log("New:" + newSingleFeed);
+	  console.log("Old:" + oldSingleFeed);
+	});
 	
+	//Save Edits; PUT to DB
 	$scope.save = function() {
 		SingleFeed.update($scope.singleFeed, function() {
 			$location.path('/feeds/' + $routeParams.id);
