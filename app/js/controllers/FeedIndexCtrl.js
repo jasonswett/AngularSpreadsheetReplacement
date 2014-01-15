@@ -22,10 +22,8 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		    listOfFeeds.push(res.results[i]);
 			if (i == res.results.length) {
 				break;
-			}
-			break;	  
+			}	  
 		  }
-	  	  
 		$scope.feedList = listOfFeeds;
 		console.log("feedList:" + $scope.feedList.length);
 		};
