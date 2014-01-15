@@ -41,7 +41,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="feed in feedList.results | filter:query | orderBy:sortOrder:reverse">
+            <tr ng-repeat="feed in feedList.results | filter:query | orderBy:sortOrder">
               <td class="status text-success">
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.IS_ACTIVE}}</a>
               </td>
