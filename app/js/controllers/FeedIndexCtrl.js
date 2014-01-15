@@ -8,20 +8,16 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
-	
+	$scope.feedList = [];
+
 	$scope.loadMore = function() {
 	Feed.query(function(res) {
-		var feedList = res;
-		$scope.feedList = [];
-		for (var i = 0; i < 100; i++) {
-		  $scope.feedList[i] = res.results[i];
-		}
+		  for (var i = 0; i < res.results.length; i++) {
+		    $scope.feedList.push(res.results[i]);
+		  }
 		console.log("$scope.feedList" + $scope.feedList);
-		console.log("feedList:" + feedList.results.length);
-		var items = feedList.results;
-		for (var i = 0; i < items.length; i++) {
-		  $scope.feedList.push(feedList.results[i]);
-		}
+		console.log("feedList:" + $scope.feedList.length);
+		
 	},
 	function() {
 		console.log("error");
