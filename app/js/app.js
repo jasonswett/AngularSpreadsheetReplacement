@@ -7,7 +7,8 @@ var mftApp = angular.module('mftApp', [
   'ngResource',
   'mftApp.filters',
   'mftApp.directives',
-  'mftController'
+  'mftController',
+  'infinite-scroll'
   
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {

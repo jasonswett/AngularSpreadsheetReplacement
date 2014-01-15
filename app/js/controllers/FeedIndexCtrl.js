@@ -10,6 +10,14 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.params = $routeParams;
 	$scope.feedList = Feed.query();
 	
+	//Infinite Scrolling
+	$scope.loadMore = function() {
+	    var last = $scope.feedList.results[$scope.feedList.results.length - 1];
+	    for(var i = 1; i <= 20; i++) {
+	      $scope.feedList.results.push(last + i);
+	    }
+	};
+	
 	//Ajax Call
 	/*$.ajax({
 	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
@@ -33,7 +41,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	//Default Order the feeds by lastActive
 	var sortOrder = 'ID';
 	$scope.sortOrder = sortOrder;
-	$scope.reverse = false;
+	$scope.reverse = true;
 	
 	//Order the Feeds by each column
 	$scope.sort = function(newSortOrder) {
@@ -45,11 +53,11 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
         //$('th i').each(function(){
             // icon reset
 			if ($scope.reverse)
-            	$(this).("th i").removeClass('icon-chevron-down').addClass('icon-chevron-up');
+            	$("th i").removeClass('icon-chevron-down').addClass('icon-chevron-up');
 			
 	           // $('th.'+newSortOrder+'i').removeClass().addClass('icon-chevron-up icon-white');
 	        else
-	            $(this).("th i").removeClass('icon-chevron-up').addClass('icon-chevron-down');
+	            $("th i").removeClass('icon-chevron-up').addClass('icon-chevron-down');
 			
        //}); 
     };
