@@ -42,7 +42,7 @@ FeedList length: {{feedList.length}}
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="feed in feedList track by feed.ID | filter:query | limitTo:max | orderBy:sortOrder">
+            <tr ng-repeat="feed in feedList track by feed.ID | filter:query | orderBy:sortOrder">
               <td class="status text-success">
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.IS_ACTIVE}}</a>
               </td>

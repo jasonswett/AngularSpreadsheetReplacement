@@ -11,7 +11,6 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.feedList = [];
 
 	Feed.query(function(res) {
-		$scope.max = res.results.length;
 		$scope.keepGoing = false;
 		var listOfFeeds = [];
 		
@@ -24,8 +23,9 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		//On Scroll, Load the next 25 feeds until list is done
 		var i = 45;
 		$scope.loadMore = function() {
-			while(i < res.results.length) {
-				console.log("In while Loop")
+			
+			//while(i < res.results.length) {
+				//console.log("In while Loop")
 		  		for (var j = i - 25; j < i; j++) {
 		    		listOfFeeds.push(res.results[j]);	  
 		  		}
@@ -33,7 +33,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 				$scope.feedList = listOfFeeds;
 				i+=25;
 				$scope.keepGoing = true;
-			}
+			//}
 		};
 	},
 	function() {
