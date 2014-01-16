@@ -34,8 +34,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 				i+=25;
 				//$scope.keepGoing = true;
 			//}
-		};
-		}
+		};	
 	},
 	function() {
 		console.log("error");
