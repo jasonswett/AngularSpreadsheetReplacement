@@ -21,13 +21,9 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
-		//Load the rest of the Feeds
-		for (var i = init; i <= res.results.length; i++) {
-			listOfFeeds[i] = res.results[i];
-		}
-		$scope.feedList = listOfFeeds;
+		
 		//On Scroll, Load the next 50 feeds until list is done
-		/*var inc = 50
+		var inc = 50
 		//Incrementing by 50 will hit max number of list exactly with $scope.keepGoing and else logic
 		var i = init + inc
 		$scope.loadMore = function() {
@@ -45,12 +41,13 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
 				i+=inc;
-		};*/	
+		};	
 	},
 	function() {
 		console.log("error");
 	});
-	
+	//Search entire list
+	$scope.queryFeeds = Feed.query();
 	
 	//Default Order the feeds by lastActive
 	var sortOrder = 'ID';
