@@ -12,28 +12,35 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 
 	Feed.query(function(res) {
 		$scope.max = res.results.length;
+		$scope.keepGoing = false;
 		var listOfFeeds = [];
-		for (var i = 0; i < 10; i++) {
+		
+		//Initialize 1st 25 rows of feedList
+		for (var i = 0; i < 25; i++) {
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
+		
+		//On Scroll, Load the next 25 feeds until list is done
+		var i = 25;
 		$scope.loadMore = function() {
-		  for (var i = 10; i < res.results.length; i++) {
-		    listOfFeeds.push(res.results[i]);
-			if (i == res.results.length) {
-				break;
-			}	  
-		  }
-		console.log("feedList:" + $scope.feedList.length);
-		return $scope.feedList = listOfFeeds;
+			while(i < res.results.length) {
+				console.log("In while Loop")
+		  		for (var j = 0; j < 25; j++) {
+		    		listOfFeeds.push(res.results[i]);
+				i+=1;	  
+		  		}
+				console.log("feedList:" + $scope.feedList.length);
+				$scope.feedList = listOfFeeds;
+			}
+		
+		$scope.keepGoing = true;
 		};
 	},
 	function() {
 		console.log("error");
 	});
     
-		
-
 	//Infinite Scrolling
 	/*var counter = 0;
 	$scope.loadMore = function() {
