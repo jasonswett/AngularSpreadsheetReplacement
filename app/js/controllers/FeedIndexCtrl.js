@@ -22,14 +22,14 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		$scope.feedList = listOfFeeds;
 		
 		//On Scroll, Load the next 25 feeds until list is done
-		var i = 25;
+		var i = 50;
 		$scope.loadMore = function() {
 			while(i < res.results.length) {
 				console.log("In while Loop")
-		  		for (var j = 0; j < 25; j++) {
-		    		listOfFeeds.push(res.results[i]);
-				i+=1;	  
+		  		for (var j = i - 25; j < i; j++) {
+		    		listOfFeeds.push(res.results[j]);	  
 		  		}
+				i+=25;
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
 			}
