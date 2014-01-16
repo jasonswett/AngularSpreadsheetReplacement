@@ -25,18 +25,17 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var inc = 50
 		var diff = res.results.length - init;
 		var i = res.results.length - diff + inc;
-		//Implement a count?
 		$scope.loadMore = function() {
-			//while(i < res.results.length) {
-				//console.log("In while Loop")
 		  		for (var j = i - inc; j < i; j++) {
 		    		listOfFeeds.push(res.results[j]);
+					//Stop Infinite Scroll At End Of List
+					if (j > res.results.length) {
+						$scope.keepGoing = true;
+					}
 		  		}
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
 				i+=inc;
-				//$scope.keepGoing = true;
-			//}
 		};	
 	},
 	function() {
