@@ -34,7 +34,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 						break;
 					}
 					else {
-					parseInt( res.results[j].ID );
+					res.results[j].ID = parseInt( res.results[j].ID );
 		    		listOfFeeds.push(res.results[j]);
 					}
 		  		}
