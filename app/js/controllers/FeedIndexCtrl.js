@@ -15,7 +15,8 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var listOfFeeds = [];
 		
 		//Initialize 1st x amount of rows of feedList so incrementing by 50 will hit max number of list exactly
-		var init = res.results.length - 1325;
+		
+		var init = 35;
 		for (var i = 0; i < init; i++) {
 		    listOfFeeds[i] = res.results[i];
 		  }
@@ -23,15 +24,18 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		
 		//On Scroll, Load the next 50 feeds until list is done
 		var inc = 50
-		var diff = res.results.length - init;
+		
 		var i = init + inc
 		$scope.loadMore = function() {
 		  		for (var j = i - inc; j < i; j++) {
 					//Stop Infinite Scroll At End Of List
-					if (j > res.results.length) {
+					if (j >= res.results.length) {
 						$scope.keepGoing = true;
+						break;
 					}
+					else {
 		    		listOfFeeds.push(res.results[j]);
+					}
 		  		}
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
