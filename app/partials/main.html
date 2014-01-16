@@ -21,7 +21,7 @@ FeedList length: {{feedList.length}}
         <button class="exportbtn btn pull-right">Export All</button>
         <form class="form-search">
           <div class="input-append">
-            <input type="text" placeholder="Search Feeds" class="search-query" ng-model="queryFeeds">
+            <input type="text" placeholder="Search Feeds" class="search-query" ng-model="query">
             <button type="submit" class="btn">Search</button>
           </div>
         </form>
@@ -42,7 +42,7 @@ FeedList length: {{feedList.length}}
             </tr>
           </thead>
           <tbody>
-            <tr ng-repeat="feed in feedList | filter:queryFeeds | orderBy:sortOrder">
+            <tr ng-repeat="feed in feedList | filter:query | orderBy:sortOrder">
               <td class="status text-success">
                 <a href="#" ng-click="do(); $event.preventDefault()">{{feed.IS_ACTIVE}}</a>
               </td>

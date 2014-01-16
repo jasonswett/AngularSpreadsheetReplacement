@@ -17,7 +17,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		//Initialize 1st x amount of rows of feedList 
 		var init = 35;
 		for (var i = 0; i < init; i++) {
-			parseInt( res.results[i].ID );
+			res.results[i].ID = parseInt( res.results[i].ID );
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
@@ -46,8 +46,6 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	function() {
 		console.log("error");
 	});
-	//Search entire list
-	$scope.queryFeeds = Feed.query();
 	
 	//Default Order the feeds by lastActive
 	var sortOrder = 'ID';
