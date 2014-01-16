@@ -27,11 +27,11 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var i = res.results.length - diff + inc;
 		$scope.loadMore = function() {
 		  		for (var j = i - inc; j < i; j++) {
-		    		listOfFeeds.push(res.results[j]);
 					//Stop Infinite Scroll At End Of List
 					if (j > res.results.length) {
 						$scope.keepGoing = true;
 					}
+		    		listOfFeeds.push(res.results[j]);
 		  		}
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
@@ -72,7 +72,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	
 	//Default Order the feeds by lastActive
-	var sortOrder = '-ID';
+	var sortOrder = 'ID';
 	$scope.sortOrder = sortOrder;
 	$scope.reverse = true;
 	
