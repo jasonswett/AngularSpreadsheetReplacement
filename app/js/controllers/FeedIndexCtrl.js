@@ -15,23 +15,26 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var listOfFeeds = [];
 		
 		//Initialize 1st 25 rows of feedList
-		for (var i = 0; i < 20; i++) {
+		var init = 25;
+		for (var i = 0; i < init; i++) {
 		    listOfFeeds[i] = res.results[i];
 		  }
 		$scope.feedList = listOfFeeds;
 		
-		//On Scroll, Load the next 25 feeds until list is done
-		var i = 45;
+		//On Scroll, Load the next 50 feeds until list is done
+		var inc = 50
+		var diff = res.results.length - init;
+		var i = res.results.length - diff + inc;
 		//Implement a count?
 		$scope.loadMore = function() {
 			//while(i < res.results.length) {
 				//console.log("In while Loop")
-		  		for (var j = i - 25; j < i; j++) {
+		  		for (var j = i - inc; j < i; j++) {
 		    		listOfFeeds.push(res.results[j]);
 		  		}
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
-				i+=25;
+				i+=inc;
 				//$scope.keepGoing = true;
 			//}
 		};	
