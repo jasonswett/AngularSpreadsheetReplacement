@@ -20,7 +20,8 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 			parseInt( res.results[i].ID );
 		    listOfFeeds[i] = res.results[i];
 		  }
-		
+		console.log("listOfFeeds.ID:" + typeof(listofFeeds.ID));
+		console.log("res.results.ID:" + typeof(res.results.ID));
 		$scope.feedList = listOfFeeds;
 		
 		
