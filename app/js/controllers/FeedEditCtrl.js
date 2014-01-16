@@ -2,8 +2,8 @@
 
 /* Edit Feed Controller */
 
-mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Feed',  
-  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Feed) {
+mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Event',  
+  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Event) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
@@ -19,7 +19,18 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.save = function() {
 		SingleFeed.update($scope.singleFeed, function() {
 			$location.path('/feeds/' + $routeParams.id);
-			console.log("saved!");
+			console.log("Feed Updated!");
+		},
+		function() {
+			console.log("error");
+		});
+	};
+	
+	$scope.log = function() {
+		Event.post({DATA:$scope.singleFeed}, 
+		$scope.singleFeed, 
+		function() {
+			console.log("Logged!");
 		},
 		function() {
 			console.log("error");
@@ -27,4 +38,3 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	};
   }
 ]);	  
- 

@@ -540,8 +540,8 @@
                   </div>
                 </div>
               </div><!--/FeedDetailColumnRight-->
-			  <div class="userControls text-center" ng-controller="AuditFeedCtrl">
-                <button ng-click="audit(); save()" class="editBtn btn btn-large btn-success">Save</button>
+			  <div class="userControls text-center">
+                <button ng-click="log(); save()" class="editBtn btn btn-large btn-success">Save</button>
               </div>
             </div>
           </div>
@@ -551,6 +551,4 @@
 
 	Debug View
 	{{singleFeed | json}}
-	<br>
-	feed
-	{{feed | json}}
+	
