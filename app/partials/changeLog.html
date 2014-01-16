@@ -18,7 +18,7 @@
             <div id="changeLogDetail" class="tab-content">
               <table id="changeLogTable" class="table table-striped table-bordered">
                 <thead>
-                  <tr>
+                  <tr ng-controller="FeedIndexCtrl">
                     <th class="sortable">Date <i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_DATE')"></th>
                     <th class="sortable">Change by <i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_BY')"></th>
                     <th class="sortable">Description <i class="icon-chevron-down icon-white"></th>
