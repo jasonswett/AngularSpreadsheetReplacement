@@ -20,12 +20,14 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 			parseInt( res.results[i].ID );
 		    listOfFeeds[i] = res.results[i];
 		  }
-		console.log("res.results.ID:" + typeof(res.results.ID));
 		$scope.feedList = listOfFeeds;
-		console.log("$scope.feedList.ID:" + typeof($scope.feedList.ID));
-		
+		//Load the rest of the Feeds
+		for (var i = init; i <= res.results.length; i++) {
+			listOfFeeds[i] = res.results[i];
+		}
+		$scope.feedList = listOfFeeds;
 		//On Scroll, Load the next 50 feeds until list is done
-		var inc = 50
+		/*var inc = 50
 		//Incrementing by 50 will hit max number of list exactly with $scope.keepGoing and else logic
 		var i = init + inc
 		$scope.loadMore = function() {
@@ -43,39 +45,11 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 				console.log("feedList:" + $scope.feedList.length);
 				$scope.feedList = listOfFeeds;
 				i+=inc;
-		};	
+		};*/	
 	},
 	function() {
 		console.log("error");
 	});
-    
-	//Infinite Scrolling
-	/*var counter = 0;
-	$scope.loadMore = function() {
-	    for(var i = 0; i < 50; i++) {
-	      $scope.feedList.results.push({ID: counter});
-		  counter += 1;
-	    }
-	};*/
-	
-	//Ajax Call
-	/*$.ajax({
-	    url: "http://dev.bigcompass.com:2222/rest/AaronL/Feeds/",
-	    success: function(reports){
-			
-	        var global = reports;
-			// Create x2js instance with default config
-			var x2js = new X2JS();
-			var xmlText = global;
-			var jsonObj = x2js.xml_str2json( xmlText );
-	        return global;
-			return jsonObj;
-			console.log(jsonObj);
-			console.log(global);
-			$scope.jsonString = findJSON;
-			console.log($scope.jsonString);
-	        }
-	    });*/
 	
 	
 	//Default Order the feeds by lastActive
@@ -85,21 +59,18 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	
 	//Order the Feeds by each column
 	$scope.sort = function(newSortOrder) {
-	  if ($scope.sortOrder == newSortOrder)
+	  if ($scope.sortOrder == newSortOrder) {
 	    $scope.reverse = !$scope.reverse;
 	    $scope.sortOrder = newSortOrder;
-
-	//Change arrow direction
-        //$('th i').each(function(){
             // icon reset
-			if ($scope.reverse)
+			if ($scope.reverse) {
             	$("th i").removeClass('icon-chevron-down').addClass('icon-chevron-up');
-			
+			}
 	           // $('th.'+newSortOrder+'i').removeClass().addClass('icon-chevron-up icon-white');
-	        else
+	        else {
 	            $("th i").removeClass('icon-chevron-up').addClass('icon-chevron-down');
-			
-       //}); 
+			}
+	  } 
     };
   }
 ]);

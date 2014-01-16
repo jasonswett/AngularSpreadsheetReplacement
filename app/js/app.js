@@ -5,7 +5,6 @@
 var mftApp = angular.module('mftApp', [
   'ngRoute',
   'ngResource',
-  'mftApp.filters',
   'mftApp.directives',
   'mftController',
   'infinite-scroll'

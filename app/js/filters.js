@@ -2,9 +2,9 @@
 
 /* Filters */
 
-angular.module('mftApp.filters', []).
-  filter('interpolate', ['version', function(version) {
-    return function(text) {
-      return String(text).replace(/\%VERSION\%/mg, version);
-    }
-  }]);
+
+mftApp.filter('feedListFilter', function() {
+  return function(text) {
+    return String(text).replace(/\%VERSION\%/mg, version);
+  }
+});
