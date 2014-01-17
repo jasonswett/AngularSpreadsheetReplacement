@@ -1,5 +1,5 @@
-<pre ng-controller="EventCtrl">{{eventList | json}} </pre>
-<pre ng-controller="EventCtrl">{{eventList[0].DATA.ID | json}} </pre>
+<pre ng-controller="EventCtrl">{{eventList.results | json}} </pre>
+<pre ng-controller="EventCtrl">{{eventList.results[0].DATA.ID | json}} </pre>
     <div class="contentWrap row-fluid" ng-controller="FeedShowCtrl">
       <div class="mainWrap clearfix">
         <div class="page-header">
