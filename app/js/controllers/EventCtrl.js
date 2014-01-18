@@ -5,10 +5,10 @@
 mftApp.controller('EventCtrl', ['$scope', '$resource', 'Event', '$routeParams', '$route', '$location', '$filter', 
   function($scope, $resource, Event, $routeParams, $route, $location, $filter) {
 	$scope.eventList = Event.query(function(results){
-		/*angular.forEach(results.results[0], function(value, key){
+		angular.forEach(results.results, function(value, key){
 			console.log(value.DATA);
 		} 
-		);*/
+		);
 		console.log(results.results[0]);
 	}
 	);
