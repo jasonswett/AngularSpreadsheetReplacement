@@ -26,6 +26,8 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/changeLog/:id', {templateUrl: 'partials/changeLog.html', controller: 'AuditFeedCtrl'});
     $routeProvider.when('/changeDetail/:id', {templateUrl: 'partials/changeDetail.html', controller: 'AuditFeedCtrl'});
 
+  $routeProvider.when('/event/:id', {templateUrl: 'partials/Event.html', controller: 'EventCtrl'});  
+
 //User Profile
   $routeProvider.when('/users/:userId', {templateUrl: 'partials/user.html', controller: 'UserIndexCtrl'});
 
