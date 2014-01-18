@@ -6,7 +6,8 @@ mftApp.controller('EventCtrl', ['$scope', '$resource', 'Event', '$routeParams', 
   function($scope, $resource, Event, $routeParams, $route, $location, $filter) {
 	$scope.eventList = Event.query(function(results){
 		angular.forEach(results.results, function(value, key){
-			console.log(value.DATA);
+			
+			console.log(angular.fromJson(value.DATA));
 		} 
 		);
 		console.log(results.results[0]);
