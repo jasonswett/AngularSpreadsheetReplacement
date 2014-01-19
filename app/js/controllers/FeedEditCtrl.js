@@ -39,6 +39,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		});
 	};
 	
+	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {
 	    return angular.equals(master, $scope.singleFeed);
 	  };

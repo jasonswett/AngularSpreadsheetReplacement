@@ -19,7 +19,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		for (var i = 0; i < init; i++) {
 			res.results[i].ID = parseInt( res.results[i].ID );
 		    listOfFeeds[i] = res.results[i];
-		  }
+		}
 		$scope.feedList = listOfFeeds;
 		
 		//On Scroll, Load the next 50 feeds until list is done
