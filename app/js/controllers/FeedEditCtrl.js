@@ -39,9 +39,15 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		});
 	};
 	
+	  // Here you have access to the inputs' `$pristine` property
+	  console.log($scope.myForm.inOut.$pristine);
+	  console.log($scope.myForm.interfaceType.$pristine);
+	  console.log($scope.myForm.interfaceName.$pristine);
+	  console.log($scope.myForm.wMInterface.$pristine);
+	
 	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {
 	    return angular.equals(master, $scope.singleFeed);
-	  };
+	};
   }
 ]);	  
