@@ -2,7 +2,7 @@
 
 /* Log Events Controller */
 
-mftApp.controller('EventCtrl', ['$scope', '$resource', 'SingleEvent', '$routeParams', '$route', '$location', '$filter', 
+mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$routeParams', '$route', '$location', '$filter', 
   function($scope, $resource, SingleEvent, $routeParams, $route, $location, $filter) {
 	$scope.singleEvent = [];
 	SingleEvent.get({id:$routeParams.id}, function(results){
