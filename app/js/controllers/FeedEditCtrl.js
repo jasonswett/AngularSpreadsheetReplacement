@@ -40,11 +40,11 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	};
 	
 	  // Here you have access to the inputs' `$pristine` property
-	  console.log($scope.myForm.$pristine);
-	  console.log($scope.myForm.inOut.$pristine);
-	  console.log($scope.myForm.interfaceType.$pristine);
-	  console.log($scope.myForm.interfaceName.$pristine);
-	  console.log($scope.myForm.wMInterface.$pristine);
+	  console.log($scope.singlFeed.$pristine);
+	  console.log($scope.singlFeed.TD_IN_OUT.$pristine);
+	  console.log($scope.singlFeed.TD_INTERF_TYPE.$pristine);
+	  console.log($scope.singlFeed.INTERFACE_NAME.$pristine);
+	  console.log($scope.singlFeed.IS_WM_INTERFACE.$pristine);
 	
 	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {
