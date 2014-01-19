@@ -16,17 +16,14 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 		});
 		console.log(results.results);
 		//Compare Old and New Values
-		for (var i = 1; i <= $scope.singleEvent.length; i++) {
+		for (var i = 1; i <= $scope.eventData.length; i++) {
 			console.log("1st For Loop");
-			console.log($scope.eventData);
-			for (var j = 1; j <= eventData.length; j++) {
-				console.log("1st For Loop");
-				if ($scope.singleEvent[i-1].DATA[j-1] != $scope.singleEvent[i].DATA[j]) {
-					$scope.oldEvent.push($scope.singleEvent[i-1].DATA[j-1]);
-					$scope.newEvent.push($scope.singleEvent[i].DATA[j]);
-				}
+			if ($scope.eventData[i-1] != $scope.eventData[i]) {
+				$scope.oldEvent.push($scope.eventData[i-1]);
+				$scope.newEvent.push($scope.eventData[i]);
 			}
 		}
+	
 		console.log($scope.oldEvent);
 		console.log($scope.newEvent);
 		}, 
