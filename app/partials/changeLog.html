@@ -1,5 +1,4 @@
-<pre ng-controller="EventCtrl">{{eventList.results | json}} </pre>
-<pre ng-controller="EventCtrl">{{eventList.results[0].DATA.ID | json}} </pre>
+
     <div class="contentWrap row-fluid" ng-controller="FeedShowCtrl">
       <div class="mainWrap clearfix">
         <div class="page-header">
@@ -20,18 +19,18 @@
               <table id="changeLogTable" class="table table-striped table-bordered">
                 <thead>
                   <tr ng-controller="FeedIndexCtrl">
-                    <th class="sortable">Date <i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_DATE')"></i></th>
+                    <th class="sortable">Date <i class="icon-chevron-down icon-white" ng-click="sort('CREATED_AT')"></i></th>
                     <th class="sortable">Change by <i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_BY')"></i></th>
                     <th class="sortable">Description <i class="icon-chevron-down icon-white"></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr ng-repeat="audit in auditFeed.results | orderBy:'LAST_CHANGE_DATE'">
+                  <tr ng-repeat="event in singleEvent | orderBy:'CREATED_AT'">
                     <td>
-                      {{audit.LAST_CHANGE_DATE}}
+                      {{event.CREATED_AT}}
                     </td>
                     <td>
-                      {{audit.LAST_CHANGE_BY}}
+                      {{event.DATA.LAST_CHANGE_BY}}
                     </td>
                     <td>
                       <a href="index.html#/changeDetail/{{singleFeed.ID}}">Click for full description</a>
