@@ -8,27 +8,11 @@ mftApp.controller('EventCtrl', ['$scope', '$resource', 'Event', '$routeParams', 
 	Event.query(function(results){
 		angular.forEach(results.results, function(value, key){
 			value.DATA = angular.fromJson(value.DATA);
-			$scope.eventList.push(value);
-			
-		} 
-		);
+			$scope.eventList.push(value);	
+		});
 		console.log($scope.eventList);
 		console.log(results.results[0]);
-	}
-	);
-	//$scope.eventList = angular.fromJson($scope.events);
+	});
 	
-	//Save New Feed Attributes; POST to DB
-	/*$scope.log = function() {
-		Event.post({DATA:$scope.singleFeed}, 
-		$scope.singleFeed, 
-		function() {
-			console.log("Logged!");
-		},
-		function() {
-			console.log("error");
-		});
-	};*/
-	
-	}
+  }
 ]);
