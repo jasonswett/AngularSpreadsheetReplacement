@@ -40,6 +40,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	};
 	
 	  // Here you have access to the inputs' `$pristine` property
+	  console.log($scope.myForm.$pristine);
 	  console.log($scope.myForm.inOut.$pristine);
 	  console.log($scope.myForm.interfaceType.$pristine);
 	  console.log($scope.myForm.interfaceName.$pristine);
