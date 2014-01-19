@@ -18,10 +18,14 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 		//Compare Old and New Values
 		for (var i = 1; i <= $scope.eventData.length; i++) {
 			console.log("1st For Loop");
-			if ($scope.eventData[i-1] != $scope.eventData[i]) {
-				$scope.oldEvent.push($scope.eventData[i-1]);
-				$scope.newEvent.push($scope.eventData[i]);
-			}
+			angular.forEach($scope.eventData, function(value, key){
+				console.log(value);
+				/*if ($scope.eventData[i-1] != $scope.eventData[i]) {
+					$scope.oldEvent.push($scope.eventData[i-1]);
+					$scope.newEvent.push($scope.eventData[i]);
+				}*/
+			});
+			
 		}
 	
 		console.log($scope.oldEvent);
