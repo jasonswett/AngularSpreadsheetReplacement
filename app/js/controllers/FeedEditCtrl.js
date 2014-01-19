@@ -9,11 +9,12 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
+	var master = SingleFeed.get({id: $routeParams.id});
 	
-	$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
+	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
 	  console.log("New:" + newSingleFeed);
 	  console.log("Old:" + oldSingleFeed);
-	});
+	});*/
 	
 	//Save Edits; PUT to DB
 	$scope.save = function() {
@@ -37,5 +38,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 			console.log("error");
 		});
 	};
+	
+	$scope.isSaveDisabled = function() {
+	    return angular.equals(master, $scope.singleFeed);
+	  };
   }
 ]);	  
