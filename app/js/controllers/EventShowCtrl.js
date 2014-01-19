@@ -11,7 +11,7 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			value.DATA = angular.fromJson(value.DATA);
 			$scope.singleEvent.push(value);
 		});
-		console.log(results.results.DATA);
+		console.log(results);
 		//Compare Old and New Values
 		for (var i = 1; i < $scope.singleEvent.length; i++) {
 			console.log("In For Loop");
