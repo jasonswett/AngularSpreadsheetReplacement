@@ -15,7 +15,7 @@
             </ul>
           </div>
 		  <div class="tabbable-content pull-left">
-			<form name="form.feed">
+			<form name="feedForm">
             <div id="feedContent" class="tab-content">
               <div class="feedDetailColLeft span6">
                 <div class="feedDetailRow">
@@ -553,4 +553,6 @@
 
 	Debug View
 	{{singleFeed | json}}
+	<br>
+	Form: {{feedForm.inOut}}{{feedForm.inOut.$pristine}}{{feedForm.inOut.$dirty}}{{feedForm.$pristine}}
 	
