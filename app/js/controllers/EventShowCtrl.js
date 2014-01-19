@@ -11,11 +11,11 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			value.DATA = angular.fromJson(value.DATA);
 			$scope.singleEvent.push(value);
 		});
-		console.log($scope.singleEvent.DATA);
+		console.log(results.results.DATA);
 		//Compare Old and New Values
 		for (var i = 1; i < $scope.singleEvent.length; i++) {
 			console.log("In For Loop");
-			angular.forEach($scope.singleEvent.DATA, function(value,key) {
+			angular.forEach(results.results.DATA, function(value,key) {
 				console.log(value);
 				if (value[i-1] != value[i]) {
 					$scope.singleAttribute.push(value)
