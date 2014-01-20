@@ -5,13 +5,13 @@
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
 	$rootScope.loggedIn = false;
 	$scope.login = function() {
-		if ( $scope.user.name == "Administrator" && $scope.user.password == "manage" ) { // test
-			$rootScope.userName = $scope.user.name;
+		if ( $scope.user.email == "administrator@disney.com" && $scope.user.password == "manage" ) { // test
+			$rootScope.userName = $scope.user.email;
 			$rootScope.loggedIn = true;
 		    $location.path( "/" );
 		} 
 		else {
-		    $scope.loginError = "Invalid user/pass.";
+		    $scope.loginError = "Invalid Email/Password";
 		}
 	};
 	
