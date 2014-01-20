@@ -23,6 +23,7 @@
 	//Logout Function
 	$scope.logout = function() {
 		$rootScope.user = {};
+		$rootScope.user.loggedIn = false;
 	}
   });
 
