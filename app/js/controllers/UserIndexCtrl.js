@@ -11,6 +11,7 @@
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.user = $scope.user;
 			$rootScope.user.loggedIn = true;
+			$cookieStore.get('isLoggedIn');
 			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
 		    $location.path( "/" );
 			console.log($rootScope.user);
