@@ -27,7 +27,7 @@ html {
 body {
   background: #fff;
 }
-body.blue {
+div.blue {
   background: #0c75c8;
 }
 /* @end */

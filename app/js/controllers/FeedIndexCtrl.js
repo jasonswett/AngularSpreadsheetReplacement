@@ -15,7 +15,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 		var listOfFeeds = [];
 		
 		//Initialize 1st x amount of rows of feedList 
-		var init = 1300;
+		var init = 35;
 		for (var i = 0; i < init; i++) {
 			res.results[i].ID = parseInt( res.results[i].ID );
 		    listOfFeeds[i] = res.results[i];

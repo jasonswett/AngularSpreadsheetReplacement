@@ -16,13 +16,12 @@
 			$scope.loggedIn = true;
 			$cookieStore.get('isLoggedIn');
 			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
-		    $location.path( "/" );
+		    //$location.path( "/" );
 			console.log($rootScope.user);
-			console.log($scope.loggedIn);
-			
+			console.log($scope.loggedIn);	
 		} 
 		else {
-			$location.path("/");
+			//$location.path("/");
 			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;
