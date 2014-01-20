@@ -50,13 +50,7 @@ var mftApp = angular.module('mftApp', [
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ( $rootScope.loggedIn == false ) {
-        // no logged user, we should be going to #login
-        if ( next.templateUrl == "partials/login.html" ) {
-          // already going to #login, no redirect needed
-        } else {
-          // not going to #login, we should redirect now
-          $location.path( "/login" );
-        }
+        $location.path("/login");
       }         
     });
 });

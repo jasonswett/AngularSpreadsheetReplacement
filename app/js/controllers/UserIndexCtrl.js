@@ -6,8 +6,7 @@
 	$rootScope.loggedIn = false;
 	$scope.loginAttempt = false;
 	$scope.login = function() {
-		$scope.loginAttempt = false;
-		if ( $scope.user.email == "administrator@disney.com" && $scope.user.password == "manage" ) { // test
+		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.userName = $scope.user.email;
 			$rootScope.loggedIn = true;
 		    $location.path( "/" );
