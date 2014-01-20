@@ -5,9 +5,9 @@
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
+	//Login Function
 	$scope.login = function() {
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
-			$rootScope.userName = $scope.user.email;
 			$rootScope.user = $scope.user;
 			console.log($rootScope.user);
 			$rootScope.user.loggedIn = true;
@@ -20,5 +20,9 @@
 			$rootScope.user.loggedIn = false;
 		}
 	};
+	//Logout Function
+	$scope.logout = function() {
+		$rootScope.user = {};
+	}
   });
 
