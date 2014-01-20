@@ -7,6 +7,7 @@
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
+	console.log($scope.loggedIn);
 	//Login Function
 	$scope.login = function() {
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
@@ -17,7 +18,7 @@
 			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
 		    $location.path( "/" );
 			console.log($rootScope.user);
-			console.log($cookieStore.get('isLoggedIn'));
+			console.log($scope.loggedIn);
 			
 		} 
 		else {
@@ -27,7 +28,7 @@
 			$rootScope.user.loggedIn = false;
 			$scope.loggedIn = false;
 			console.log($rootScope.user);
-			console.log($cookieStore.get('isLoggedIn'));
+			console.log($scope.loggedIn);
 		}
 	};
 	//Logout Function
@@ -36,7 +37,7 @@
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;
 		console.log($rootScope.user);
-		console.log($cookieStore.get('isLoggedIn'));
+		console.log($scope.loggedIn);
 	}
   });
 
