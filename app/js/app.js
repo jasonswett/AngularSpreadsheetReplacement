@@ -52,7 +52,7 @@ var mftApp = angular.module('mftApp', [
       if ( $rootScope.loggedIn == false ) {
         $location.path("/login");
       }
-      if ($rootScope.user.email == "ad" && $rootScope.user.password == "man") {
+      if ($rootScope.user == {"email":"ad", "password":"man"}) {
 		$rootScope.loggedIn = true;
 	  }
     });
