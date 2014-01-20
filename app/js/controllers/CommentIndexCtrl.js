@@ -17,7 +17,7 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		$scope.commentList, 
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";
-			//$route.reload();
+			$route.reload();
 			console.log("saved!");
 		},
 		function() {
