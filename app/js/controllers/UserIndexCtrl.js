@@ -4,6 +4,7 @@
 //Users Controller
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
 	$rootScope.loggedIn = false;
+	$scope.loginAttempt = false;
 	$scope.login = function() {
 		if ( $scope.user.email == "administrator@disney.com" && $scope.user.password == "manage" ) { // test
 			$rootScope.userName = $scope.user.email;
@@ -11,6 +12,7 @@
 		    $location.path( "/" );
 		} 
 		else {
+			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 		}
 	};
