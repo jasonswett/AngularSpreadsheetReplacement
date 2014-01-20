@@ -8,7 +8,7 @@
 	$scope.login = function() {
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.userName = $scope.user.email;
-			$rootScope.user = {$scope.user};
+			$rootScope.user = $scope.user;
 			console.log($rootScope.user);
 			$rootScope.loggedIn = true;
 		    $location.path( "/" );
