@@ -5,6 +5,7 @@
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
+	$rootScope.user.loggedIn = false;
 	//Login Function
 	$scope.login = function() {
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test

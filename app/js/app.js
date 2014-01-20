@@ -51,6 +51,6 @@ var mftApp = angular.module('mftApp', [
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ( $rootScope.user.loggedIn == false ) {
         $location.path("/login");
-      }
+      }         
     });
 });
