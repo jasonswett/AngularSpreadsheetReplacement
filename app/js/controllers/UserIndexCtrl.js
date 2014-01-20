@@ -13,10 +13,11 @@
 		} 
 		else {
 			$location.path("/login");
+			$scope.loginForm.email.$setValidity("userError", true);
+			$scope.loginForm.password.$setValidity("passError", true);
 			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 		}
 	};
-	
   });
 
