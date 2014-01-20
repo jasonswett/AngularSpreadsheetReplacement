@@ -13,7 +13,7 @@ var mftApp = angular.module('mftApp', [
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {
 	
 //Login Page
-  //$routeProvider.when('/login', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
@@ -43,4 +43,20 @@ var mftApp = angular.module('mftApp', [
   
 //All other URLs
   $routeProvider.otherwise({redirectTo: '/'});
-}]);
+}])
+
+//Run on route change to make sure user is logged in
+.run( function($rootScope, $location) {
+    // register listener to watch route changes
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+      if ( $rootScope.loggedIn == false ) {
+        // no logged user, we should be going to #login
+        if ( next.templateUrl == "partials/login.html" ) {
+          // already going to #login, no redirect needed
+        } else {
+          // not going to #login, we should redirect now
+          $location.path( "/login" );
+        }
+      }         
+    });
+});
