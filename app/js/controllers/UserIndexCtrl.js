@@ -10,21 +10,23 @@
 	$scope.login = function() {
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.user = $scope.user;
-			console.log($rootScope.user);
 			$rootScope.user.loggedIn = true;
 		    $location.path( "/" );
+			console.log($rootScope.user);
 		} 
 		else {
 			$location.path("/login");
 			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;
+			console.log($rootScope.user);
 		}
 	};
 	//Logout Function
 	$scope.logout = function() {
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
+		console.log($rootScope.user);
 	}
   });
 
