@@ -6,7 +6,7 @@
 	$rootScope.loggedIn = false;
 	$scope.loginAttempt = false;
 	$scope.login = function() {
-		if ( $rootScope.user.email == "ad" && $rootScope.user.password == "man" ) { // test
+		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.userName = $scope.user.email;
 			$rootScope.user.email = $scope.user.email;
 			$rootScope.user.password = $scope.user.password;
