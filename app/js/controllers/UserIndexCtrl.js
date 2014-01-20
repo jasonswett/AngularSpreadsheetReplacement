@@ -7,7 +7,7 @@
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
-	console.log("rootscope:"+ $rootScope.user);
+	console.log($rootScope.user);
 	console.log("scope" + $scope.loggedIn);
 	//Login Function
 	$scope.login = function() {
@@ -18,7 +18,7 @@
 			$cookieStore.get('isLoggedIn');
 			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
 		    //$location.path( "/" );
-			console.log("rootscope:"+ $rootScope.user);
+			console.log($rootScope.user);
 			console.log("scope" + $scope.loggedIn);	
 		} 
 		else {
@@ -27,7 +27,7 @@
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;
 			$scope.loggedIn = false;
-			console.log("rootscope:"+ $rootScope.user);
+			console.log($rootScope.user);
 			console.log("scope" + $scope.loggedIn);
 		}
 	};
@@ -36,7 +36,7 @@
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;
-		console.log("rootscope:"+ $rootScope.user);
+		console.log($rootScope.user);
 		console.log("scope" + $scope.loggedIn);
 	}
   });
