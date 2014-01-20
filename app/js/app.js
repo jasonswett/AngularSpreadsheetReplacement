@@ -49,11 +49,8 @@ var mftApp = angular.module('mftApp', [
 .run( function($rootScope, $location) {
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ( $rootScope.loggedIn == false ) {
+      if ( $rootScope.user.loggedIn == false ) {
         $location.path("/login");
       }
-      if ($rootScope.user == {email:"ad", password:"man"}) {
-		$rootScope.loggedIn = true;
-	  }
     });
 });
