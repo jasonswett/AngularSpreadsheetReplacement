@@ -11,9 +11,6 @@ var mftApp = angular.module('mftApp', [
   'infinite-scroll'  
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {
-	
-//Login Page
-  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
@@ -50,7 +47,7 @@ var mftApp = angular.module('mftApp', [
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ( $rootScope.user.loggedIn == false ) {
-        $location.path("/login");
+        $location.path("/");
       }         
     });
 });
