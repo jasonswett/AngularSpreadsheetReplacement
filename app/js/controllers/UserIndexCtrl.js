@@ -3,6 +3,7 @@
 
 //Users Controller
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
+	$rootScope.user = {};
 	$rootScope.loggedIn = false;
 	$scope.loginAttempt = false;
 	$scope.login = function() {
