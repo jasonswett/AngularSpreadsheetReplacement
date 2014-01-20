@@ -5,10 +5,10 @@
 var mftApp = angular.module('mftApp', [
   'ngRoute',
   'ngResource',
+  'ngCookies',
   'mftApp.directives',
   'mftController',
-  'infinite-scroll'
-  
+  'infinite-scroll'  
 ])
 .config(['$routeProvider', '$locationProvider', function($routeProvider) {
 	

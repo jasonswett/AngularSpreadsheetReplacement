@@ -2,7 +2,7 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope) {
+  mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope, $cookies, $cookieStore) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
@@ -11,8 +11,11 @@
 		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.user = $scope.user;
 			$rootScope.user.loggedIn = true;
+			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
 		    $location.path( "/" );
 			console.log($rootScope.user);
+			console.log($cookieStore.get('isLoggedIn'));
+			
 		} 
 		else {
 			$location.path("/login");
@@ -20,6 +23,7 @@
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;
 			console.log($rootScope.user);
+			console.log($cookieStore.get('isLoggedIn'));
 		}
 	};
 	//Logout Function
@@ -27,6 +31,7 @@
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		console.log($rootScope.user);
+		console.log($cookieStore.get('isLoggedIn'));
 	}
   });
 
