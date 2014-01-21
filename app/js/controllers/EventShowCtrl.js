@@ -15,6 +15,7 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			//$scope.eventData.push(value.DATA);
 		});
 		console.log($scope.eventData);
+		console.log(value.DATA);
 		//Compare Old and New Values
 		for (var i = 0; i < $scope.eventData.length; i++) {
 			console.log("1st For Loop");
