@@ -33,7 +33,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	//Log Data for Auditing
 	$scope.log = function() {
-		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
+		Event.post({DATA:[$scope.singleFeed], id:$routeParams.id}, 
 		$scope.singleFeed, 
 		function() {
 			console.log("Logged!");
