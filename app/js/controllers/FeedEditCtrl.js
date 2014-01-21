@@ -12,6 +12,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	var master = SingleFeed.get({id: $routeParams.id});
 	
 	angular.forEach($scope.singleFeed, function(value, key){
+		console.log(value);
 		angular.forEach(master, function(value1, key1){
 			if (value != value1) {
 				console.log(value);
