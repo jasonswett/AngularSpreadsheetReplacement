@@ -18,7 +18,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	$scope.changeEvent = function() {
 		var feedAttr = $("#inOut");
+		console.log(feedAttr);
 		console.log(feedAttr[0]);
+		console.log(feedAttr[0].id);
 	};
 	
 	//Save Edits; PUT to DB
