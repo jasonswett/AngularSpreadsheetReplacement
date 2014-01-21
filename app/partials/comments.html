@@ -31,7 +31,7 @@
                 </div> <!-- /commentForm -->
 				</form>
                 <hr />
-			<div ng-repeat="comment in commentList.results | orderBy:'-TIME'">
+			<div ng-repeat="comment in commentList.results | orderBy:'TIME'">
 				<div class="commentWrap clearfix">
 					<div class="commentMeta text-right span4">
 						<p><strong>{{comment.CURRENT_USER}}</strong></p>
