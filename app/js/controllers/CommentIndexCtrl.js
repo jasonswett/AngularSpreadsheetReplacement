@@ -12,8 +12,8 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.commentList = Comment.get({id: $routeParams.id});
 
 	//Save Comments; POST to DB
-	$scope.postCommentSuccess = false;
-	$scope.postCommentFailure = false;
+	$scope.postCommentSuccess = true;
+	$scope.postCommentFailure = true;
 	$scope.save = function() {
 		Comment.post({id:$routeParams.id, CURRENT_USER:'aaron@bigcompass.com', COMMENT_FEED:$scope.commentList.results.COMMENT_FEED}, 
 		$scope.commentList, 

@@ -7,11 +7,11 @@
           <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
-			<div class="alert alert-success" ng-controller="CommentIndexCtrl" ng-show="postCommentSuccess">
+			<div ng-show="postCommentSuccess" class="alert alert-success">
 	          <button type="button" class="close" data-dismiss="alert">&times;</button>
 	          <strong>Comment Posted!</strong> 
 	        </div>
-			<div class="alert alert-error" ng-controller="CommentIndexCtrl" ng-show="postCommentFailure">
+			<div ng-show="postCommentFailure" class="alert alert-error">
 	          <button type="button" class="close" data-dismiss="alert">&times;</button>
 	          <strong>Error Posting Comment. Please Try Again.</strong> 
 	        </div>

@@ -5,7 +5,7 @@
           <h1>Feed ID: {{singleFeed.ID}}</h1>
           <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
-		<div class="alert alert-error" ng-show="editFeedFailure">
+		<div ng-show="editFeedFailure" class="alert alert-error">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <strong>Error Saving Content. Please Try Again.</strong> 
         </div>
