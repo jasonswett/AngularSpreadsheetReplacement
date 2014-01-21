@@ -3,7 +3,7 @@
 
 //Users Controller
   mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope, $cookies, $cookieStore) {
-	$rootScope.user = {};
+	/*$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
@@ -40,6 +40,6 @@
 		$cookies.loggedIn = $scope.loggedIn;
 		console.log($rootScope.user);
 		console.log("scope" + $scope.loggedIn);
-	}
+	}*/
   });
 
