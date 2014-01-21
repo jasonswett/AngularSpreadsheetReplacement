@@ -11,6 +11,15 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	var master = SingleFeed.get({id: $routeParams.id});
 	
+	angular.forEach($scope.singleFeed, function(value, key){
+		angular.forEach(master, function(value1, key1){
+			if ($scope.singleFeed != master) {
+				console.log(value);
+				console.log(value1);
+			}
+		});
+	});
+	
 	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
 	  console.log("New:" + newSingleFeed);
 	  console.log("Old:" + oldSingleFeed);

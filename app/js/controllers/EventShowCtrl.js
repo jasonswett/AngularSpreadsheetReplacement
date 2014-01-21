@@ -26,10 +26,10 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 				}
 			}*/	
 		}
-		console.log($scope.singleEvent[0].DATA);
-		console.log($scope.eventData);
-		console.log($scope.eventData[0]);
-		console.log($scope.eventData[0][1]);
+		//console.log($scope.singleEvent[0].DATA);
+		//console.log($scope.eventData);
+		//console.log($scope.eventData[0]);
+		//console.log($scope.eventData[0][1]);
 	
 		console.log($scope.oldEvent);
 		console.log($scope.newEvent);
