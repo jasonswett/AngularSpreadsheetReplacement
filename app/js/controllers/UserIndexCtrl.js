@@ -17,6 +17,8 @@
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
 			$cookies.loggedIn = $scope.loggedIn;
+			var loggedInCookie = $cookies.loggedIn;
+			console.log(loggedInCookie);
 			console.log($rootScope.user);
 			console.log("scope" + $scope.loggedIn);	
 		} 
@@ -40,12 +42,4 @@
 		console.log("scope" + $scope.loggedIn);
 	}
   });
-
-
-function ExampleController($cookies) {
-  // Retrieving a cookie
-  var favoriteCookie = $cookies.myFavorite;
-  // Setting a cookie
-  $cookies.myFavorite = 'oatmeal';
-}
 
