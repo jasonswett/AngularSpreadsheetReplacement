@@ -5,7 +5,7 @@
 mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$routeParams', '$route', '$location', '$filter', 
   function($scope, $resource, SingleEvent, $routeParams, $route, $location, $filter) {
 	$scope.singleEvent = [];
-	$scope.eventData = [];
+	$scope.eventData = [][];
 	$scope.oldEvent = [];
 	$scope.newEvent = [];
 	SingleEvent.get({id:$routeParams.id}, function(results){
@@ -14,7 +14,7 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			$scope.singleEvent.push(value);
 			$scope.eventData.push(value.DATA);
 		});
-		console.log($scope.eventData[1].length);
+		console.log($scope.eventData);
 		//Compare Old and New Values
 		for (var i = 1; i <= $scope.eventData.length; i++) {
 			//console.log("1st For Loop");
