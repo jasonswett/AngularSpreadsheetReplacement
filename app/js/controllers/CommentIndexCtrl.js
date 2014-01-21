@@ -21,7 +21,7 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 			$scope.commentList.results.COMMENT_FEED = "";
 			$route.reload();
 			$scope.postCommentSuccess = true;
-			console.log("saved!");
+			console.log($scope.postCommentSuccess);
 		},
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";

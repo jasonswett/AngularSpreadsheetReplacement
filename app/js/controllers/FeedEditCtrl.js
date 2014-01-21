@@ -21,9 +21,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.editFeedFailure = false;
 	$scope.save = function() {
 		SingleFeed.update($scope.singleFeed, function() {
-			$scope.editFeedSuccess = true;
 			$location.path('/feeds/' + $routeParams.id);
-			console.log("Feed Updated!");
+			$scope.editFeedSuccess = true;
+			console.log($scope.editFeedSuccess);
 		},
 		function() {
 			$scope.editFeedFailure = true;
