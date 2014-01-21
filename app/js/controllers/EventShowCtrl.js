@@ -5,7 +5,7 @@
 mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$routeParams', '$route', '$location', '$filter', 
   function($scope, $resource, SingleEvent, $routeParams, $route, $location, $filter) {
 	$scope.singleEvent = [];
-	var eventData = array[][];
+	$scope.eventData = [];
 	$scope.oldEvent = [];
 	$scope.newEvent = [];
 	SingleEvent.get({id:$routeParams.id}, function(results){
