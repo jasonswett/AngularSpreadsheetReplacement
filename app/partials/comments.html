@@ -6,15 +6,15 @@
           <h1>Feed ID: {{singleFeed.ID}}</h1>
           <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
-		<div class="alert alert-success" ng-controller="CommentIndexCtrl" ng-show="postCommentSuccess">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Comment Posted!</strong> 
-        </div>
-		<div class="alert alert-error" ng-controller="CommentIndexCtrl" ng-show="postCommentFailure">
-          <button type="button" class="close" data-dismiss="alert">&times;</button>
-          <strong>Error Posting Comment. Please Try Again.</strong> 
-        </div>
         <div class="tabbale-wrap clearfix">
+			<div class="alert alert-success" ng-controller="CommentIndexCtrl" ng-show="postCommentSuccess">
+	          <button type="button" class="close" data-dismiss="alert">&times;</button>
+	          <strong>Comment Posted!</strong> 
+	        </div>
+			<div class="alert alert-error" ng-controller="CommentIndexCtrl" ng-show="postCommentFailure">
+	          <button type="button" class="close" data-dismiss="alert">&times;</button>
+	          <strong>Error Posting Comment. Please Try Again.</strong> 
+	        </div>
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">
 				<li><a href="index.html#/feeds/{{singleFeed.ID}}">Feed Details</a></li>
