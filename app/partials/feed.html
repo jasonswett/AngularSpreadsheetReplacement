@@ -5,6 +5,10 @@
           <h1>Feed ID: {{singleFeed.ID}}</h1>
           <p class="lead">Active (Y/N)? <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
+		<div class="alert alert-success" ng-controller="FeedEditCtrl" ng-show="editFeedSuccess">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <strong>Successfully Saved!</strong> 
+        </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">

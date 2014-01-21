@@ -17,12 +17,16 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	});*/
 	
 	//Save Edits; PUT to DB
+	$scope.editFeedSuccess = false;
+	$scope.editFeedFailure = false;
 	$scope.save = function() {
 		SingleFeed.update($scope.singleFeed, function() {
+			$scope.editFeedSuccess = true;
 			$location.path('/feeds/' + $routeParams.id);
 			console.log("Feed Updated!");
 		},
 		function() {
+			$scope.editFeedFailure = true;
 			console.log("error");
 		});
 	};

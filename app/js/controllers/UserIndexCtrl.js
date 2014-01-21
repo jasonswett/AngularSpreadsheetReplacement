@@ -17,12 +17,10 @@
 			$scope.loggedIn = true;
 			$cookieStore.get('isLoggedIn');
 			$cookieStore.put('isLoggedIn', $rootScope.user.loggedin);
-		    //$location.path( "/" );
 			console.log($rootScope.user);
 			console.log("scope" + $scope.loggedIn);	
 		} 
 		else {
-			//$location.path("/");
 			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;

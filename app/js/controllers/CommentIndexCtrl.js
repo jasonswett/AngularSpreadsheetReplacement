@@ -12,16 +12,20 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.commentList = Comment.get({id: $routeParams.id});
 
 	//Save Comments; POST to DB
+	$scope.postCommentSuccess = false;
+	$scope.postCommentFailure = false;
 	$scope.save = function() {
 		Comment.post({id:$routeParams.id, CURRENT_USER:'aaron@bigcompass.com', COMMENT_FEED:$scope.commentList.results.COMMENT_FEED}, 
 		$scope.commentList, 
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";
 			$route.reload();
+			$scope.postCommentSuccess = true;
 			console.log("saved!");
 		},
 		function() {
 			$scope.commentList.results.COMMENT_FEED = "";
+			$scope.postCommentFailure = true;
 			console.log("error");
 		});
 	};
