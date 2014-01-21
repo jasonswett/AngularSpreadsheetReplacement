@@ -17,7 +17,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	});*/
 	
 	$scope.changeEvent = function() {
-		var feedAttr = $('#TD-In/Out');
+		var feedAttr = $("#TD-In/Out");
 		console.log(feedAttr);
 	};
 	
