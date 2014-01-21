@@ -16,6 +16,16 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	  console.log(oldSingleFeed);
 	});*/
 	
+	$scope.logAttr = [];
+	$scope.changeEvent = function(changedAttr) {
+		$scope.feedAttr = $("#" + changedAttr);
+		console.log($scope.feedAttr);
+		console.log($scope.feedAttr[0]);
+		console.log($scope.feedAttr[0].name);
+		$scope.logAttr.push($scope.feedAttr[0].name)
+
+	};
+	
 	//Save Edits; PUT to DB
 	$scope.editFeedSuccess = false;
 	$scope.editFeedFailure = false;
@@ -36,15 +46,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
 		$scope.singleFeed, 
 		function() {
-			$scope.logAttr = [];
-			$scope.changeEvent = function(changedAttr) {
-				$scope.feedAttr = $("#" + changedAttr);
-				console.log($scope.feedAttr);
-				console.log($scope.feedAttr[0]);
-				console.log($scope.feedAttr[0].name);
-				$scope.logAttr.push($scope.feedAttr[0].name)
-
-			};
 			console.log("Logged!");
 		},
 		function() {
