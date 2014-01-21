@@ -15,7 +15,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	  console.log(newSingleFeed);
 	  console.log(oldSingleFeed);
 	});*/
-	
+	console.log($scope.singleFeed[TD_IN_OUT]);
 	$scope.logAttr = [];
 	$scope.changeEvent = function(changedAttr) {
 		$scope.feedAttr = $("#" + changedAttr);
@@ -23,6 +23,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		console.log($scope.feedAttr[0]);
 		console.log($scope.feedAttr[0].name);
 		$scope.logAttr.push($scope.feedAttr[0].name)
+		console.log($scope.logAttr);
 
 	};
 	
