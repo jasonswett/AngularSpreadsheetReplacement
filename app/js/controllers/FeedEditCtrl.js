@@ -13,9 +13,11 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	angular.forEach($scope.singleFeed, function(value, key){
 		angular.forEach(master, function(value1, key1){
-			if ($scope.singleFeed != master) {
+			if (value != value1) {
 				console.log(value);
 				console.log(value1);
+				console.log(key);
+				console.log(key1);
 			}
 		});
 	});
@@ -54,7 +56,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	  // Here you have access to the inputs' `$pristine` property
 	
-	  console.log($scope.feedForm);
+	  //console.log($scope.feedForm);
 	  
 	  //console.log($scope.singlFeed.TD_INTERF_TYPE.$pristine);
 	  //console.log($scope.singlFeed.INTERFACE_NAME.$pristine);
