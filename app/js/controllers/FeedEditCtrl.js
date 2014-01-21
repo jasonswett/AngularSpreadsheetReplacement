@@ -20,7 +20,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		var feedAttr = $("#inOut");
 		console.log(feedAttr);
 		console.log(feedAttr[0]);
-		console.log(feedAttr[0].id);
+		console.log(feedAttr[0].name);
 	};
 	
 	//Save Edits; PUT to DB
