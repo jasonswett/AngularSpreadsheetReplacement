@@ -11,22 +11,10 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	var master = SingleFeed.get({id: $routeParams.id});
 	
-	angular.forEach($scope.singleFeed, function(value, key){
-		console.log(value);
-		angular.forEach(master, function(value1, key1){
-			if (value != value1) {
-				console.log(value);
-				console.log(value1);
-				console.log(key);
-				console.log(key1);
-			}
-		});
+	$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
+	  console.log(newSingleFeed);
+	  console.log(oldSingleFeed);
 	});
-	
-	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
-	  console.log("New:" + newSingleFeed);
-	  console.log("Old:" + oldSingleFeed);
-	});*/
 	
 	//Save Edits; PUT to DB
 	$scope.editFeedSuccess = false;
