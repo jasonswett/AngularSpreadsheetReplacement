@@ -9,19 +9,12 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
-	var master = SingleFeed.get({id: $routeParams.id});
+	$scope.master = angular.copy($scope.singleFeed);
 	
 	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
 	  console.log(newSingleFeed);
 	  console.log(oldSingleFeed);
 	});*/
-	
-	$scope.changeEvent = function() {
-		var feedAttr = $("#inOut");
-		console.log(feedAttr);
-		console.log(feedAttr[0]);
-		console.log(feedAttr[0].name);
-	};
 	
 	//Save Edits; PUT to DB
 	$scope.editFeedSuccess = false;
@@ -43,6 +36,15 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
 		$scope.singleFeed, 
 		function() {
+			$scope.logAttr = [];
+			$scope.changeEvent = function(changedAttr) {
+				$scope.feedAttr = $("#" + changedAttr);
+				console.log($scope.feedAttr);
+				console.log($scope.feedAttr[0]);
+				console.log($scope.feedAttr[0].name);
+				$scope.logAttr.push($scope.feedAttr[0].name)
+
+			};
 			console.log("Logged!");
 		},
 		function() {
@@ -60,7 +62,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {
-	    return angular.equals(master, $scope.singleFeed);
+	    return angular.equals($scope.master, $scope.singleFeed);
 	};
   }
 ]);	  
