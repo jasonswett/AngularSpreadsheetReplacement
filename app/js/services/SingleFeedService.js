@@ -6,7 +6,7 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	//var getFeed = $resource('JSON/feeds.json', {id:'@id', status:'@status', interface:'@interface'},
 	var getFeed = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/SingleFeed/:id', {id:'@ID'}, 	
 	{ post: {method: 'POST'}, 
-	get: {method: 'GET', isArray:true}, 
+	get: {method: 'GET'}, 
 	update: {method:'PUT', params:{TD_IN_OUT:'@TD_IN_OUT',TD_INTERF_TYPE:'@TD_INTERF_TYPE',INTERFACE_NAME:'@INTERFACE_NAME',
 	IS_WM_INTERFACE:'@IS_WM_INTERFACE',IS_ACTIVE:'@IS_ACTIVE',PCI:'@PCI',IS_PII_III:'@IS_PII_III',PII_III_SPECIFIC_DATA:'@PII_III_SPECIFIC_DATA',
 	IS_SAFE_HARBOR:'@IS_SAFE_HARBOR',SAFE_HARBOR_SPECIFIC_DATA:'@SAFE_HARBOR_SPECIFIC_DATA',INTERFACE_DATA_CLASSIF:'@INTERFACE_DATA_CLASSIF',

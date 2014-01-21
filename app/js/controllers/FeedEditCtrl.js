@@ -11,10 +11,15 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	var master = SingleFeed.get({id: $routeParams.id});
 	
-	$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
+	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
 	  console.log(newSingleFeed);
 	  console.log(oldSingleFeed);
-	});
+	});*/
+	
+	$scope.changeEvent = function() {
+		var feedAttr = $('#TD-In/Out');
+		console.log(feedAttr);
+	};
 	
 	//Save Edits; PUT to DB
 	$scope.editFeedSuccess = false;
