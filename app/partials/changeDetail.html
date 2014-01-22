@@ -18,15 +18,15 @@
               </tr>
             </thead>
             <tbody>
-              <tr ng-repeat="attribute in singleEvent.DATA">
+              <tr ng-repeat="attr in differences">
                   <td>
-                    PCI
+                    {{attr.attribute}}
                   </td>
                   <td>
-                    N/A
+                    {{attr.oldValue}}
                   </td>
                   <td>
-                    Yes
+                    {{attr.newValue}}
                   </td>
               </tr>
             </tbody>

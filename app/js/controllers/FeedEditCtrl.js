@@ -16,7 +16,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	  console.log(oldSingleFeed);
 	});*/
 	
-	$scope.feedAttr = [];
+	/*$scope.feedAttr = [];
 	$scope.logAttr = [];
 	$scope.changeEvent = function(changedAttr) {
 		$scope.feedID = $("#" + changedAttr);
@@ -33,7 +33,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 				}
 			}
 		}
-	};
+	};*/
 	
 	//Save Edits; PUT to DB
 	$scope.editFeedSuccess = false;
@@ -61,14 +61,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 			console.log("error");
 		});
 	};
-	
-	  // Here you have access to the inputs' `$pristine` property
-	
-	  //console.log($scope.feedForm);
-	  
-	  //console.log($scope.singlFeed.TD_INTERF_TYPE.$pristine);
-	  //console.log($scope.singlFeed.INTERFACE_NAME.$pristine);
-	  //console.log($scope.singlFeed.IS_WM_INTERFACE.$pristine);
 	
 	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {

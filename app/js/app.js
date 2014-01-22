@@ -13,6 +13,7 @@ var mftApp = angular.module('mftApp', [
 .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
+		$httpProvider.defaults.withCredentials = true;
     }
 ])
 
@@ -27,7 +28,7 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/transfers/:id', {templateUrl: 'partials/transfers.html', controller: 'FeedShowCtrl'});
   $routeProvider.when('/comments/:id', {templateUrl: 'partials/comments.html', controller: 'CommentIndexCtrl'});
   $routeProvider.when('/changeLog/:id', {templateUrl: 'partials/changeLog.html', controller: 'EventShowCtrl'});
-    $routeProvider.when('/changeDetail/:id', {templateUrl: 'partials/changeDetail.html', controller: 'EventShowCtrl'});
+    $routeProvider.when('/changeLog/:id/changeDetail/:index', {templateUrl: 'partials/changeDetail.html', controller: 'EventCompareCtrl'});
 
   $routeProvider.when('/event', {templateUrl: 'partials/event.html', controller: 'EventIndexCtrl'});
     $routeProvider.when('/event/:id', {templateUrl: 'partials/eventShow.html', controller: 'EventShowCtrl'});  
