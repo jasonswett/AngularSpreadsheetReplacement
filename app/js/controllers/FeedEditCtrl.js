@@ -30,8 +30,8 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		for (var i = 0; i < $scope.logAttr.length; i++) {
 			for (var j = 0; j < $scope.feedAttr.length; j++) {
 				if ($scope.feedAttr.length > 1) {
-					if ($scope.feedAttr[i] != $scope.feedAttr[i+1]) {
-						$scope.logAttr.push($scope.feedAttr[i+1]);
+					if ($scope.feedAttr[j] != $scope.feedAttr[j+1]) {
+						$scope.logAttr.push($scope.feedAttr[j+1]);
 						console.log($scope.feedAttr);
 						console.log($scope.logAttr);
 					}
