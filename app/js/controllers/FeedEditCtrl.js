@@ -15,24 +15,26 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	  console.log(newSingleFeed);
 	  console.log(oldSingleFeed);
 	});*/
-	
+	$scope.feedAttr = [];
 	$scope.logAttr = [];
 	$scope.changeEvent = function(changedAttr) {
-		$scope.feedAttr = $("#" + changedAttr);
+		$scope.feedID = $("#" + changedAttr);
+		console.log($scope.feedID);
+		console.log($scope.feedID[0]);
+		console.log($scope.feedID[0].name);
+		$scope.feedAttr.push($scope.feedID[0].name);
 		console.log($scope.feedAttr);
-		console.log($scope.feedAttr[0]);
-		console.log($scope.feedAttr[0].name);
-		$scope.logAttr[0] = $scope.feedAttr[0].name;
-		console.log($scope.logAttr);
+		$scope.logAttr[0] = $scope.feedAttr[0];
 		//Each item in logAttr must be unique
 		for (var i = 0; i < $scope.logAttr.length; i++) {
-			if ($scope.logAttr[i] != $scope.feedAttr[0].name) {
-				//$scope.logAttr[i+1] = $scope.feedAttr[0].name;
-				console.log($scope.logAttr);
+			for (var j = 0; j < $scope.feedAttr.length; j++) {
+				if ($scope.feedAttr[i] != $scope.feedAttr[i+1]) {
+					$scope.logAttr.push($scope.feedAttr[i+1]);
+					console.log($scope.feedAttr);
+					console.log($scope.logAttr);
+				}
 			}
   		}
-		
-
 	};
 	
 	//Save Edits; PUT to DB
