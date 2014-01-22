@@ -20,8 +20,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.changeEvent = function(changedAttr) {
 		$scope.feedID = $("#" + changedAttr);
 		$scope.feedAttr.push($scope.feedID[0].name);
+		console.log($scope.feedAttr);
 		//Each item in feedAttr must be unique
-		for (var j = 1; j < $scope.feedAttr.length; j++) {
+		for (var j = 1; j <= $scope.feedAttr.length; j++) {
 			if ($scope.feedAttr.length > 1) {
 				if ($scope.feedAttr[j-1] == $scope.feedAttr[j]) {
 					$scope.feedAttr.splice(j, 1);
