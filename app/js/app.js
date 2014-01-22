@@ -10,7 +10,13 @@ var mftApp = angular.module('mftApp', [
   'mftController',
   'infinite-scroll'  
 ])
-.config(['$routeProvider', '$locationProvider', function($routeProvider) {
+.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+])
+
+.config(['$routeProvider', function($routeProvider) {
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
