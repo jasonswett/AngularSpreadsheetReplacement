@@ -27,11 +27,11 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		$scope.logAttr[0] = $scope.feedAttr[0];
 		console.log($scope.logAttr);
 		//Each item in logAttr must be unique
-		for (var i = 0; i < $scope.logAttr.length; i++) {
-			for (var j = 0; j < $scope.feedAttr.length; j++) {
+		for (var i = 1; i <= $scope.logAttr.length; i++) {
+			for (var j = 1; j < $scope.feedAttr.length; j++) {
 				if ($scope.feedAttr.length > 1) {
-					if ($scope.feedAttr[j] != $scope.feedAttr[j+1]) {
-						$scope.logAttr[i+1] = $scope.feedAttr[j+1];
+					if ($scope.feedAttr[j-1] != $scope.feedAttr[j]) {
+						$scope.logAttr[i] = $scope.feedAttr[j];
 						console.log($scope.feedAttr);
 						console.log($scope.logAttr);
 					}
