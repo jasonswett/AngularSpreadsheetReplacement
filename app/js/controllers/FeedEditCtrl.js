@@ -9,7 +9,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
-	var master = SingleFeed.get({id: $routeParams.id});
+	$scope.master = SingleFeed.get({id: $routeParams.id});
 	
 	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
 	  console.log(newSingleFeed);
@@ -72,7 +72,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	//Disable Save button unless change has been made to the form
 	$scope.isSaveDisabled = function() {
-	    return angular.equals(master, $scope.singleFeed);
+	    angular.equals($scope.master, $scope.singleFeed);
 	};
   }
 ]);	  
