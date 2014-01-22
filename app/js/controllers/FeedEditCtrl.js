@@ -30,15 +30,11 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		for (var i = 1; i <= $scope.logAttr.length; i++) {
 			for (var j = 1; j < $scope.feedAttr.length; j++) {
 				if ($scope.feedAttr.length > 1) {
-					if ($scope.feedAttr[j-1] != $scope.feedAttr[j]) {
-						angular.forEach($scope.logAttr, function(value, key){
-							console.log(value);
-							/*if (value != $scope.feedAttr[j]) {
-								$scope.logAttr[i] = $scope.feedAttr[j];
-								console.log($scope.feedAttr);
-								console.log($scope.logAttr);
-							}*/
-						});	
+					if ($scope.feedAttr[j-1] == $scope.feedAttr[j]) {
+						$scope.feedAttr.splice(j, 1);
+						//$scope.logAttr[i] = $scope.feedAttr[j];
+						console.log($scope.feedAttr);
+						console.log($scope.logAttr);	
 					}
 				}
 			}
