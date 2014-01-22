@@ -32,11 +32,12 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 				if ($scope.feedAttr.length > 1) {
 					if ($scope.feedAttr[j-1] != $scope.feedAttr[j]) {
 						angular.forEach($scope.logAttr, function(value, key){
-							if (value != $scope.feedAttr[j]) {
+							console.log(value);
+							/*if (value != $scope.feedAttr[j]) {
 								$scope.logAttr[i] = $scope.feedAttr[j];
 								console.log($scope.feedAttr);
 								console.log($scope.logAttr);
-							}
+							}*/
 						});	
 					}
 				}
