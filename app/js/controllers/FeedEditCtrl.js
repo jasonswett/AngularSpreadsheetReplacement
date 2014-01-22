@@ -17,6 +17,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	});*/
 	
 	$scope.feedAttr = [];
+	$scope.logAttr = [];
 	$scope.changeEvent = function(changedAttr) {
 		$scope.feedID = $("#" + changedAttr);
 		$scope.feedAttr.push($scope.feedID[0].name);
@@ -24,9 +25,11 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		//Each item in feedAttr must be unique
 		for (var j = 1; j <= $scope.feedAttr.length; j++) {
 			if ($scope.feedAttr.length > 1) {
-				if ($scope.feedAttr[j-1] == $scope.feedAttr[j]) {
-					$scope.feedAttr.splice(j, 1);
-					console.log($scope.feedAttr);	
+				$scope.logAttr = $scope.feedAttr.sort();
+				if ($scope.logAttr[j-1] == $scope.logAttr[j]) {
+					$scope.logAttr.splice(j, 1);
+					console.log($scope.feedAttr);
+					console.log($scope.logAttr);	
 				}
 			}
 		}
