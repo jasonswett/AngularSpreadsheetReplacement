@@ -47,14 +47,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	
 	//Log Data for Auditing
 	$scope.log = function() {
-		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
-		$scope.singleFeed, 
-		function() {
-			console.log("Logged!");
-		},
-		function() {
-			console.log("error");
-		});
 		//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
 		SingleEvent.get({id: $routeParams.id}, function(results) {
 			if (results.results.length == 0) {
@@ -69,6 +61,15 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 			}
 		},
 		function(){
+			console.log("error");
+		});
+		//Post new data to Events Table
+		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
+		$scope.singleFeed, 
+		function() {
+			console.log("Logged!");
+		},
+		function() {
 			console.log("error");
 		});
 	};
