@@ -23,16 +23,16 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.postCommentSuccess = false;
 	$scope.postCommentFailure = false;
 	$scope.save = function() {
-		Comment.post({id:$routeParams.id, CURRENT_USER:'aaron@bigcompass.com', COMMENT_FEED:$scope.commentList.results.COMMENT_FEED}, 
+		Comment.post({id:$routeParams.id, CURRENT_USER:'aaron@bigcompass.com', COMMENT_FEED:$scope.commentList.COMMENT_FEED}, 
 		$scope.commentList, 
 		function() {
-			$scope.commentList.results.COMMENT_FEED = "";
+			$scope.commentList.COMMENT_FEED = "";
 			$route.reload();
 			$scope.postCommentSuccess = true;
 			console.log($scope.postCommentSuccess);
 		},
 		function() {
-			$scope.commentList.results.COMMENT_FEED = "";
+			$scope.commentList.COMMENT_FEED = "";
 			$scope.postCommentFailure = true;
 			console.log("error");
 		});
