@@ -5,7 +5,7 @@
 mftApp.factory('Comment', ['$resource', '$routeParams', function($resource, $routeParams) {
     //var getComment = $resource('JSON/comments.json', {id: '@id'},
  	var getComment = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Comments/:id', {id: '@FEED_ID'}, 
-		{ post: {method: 'POST', 
+		{ post: {method: 'POST', isArray:true, 
 		transformRequest:function(data, headersGetter){
 			var result = JSON.stringify(data);
 			console.log("Result:" + result);             
