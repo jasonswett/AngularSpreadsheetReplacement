@@ -2,14 +2,31 @@
 
 /* Edit Feed Controller */
 
-mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Event',  
-  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Event) {
+mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Event', 'SingleEvent', 
+  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Event, SingleEvent) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	$scope.master = SingleFeed.get({id: $routeParams.id});
+	
+	//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
+	SingleEvent.get({id: $routeParams.id}, function(results) {
+		if (results.results.length == 0) {
+			Event.post({DATA:$scope.master, id:$routeParams.id}, 
+			$scope.master, 
+			function() {
+				console.log("1st Change!");
+			},
+			function() {
+				console.log("error");
+			});
+		}
+	},
+	function(){
+		console.log("error");
+	});
 	
 	
 	/*$scope.feedAttr = [];
