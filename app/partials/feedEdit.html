@@ -270,7 +270,9 @@
 					<input type="text" ng-model="singleFeed.SOURCE_LOCATION">
                   </div>
                 </div>
-                <div class="feedDetailRow">
+              </div>
+              <div class="feedDetailColRight span6"> 
+				<div class="feedDetailRow">
                   <div class="detailLeft">
                     Target Application Name:
                   </div>
@@ -285,9 +287,7 @@
                   <div class="detailRight">
 					<input type="text" ng-model="singleFeed.TARGET_DATA_FORMAT">
                   </div>
-                </div>
-              </div>
-              <div class="feedDetailColRight span6">            
+                </div>           
                 <div class="feedDetailRow">
                   <div class="detailLeft">
                     Target Location:
@@ -512,7 +512,7 @@
 					<input type="text" ng-model="singleFeed.STATUS">
                   </div>
                 </div>
-				<div class="feedDetailRow">
+				<!--<div class="feedDetailRow">
                   <div class="detailLeft">
                     Comments:
                   </div>
@@ -543,7 +543,7 @@
                   <div class="detailRight">
 					<input type="text" ng-model="singleFeed.LAST_CHANGE_BY">
                   </div>
-                </div>
+                </div>-->
               </div><!--/FeedDetailColumnRight-->
 			  <div class="userControls text-center">
                 <button ng-click="log(); save()" class="editBtn btn btn-large btn-success" ng-disabled="isSaveDisabled()">Save</button>
