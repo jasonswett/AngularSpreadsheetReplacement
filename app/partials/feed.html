@@ -531,8 +531,8 @@
                   <div class="detailLeft">
                     Last Change Comment:
                   </div>
-                  <div class="detailRight">
-                    {{singleFeed.LAST_CHANGE_COMMENT}}
+                  <div class="detailRight" ng-controller="CommentIndexCtrl">
+                    {{commentList[0].COMMENT_FEED}}
                   </div>
                 </div>
 				<div class="feedDetailRow">

@@ -23,6 +23,7 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
 
 //Feeds
+  $routeProvider.when('/new', {templateUrl: 'partials/feedNew.html', controller: 'FeedNewCtrl'});
   $routeProvider.when('/feeds/:id', {templateUrl: 'partials/feed.html', controller: 'FeedShowCtrl'});
     $routeProvider.when('/feeds/:id/edit', {templateUrl: 'partials/feedEdit.html', controller: 'FeedEditCtrl'});
   $routeProvider.when('/transfers/:id', {templateUrl: 'partials/transfers.html', controller: 'FeedShowCtrl'});

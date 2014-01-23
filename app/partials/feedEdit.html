@@ -27,7 +27,7 @@
                     In/Out:
                   </div>
                   <div class="detailRight">
-                    <input type="text" name="In/Out" ng-model="singleFeed.TD_IN_OUT" id="inOut" ng-change="changeEvent('inOut')">
+                    <input type="text" name="In/Out" ng-model="singleFeed.TD_IN_OUT" id="inOut">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -35,7 +35,7 @@
                     Interface Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="Interface Type" ng-model="singleFeed.TD_INTERF_TYPE" id="interfaceType" ng-change="changeEvent('interfaceType')">
+					<input type="text" name="Interface Type" ng-model="singleFeed.TD_INTERF_TYPE" id="interfaceType">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -43,7 +43,7 @@
                     Interface Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="Interface Name" ng-model="singleFeed.INTERFACE_NAME" id="interfaceName" ng-change="changeEvent('interfaceName')">
+					<input type="text" name="Interface Name" ng-model="singleFeed.INTERFACE_NAME" id="interfaceName">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -51,7 +51,7 @@
                     wM Interface:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="wM Interface" ng-model="singleFeed.IS_WM_INTERFACE" id="wMInterface" ng-change="changeEvent('wMInterface')">
+					<input type="text" name="wM Interface" ng-model="singleFeed.IS_WM_INTERFACE" id="wMInterface">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -59,7 +59,7 @@
                     Active (Y/N):
                   </div>
                   <div class="detailRight">
-					<input type="text" name="Active" ng-model="singleFeed.IS_ACTIVE" id="active" ng-change="changeEvent('active')">
+					<input type="text" name="Active" ng-model="singleFeed.IS_ACTIVE" id="active">
                   </div>
                 </div>
                 <div class="feedDetailRow">
@@ -559,5 +559,4 @@
 	{{singleFeed | json}}
 	<br>
 	Master {{master | json}}
-	Form: {{feedForm.In/Out.$pristine}}{{feedForm.In/Out.$dirty}}{{feedForm.$pristine}}
 	

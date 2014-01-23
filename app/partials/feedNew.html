@@ -1,0 +1,520 @@
+
+<div class="contentWrap row-fluid">
+  <div class="mainWrap clearfix">
+	<div class="page-header">
+      <h1>Add Feed</h1>
+    </div>
+	<div ng-show="editFeedFailure" class="alert alert-error">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Error Saving Content. Please Try Again.</strong> 
+    </div>
+    <div class="tabbale-wrap clearfix">
+		<div class="tabbable tabs-left pull-left">
+            <ul id="inventorySubnavTab" class="nav nav-tabs">
+                <li class="active"><a href="index.html#/"><i class="icon-arrow-left"></i>All Feeds</a></li>
+            </ul>
+        </div>
+	  <div class="tabbable-content pull-left">
+		<form name="newFeedForm">
+        <div id="feedContent" class="tab-content">
+          <div class="feedDetailColLeft span6">
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                In/Out:
+              </div>
+              <div class="detailRight">
+                <input type="text" name="In/Out" ng-model="singleFeed.TD_IN_OUT" id="inOut">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Interface Type:
+              </div>
+              <div class="detailRight">
+				<input type="text" name="Interface Type" ng-model="singleFeed.TD_INTERF_TYPE" id="interfaceType">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Interface Name:
+              </div>
+              <div class="detailRight">
+				<input type="text" name="Interface Name" ng-model="singleFeed.INTERFACE_NAME" id="interfaceName">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                wM Interface:
+              </div>
+              <div class="detailRight">
+				<input type="text" name="wM Interface" ng-model="singleFeed.IS_WM_INTERFACE" id="wMInterface">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Active (Y/N):
+              </div>
+              <div class="detailRight">
+				<input type="text" name="Active" ng-model="singleFeed.IS_ACTIVE" id="active">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                PCI:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.PCI">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                PII III?:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IS_PII_III">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                PII III Specific Data:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.PII_III_SPECIFIC_DATA">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Safe Harbor:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IS_SAFE_HARBOR">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Safe Harbor Specific Data:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SAFE_HARBOR_SPECIFIC_DATA">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Interface Data Classification:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.INTERFACE_DATA_CLASSIF">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Data Classification:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.DATA_CLASSIF">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                To or From Safe Harbor Location:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IS_TO_OR_FROM_SAFE_HARBOR">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Meets Which Policies and Standards:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.MEETS_WHICH_POLICIES">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Has Policy or Standards Issue:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.HAS_POLICY_OR_STANDARDS_ISSUE">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Security Exception ID:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SECURITY_EXCEPTION_ID">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Group:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.GROUP_">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Last Date Audited:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.LAST_DATE_AUDITED">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Encryption Needed:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IS_ENCRYPTION_NEEDED">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                File Name Written to Shuttle:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.FILE_NAME_WRITTEN_TO_SHUTTLE">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                IL File Name:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IL_FILE_NAME">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Acknowledgement IL File Name:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.ACKNOWLEDGEMENT_IL_FILE_NAME">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Istrategy:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.ISTRATEGY">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                EART Entry:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.EART_ENTRY">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Interface Description:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.INTERFACE_DESCRIPTION">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Feed Description:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.FEED_DESCRIPTION">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                BU, Segment, Entity:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.BU_SEGMENT_ENTITY">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Implementation Pattern: 
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IMPLEMENTATION_PATTERN">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Source Application Name:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SOURCE_APPLICATION_NAME">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Source Data Format:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SOURCE_DATA_FORMAT">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Source Location:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SOURCE_LOCATION">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Target Application Name:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TARGET_APPLICATION_NAME">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Target Data Format:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TARGET_DATA_FORMAT">
+              </div>
+            </div>
+          </div>
+          <div class="feedDetailColRight span6">            
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Target Location:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TARGET_LOCATION">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                A2A or B2B:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.A2A_OR_B2B">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Message Type:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.MESSAGE_TYPE_">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                IDoc Type:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IDOC_TYPE">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                IDoc Extension:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.IDOC_EXTENSION">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Transformation Complexity:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TRANSFORMATION_COMPLEXITY">
+              </div>
+            </div>
+            <div class="feedDetailRow">
+              <div class="detailLeft">
+                Transactions Per:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TRANSACTIONS_PER">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Transfer Type:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TRANSFER_TYPE">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                SFTP:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SFTP">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                FTP:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.FTP">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                HTTP:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.HTTP">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                HTTPS:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.HTTPS">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                SAP ALE API:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SAP_ALE_API">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Delivery Mechanism:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.DELIVERY_MECHANISM">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Maximum Message Size:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.MAXIMUM_MESSAGE_SIZE">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Peak Message Volume:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.PEAK_MESSAGE_VOLUME">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Frequency:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.FREQUENCY">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Transfer Deadline:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.TRANSFER_DEADLINE">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                System Contact(s):
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SYSTEM_CONTACTS">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Site Contact:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SITE_CONTACT">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Interface Owner:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.INTERFACE_OWNER">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Outbound: Server Host:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.OUTBOUND_SERVER_HOST">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Outbound: Platform/Responsible Group:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.OUTBOUND_RESPONSIBLE_GROUP">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                SSN:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SSN">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Salary:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.SALARY">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                PGP:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.PGP">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Cyber Doc:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.CYBER_DOC">
+              </div>
+            </div>
+			<div class="feedDetailRow">
+              <div class="detailLeft">
+                Status:
+              </div>
+              <div class="detailRight">
+				<input type="text" ng-model="singleFeed.STATUS">
+              </div>
+            </div>
+          </div><!--/FeedDetailColumnRight-->
+		  <div class="userControls text-center">
+            <button ng-click="save()" class="editBtn btn btn-large btn-success">Save</button>
+          </div>
+        </div>
+		</form>
+      </div>
+    </div>
+  </div>
+</div>

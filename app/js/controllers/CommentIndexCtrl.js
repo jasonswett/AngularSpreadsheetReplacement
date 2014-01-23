@@ -9,7 +9,15 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
-	$scope.commentList = Comment.get({id: $routeParams.id});
+	$scope.commentList = [];
+	Comment.get({id: $routeParams.id}, function(results){
+		$scope.commentList = results.results;
+		$scope.commentList.sort(function(a,b){
+		  a = new Date(a.CREATED_AT);
+		  b = new Date(b.CREATED_AT);
+		  return a<b?1:a>b?-1:0;
+		});
+	});
 
 	//Save Comments; POST to DB
 	$scope.postCommentSuccess = false;

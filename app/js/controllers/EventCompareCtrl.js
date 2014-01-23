@@ -9,7 +9,6 @@ mftApp.controller('EventCompareCtrl', ['$scope', '$resource', 'SingleEvent', '$r
 		angular.forEach(results.results, function(value, key){
 			value.DATA = angular.fromJson(value.DATA);
 			$scope.singleEvent.push(value);
-			//$scope.eventData.push(value.DATA);
 		});
 		//Sort Event Array By Time 
 		$scope.singleEvent.sort(function(a,b){

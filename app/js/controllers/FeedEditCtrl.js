@@ -11,10 +11,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	$scope.master = SingleFeed.get({id: $routeParams.id});
 	
-	/*$scope.$watchCollection('singleFeed', function(newSingleFeed, oldSingleFeed) {
-	  console.log(newSingleFeed);
-	  console.log(oldSingleFeed);
-	});*/
 	
 	/*$scope.feedAttr = [];
 	$scope.logAttr = [];
