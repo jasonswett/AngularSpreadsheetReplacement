@@ -10,23 +10,6 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.params = $routeParams;
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	$scope.master = SingleFeed.get({id: $routeParams.id});
-	//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
-	SingleEvent.get({id: $routeParams.id}, function(results) {
-		if (results.results.length == 0) {
-			Event.post({DATA:$scope.master, id:$routeParams.id}, 
-			$scope.master, 
-			function() {
-				console.log("1st Change!");
-			},
-			function() {
-				console.log("error");
-			});
-		}
-	},
-	function(){
-		console.log("error");
-	});
-	
 	
 	/*$scope.feedAttr = [];
 	$scope.logAttr = [];
@@ -70,6 +53,22 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 			console.log("Logged!");
 		},
 		function() {
+			console.log("error");
+		});
+		//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
+		SingleEvent.get({id: $routeParams.id}, function(results) {
+			if (results.results.length == 0) {
+				Event.post({DATA:$scope.master, id:$routeParams.id}, 
+				$scope.master, 
+				function() {
+					console.log("1st Change!");
+				},
+				function() {
+					console.log("error");
+				});
+			}
+		},
+		function(){
 			console.log("error");
 		});
 	};
