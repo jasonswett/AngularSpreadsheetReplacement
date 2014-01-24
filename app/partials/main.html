@@ -1,5 +1,4 @@
 FeedList length: {{feedList.length}}
-
 	<div class="contentWrap row-fluid">
       <div class="mainWrap">
         <!--<div class="alert">
@@ -22,7 +21,7 @@ FeedList length: {{feedList.length}}
 		<a href="index.html#/new" class="btn exportbtn pull-right"><i class="icon-plus-sign"></i>Add Feed</a>
         <form class="form-search">
           <div class="input-append">
-            <input type="text" placeholder="Search Feeds" class="search-query" ng-model="query">
+            <input type="text" placeholder="Search Feeds" class="search-query" ng-change="filter()" ng-model="query">
             <button type="submit" class="btn">Search</button>
           </div>
         </form>
@@ -30,16 +29,16 @@ FeedList length: {{feedList.length}}
         <table id="landingTable" class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th class="status sortable">Status <i class="icon-chevron-down icon-white" ng-click="sort('IS_ACTIVE')"></i></th>
-              <th class="id sortable">ID <i class="icon-chevron-down icon-white" ng-click="sort('ID')"></i></th>
-              <th class="interface sortable">Interface <i class="icon-chevron-down icon-white" ng-click="sort('INTERFACE_NAME')"></i></th>
-              <th class="Istrategy ">Istrategy <i class="icon-chevron-down icon-white" ng-click="sort('ISTRATEGY')"></i></th>
-              <th class="lastActive  sortable" value="lastActive">Last Active<i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_DATE')"></i></th>
+              <th class="IS_ACTIVE sortable">Status <i class="icon-chevron-down icon-white" ng-click="sort('IS_ACTIVE')"></i></th>
+              <th class="ID sortable">ID <i class="icon-chevron-down icon-white" ng-click="sort('ID')"></i></th>
+              <th class="INTERFACE_NAME sortable">Interface <i class="icon-chevron-down icon-white" ng-click="sort('INTERFACE_NAME')"></i></th>
+              <th class="ISTRATEGY sortable">Istrategy <i class="icon-chevron-down icon-white" ng-click="sort('ISTRATEGY')"></i></th>
+              <th class="LAST_CHANGE_DATE  sortable">Last Active<i class="icon-chevron-down icon-white" ng-click="sort('LAST_CHANGE_DATE')"></i></th>
               <th class="lastFile sortable">Last File Transfered <i class="icon-chevron-down icon-white" ng-click="sort('lastFile')"></i></th>
-              <th class="fileName sortable">IL File Name <i class="icon-chevron-down icon-white" ng-click="sort('IL_FILE_NAME')"></i></th>
-              <th class="messageType sortable">Message Type <i class="icon-chevron-down icon-white" ng-click="sort('MESSAGE_TYPE_')"></i></th>
-              <th class="mainContact">Main Contact <i class="icon-chevron-down icon-white" ng-click="sort('SITE_CONTACT')"></i></th>
-              <th class="actions sortable">Actions <i class="icon-chevron-down icon-white" ng-click="sort('actions')"></i></th>
+              <th class="IL_FILE_NAME sortable">IL File Name <i class="icon-chevron-down icon-white" ng-click="sort('IL_FILE_NAME')"></i></th>
+              <th class="MESSAGE_TYPE_ sortable">Message Type <i class="icon-chevron-down icon-white" ng-click="sort('MESSAGE_TYPE_')"></i></th>
+              <th class="SITE_CONTACT sortable">Main Contact <i class="icon-chevron-down icon-white" ng-click="sort('SITE_CONTACT')"></i></th>
+              <th class="actions sortable">Actions</th>
             </tr>
           </thead>
           <tbody>
