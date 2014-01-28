@@ -22,6 +22,30 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			console.log("error");
 		}
 	);
+	
+	$scope.sortOrder = '-CREATED_AT';
+	$scope.reverse = false;
+	//Order the Feeds by each column
+	$scope.sort = function(newSortOrder) {
+		$scope.sortOrder = newSortOrder;
+	  if ($scope.sortOrder == newSortOrder) {
+	    $scope.reverse = !$scope.reverse;
+	    $scope.sortOrder = newSortOrder;
+	        // icon reset
+			$('th i').each(function(){
+			        // icon reset
+			        $(this).removeClass().addClass('icon-chevron-down icon-white');
+			});
+			if ($scope.reverse) {
+	        	$('th.' + newSortOrder + '.sortable i').removeClass().addClass('icon-chevron-up icon-white');
+			}
+	        else {
+				$scope.sortOrder = ('-' + newSortOrder);
+	            $('th.' + newSortOrder + '.sortable i').removeClass().addClass('icon-chevron-down icon-white');
+			}
+	  } 
+	};
+	
   }
 ]);
 

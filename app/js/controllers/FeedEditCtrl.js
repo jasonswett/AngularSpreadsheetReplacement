@@ -34,22 +34,24 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.editFeedSuccess = false;
 	$scope.editFeedFailure = false;
 	$scope.save = function() {
+		if($scope.feedForm.$valid){
 		SingleFeed.update($scope.singleFeed, function() {
-			$location.path('/feeds/' + $routeParams.id);
+			//$location.path('/feeds/' + $routeParams.id);
 			$scope.editFeedSuccess = true;
-			console.log($scope.editFeedSuccess);
 		},
 		function() {
 			$scope.editFeedFailure = true;
 			console.log("error");
 		});
+		}
 	};
-	
+
 	//Log Data for Auditing
 	$scope.log = function() {
 		//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
 		SingleEvent.get({id: $routeParams.id}, function(results) {
 			if (results.results.length == 0) {
+				if($scope.feedForm.$valid){
 				Event.post({DATA:$scope.master, id:$routeParams.id}, 
 				$scope.master, 
 				function() {
@@ -58,12 +60,14 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 				function() {
 					console.log("error");
 				});
+				}
 			}
 		},
 		function(){
 			console.log("error");
 		});
 		//Post new data to Events Table
+		if($scope.feedForm.$valid){
 		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
 		$scope.singleFeed, 
 		function() {
@@ -72,6 +76,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 		function() {
 			console.log("error");
 		});
+		}
 	};
 	
 	//Disable Save button unless change has been made to the form
