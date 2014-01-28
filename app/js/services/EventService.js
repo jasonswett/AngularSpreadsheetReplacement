@@ -7,8 +7,7 @@ mftApp.factory('Event', ['$resource', function($resource) {
 	var getEvent = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/Event/:id', {id:'@id'}, 
 	{ post: {method: 'POST', 
 	transformRequest:function(data, headersGetter){
-		var result = JSON.stringify(data);
-		console.log("Result:" + result);             
+		var result = JSON.stringify(data);             
 	}}, 
 	get: {method: 'GET'}, 
 	update: {method:'PUT'}, 

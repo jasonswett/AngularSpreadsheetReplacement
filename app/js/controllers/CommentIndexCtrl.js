@@ -25,6 +25,7 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.submitted = false;
 	
 	$scope.save = function() {
+		$scope.commentForm.$setPristine();
 		$scope.submitted = true;
 		if($scope.commentForm.$valid) {
 		

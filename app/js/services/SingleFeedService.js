@@ -43,8 +43,7 @@ mftApp.factory('SingleFeed', ['$resource', function($resource) {
 	OUTBOUND_RESPONSIBLE_GROUP:'@OUTBOUND_RESPONSIBLE_GROUP',SSN:'@SSN',SALARY:'@SALARY',PGP:'@PGP',CYBER_DOC:'@CYBER_DOC',STATUS:'@STATUS',
 	COMMENTS:'@COMMENTS',LAST_CHANGE_DATE:'@LAST_CHANGE_DATE',LAST_CHANGE_BY:'@LAST_CHANGE_BY',LAST_CHANGE_COMMENT:'@LAST_CHANGE_COMMENT'}, 
 	transformRequest:function(data, headersGetter){
-		var result = JSON.stringify(data);
-		console.log("Result:" + result);             
+		var result = JSON.stringify(data);            
 	}}, 
 	query: {method:'GET', isArray:false}});
 	return getFeed;

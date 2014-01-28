@@ -2,8 +2,8 @@
 
 /* Edit Feed Controller */
 
-mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Event', 'SingleEvent', 
-  function($scope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Event, SingleEvent) {
+mftApp.controller('FeedEditCtrl', ['$scope', '$rootScope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 'Event', 'SingleEvent', 
+  function($scope, $rootScope, $resource, SingleFeed, $routeParams, $route, $location, $filter, Event, SingleEvent) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
@@ -11,47 +11,57 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 	$scope.singleFeed = SingleFeed.get({id: $routeParams.id});
 	$scope.master = SingleFeed.get({id: $routeParams.id});
 	
-	/*$scope.feedAttr = [];
-	$scope.logAttr = [];
-	$scope.changeEvent = function(changedAttr) {
-		$scope.feedID = $("#" + changedAttr);
-		$scope.feedAttr.push($scope.feedID[0].name);
-		console.log($scope.feedAttr);
-		//Each item in feedAttr must be unique
-		for (var j = 1; j <= $scope.feedAttr.length; j++) {
-			if ($scope.feedAttr.length > 1) {
-				$scope.logAttr = $scope.feedAttr.sort();
-				if ($scope.logAttr[j-1] == $scope.logAttr[j]) {
-					$scope.logAttr.splice(j, 1);
-					console.log($scope.feedAttr);
-					console.log($scope.logAttr);	
-				}
-			}
-		}
-	};*/
-	
 	//Save Edits; PUT to DB
-	$scope.editFeedSuccess = false;
+	//$rootScope.editFeedSuccess = false;
 	$scope.editFeedFailure = false;
+	$scope.noChange = false;
 	$scope.save = function() {
-		if($scope.feedForm.$valid){
+		$scope.feedForm.$setPristine();
+		angular.forEach(Object.keys($scope.singleFeed), function(key){
+			if ($scope.singleFeed[key] == "") {
+				$scope.singleFeed[key] = null;
+			}
+		});
+		if($scope.feedForm.$valid && !angular.equals($scope.master, $scope.singleFeed)){
+			//Post new data to Events Table
+			Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
+			$scope.singleFeed, 
+			function() {
+				console.log("Logged!");
+			},
+			function() {
+				console.log("error");
+			});
+			
+		//Update DB with Changes
 		SingleFeed.update($scope.singleFeed, function() {
+			$route.reload();
 			//$location.path('/feeds/' + $routeParams.id);
-			$scope.editFeedSuccess = true;
+			$rootScope.editFeedSuccess = true;
+			console.log("updated");
 		},
 		function() {
 			$scope.editFeedFailure = true;
 			console.log("error");
 		});
 		}
+		if(angular.equals($scope.master, $scope.singleFeed)){
+			$scope.noChange = true;
+		}
 	};
 
 	//Log Data for Auditing
 	$scope.log = function() {
+		angular.forEach(Object.keys($scope.singleFeed), function(key){
+			if ($scope.singleFeed[key] == "") {
+				$scope.singleFeed[key] = null;
+			}
+		});
+		
 		//Get Event By ID to see if there's been any changes made; if no changes, POST master to DB
 		SingleEvent.get({id: $routeParams.id}, function(results) {
 			if (results.results.length == 0) {
-				if($scope.feedForm.$valid){
+				if ($scope.feedForm.$valid && !angular.equals($scope.master, $scope.singleFeed)){
 				Event.post({DATA:$scope.master, id:$routeParams.id}, 
 				$scope.master, 
 				function() {
@@ -59,29 +69,14 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$resource', 'SingleFeed', '$routeP
 				},
 				function() {
 					console.log("error");
-				});
+				});	
 				}
 			}
 		},
 		function(){
 			console.log("error");
 		});
-		//Post new data to Events Table
-		if($scope.feedForm.$valid){
-		Event.post({DATA:$scope.singleFeed, id:$routeParams.id}, 
-		$scope.singleFeed, 
-		function() {
-			console.log("Logged!");
-		},
-		function() {
-			console.log("error");
-		});
-		}
 	};
-	
-	//Disable Save button unless change has been made to the form
-	$scope.isSaveDisabled = function() {
-	    return angular.equals($scope.master, $scope.singleFeed);
-	};
+
   }
 ]);	  
