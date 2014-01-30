@@ -2,10 +2,10 @@
     <div class="contentWrap row-fluid">
       <div class="mainWrap">
         <div class="page-header">
-          <h1>Change Log - Feed ID: {{params.id}}</h1>
+          <h1>Change Details - Feed ID: {{params.id}}</h1>
         </div>
-        <p>Change Datetime: <span>{{singleEvent[params.index].UPDATED_AT}}</span></p>
-        <p>Change Made By: <span>{{singleEvent.[params.index].DATA.LAST_CHANGE_BY}}</span></p>
+        <p>Change Datetime: <span>{{singleEvent[newIndex].UPDATED_AT}}</span></p>
+        <p>Change Made By: <span>{{singleEvent[newIndex].DATA.LAST_CHANGE_BY}}</span></p>
         <a class="btn btn-inverse" href="index.html#/changeLog/{{params.id}}"><i class="icon-arrow-left icon-white"></i> Back to full change log</a>
         <hr />
         <h2>Change Details</h2>
@@ -33,5 +33,3 @@
           </table>
       </div>
     </div>
-
-results array: {{singleEvent}}

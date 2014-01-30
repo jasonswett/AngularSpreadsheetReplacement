@@ -11,16 +11,19 @@ mftApp.controller('EventCompareCtrl', ['$scope', '$resource', 'SingleEvent', '$r
 			value.DATA = angular.fromJson(value.DATA);
 			$scope.singleEvent.push(value);
 		});
-		//Sort Event Array By Time 
+		/*//Sort Event Array By Time 
 		$scope.singleEvent.sort(function(a,b){
 		  a = new Date(a.UPDATED_AT);
 		  b = new Date(b.UPDATED_AT);
 		  return a<b?1:a>b?-1:0;
-		});
+		});*/
 		//Sort Events into new and Old Event to compare values
 		$scope.number = parseInt($routeParams.index);
-		var newEvent = $scope.singleEvent[$routeParams.index].DATA;
-		var oldEvent = $scope.singleEvent[$scope.number + 1].DATA;
+		$scope.dataLength = parseInt(results.results.length);
+		$scope.newIndex = $scope.dataLength - 1 - $scope.number;
+		$scope.oldIndex = $scope.dataLength - 2 - $scope.number;
+		var newEvent = $scope.singleEvent[$scope.newIndex].DATA;
+		var oldEvent = $scope.singleEvent[$scope.oldIndex].DATA;
 		console.log(newEvent);
 		console.log(oldEvent);
 		

@@ -17,10 +17,10 @@
   <script src="lib/angular/angular-route.js"></script>
   <script src="lib/angular/angular-cookies.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/services/UserService.js"></script>
   <script src="js/services/FeedIndexService.js"></script>
   <script src="js/services/SingleFeedService.js"></script>
   <script src="js/services/CommentIndexService.js"></script>
-  <script src="js/services/AuditFeedService.js"></script>
   <script src="js/services/EventService.js"></script>
   <script src="js/services/SingleEventService.js"></script>
   <script src="js/controllers.js"></script>
@@ -32,27 +32,30 @@
   <script src="js/controllers/CommentIndexCtrl.js"></script>
   <script src="js/controllers/EventIndexCtrl.js"></script>
   <script src="js/controllers/EventShowCtrl.js"></script>
-  <script src="js/controllers/AuditFeedCtrl.js"></script>
   <script src="js/controllers/EventCompareCtrl.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/directives.js"></script>
   <script src="js/ng-infinite-scroll.js"></script>
 </head>
-
+<body>
 <!--Login Page-->
-    <!--<div class="loginWrap row-fluid blue" ng-hide="loggedIn">
+    <div class="loginWrap row-fluid blue" ng-hide="loggedIn">
       <div class="span12">
         <img class="logo" src="img/disney-logo-large.png" alt="Disney" />
-        <form name="loginForm" class="login">
+        <form name="loginForm" class="login" novalidate>
           <h3 class="text-center">Log in to</h3>
           <h2 class="text-center">MFT Monitoring</h2>
           <div class="inputWrap row-fluid">
-				<div class="alert alert-error" ng-show="loginAttempt">
+				<div class="alert alert-error" ng-show="loginAttempt && loginForm.$pristine && invalidLogin">
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong><center>{{loginError}}</center></strong> 
 		        </div>
+				<div ng-show="loginForm.$error.required && loginAttempt && loginForm.$pristine" class="alert alert-error">
+		          <button type="button" class="close" data-dismiss="alert">&times;</button>
+		          <strong>Email/Password Cannot Be Blank!</strong> 
+		        </div>
               <input type="text" name="email" ng-model="user.email" placeholder="Email" required>
-              <input type="text" name="password" ng-model="user.password" placeholder="Password" required>
+              <input type="password" name="password" ng-model="user.password" placeholder="Password" required>
               <label class="checkbox">
                 <input type="checkbox" name="rememberMe" ng-model="user.rememberMe"> Remember Me
               </label>
@@ -63,11 +66,11 @@
           </div>
         </form>
       </div>
-    </div>  -->
+    </div>
 <!--/Login Page-->
 
 <!--Begin Main Feeds Page-->
-<!--<div ng-show="loggedIn">-->
+<div ng-show="loggedIn">
   <div>
 	<div class="headerWrap row-fluid">
       <div class="header clearfix">
@@ -92,5 +95,6 @@
     </div>
   <!--Load Partial Views-->
   <div ng-view></div>
-<!--</div>-->
+</div>
+</body>
 </html>

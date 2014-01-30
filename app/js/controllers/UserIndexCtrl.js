@@ -2,44 +2,50 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', function($scope, $location, $rootScope, $cookies, $cookieStore) {
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuth',
+	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserAuth) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
 	$cookies.loggedIn = $scope.loggedIn;
-	console.log($rootScope.user);
-	console.log("scope" + $scope.loggedIn);
 	//Login Function
 	$scope.login = function() {
-		if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
+		$scope.loginAttempt = true;
+		$scope.loginForm.$setPristine();
+		if ($scope.loginForm.$valid) {
+		UserAuth.post({userName:$scope.user.email, password:$scope.user.password}, 
+		$scope.user, 
+		function() {
+			UserAuth.get(function(){
+				$scope.loggedIn = true;
+			});
+			console.log("Authenticating");
+		},
+		function() {
+			console.log("error");	
+		});
+		$scope.loginForm.$setPristine();
+		}
+
+		/*if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
 			$rootScope.user = $scope.user;
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
-			$cookies.loggedIn = $scope.loggedIn;
-			var loggedInCookie = $cookies.loggedIn;
-			console.log(loggedInCookie);
-			console.log($rootScope.user);
-			console.log("scope" + $scope.loggedIn);	
 		} 
 		else {
 			$scope.loginAttempt = true;
 		    $scope.loginError = "Invalid Email/Password";
 			$rootScope.user.loggedIn = false;
 			$scope.loggedIn = false;
-			$cookies.loggedIn = $scope.loggedIn;
-			console.log($rootScope.user);
-			console.log("scope" + $scope.loggedIn);
-		}
+		}*/
 	};
 	//Logout Function
 	$scope.logout = function() {
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;
-		$cookies.loggedIn = $scope.loggedIn;
-		console.log($rootScope.user);
-		console.log("scope" + $scope.loggedIn);
+		$scope.loginForm.$setDirty();
+		$rootScope.editFeedSuccess = false;
 	}
-  });
-
+  }]);

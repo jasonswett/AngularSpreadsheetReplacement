@@ -25,7 +25,7 @@ html {
   text-shadow: none;
 }
 body {
-  background: #fff;
+  background: #0c75c8;
 }
 div.blue {
   background: #0c75c8;
@@ -173,6 +173,13 @@ body > div {
 }
 
 .inputWrap input[type=text] {
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  margin: 10px auto;
+}
+
+.inputWrap input[type=password] {
   width: 300px;
   margin: 0 auto;
   display: block;

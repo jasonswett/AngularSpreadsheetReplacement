@@ -16,7 +16,7 @@
           </div>
 		  <div class="tabbable-content pull-left">
 			<form name="feedForm">
-				<div ng-show="editFeedSuccess && feedForm.$pristine && !noChange" class="alert alert-success">
+				<div ng-show="editFeedSuccess && feedForm.$pristine && !noChange && !editFeedFailure" class="alert alert-success">
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Successfully Saved!</strong> 
 		        </div>
@@ -24,7 +24,7 @@
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Error Saving Content. Please Try Again.</strong> 
 		        </div>
-				<div ng-show="noChange && feedForm.$pristine" class="alert alert-error">
+				<div ng-show="noChange && feedForm.$pristine && !editFeedFailure" class="alert alert-error">
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Please Make Changes Before Saving!</strong> 
 		        </div>
@@ -734,7 +734,7 @@
                 </div>-->
               </div><!--/FeedDetailColumnRight-->
 			  <div class="userControls text-center">
-                <button ng-click="log(); save()" class="editBtn btn btn-large btn-success">Save</button>
+                <button ng-click="save()" class="editBtn btn btn-large btn-success">Save</button>
               </div>
             </div>
 			</form>
@@ -742,12 +742,3 @@
         </div>
       </div>
     </div>
-
-	Debug View
-	{{singleFeed | json}}
-	<br>
-	Master {{master | json}}
-	<br>
-	Form {{feedForm.$pristine}}{{feedForm.$valid}}
-	
-	

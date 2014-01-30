@@ -13,10 +13,11 @@ mftApp.controller('EventShowCtrl', ['$scope', '$resource', 'SingleEvent', '$rout
 			value.DATA = angular.fromJson(value.DATA);
 			$scope.singleEvent.push(value);
 		});
-		//Don't include the last entry in the array b/c it's old data, but need it to compare to on the changeDetail page.
-			for (var i = 0; i < $scope.singleEvent.length-1; i++) {
-				$scope.eventData[i] = $scope.singleEvent[i];
-	  		}	
+		//Don't include the first entry in the array b/c it's old data, but need it to compare to on the changeDetail page.
+			for (var i = 1; i < $scope.singleEvent.length; i++) {
+				$scope.eventData[i-1] = $scope.singleEvent[i];
+	  		}
+			$scope.lastEvent = $scope.eventData[results.results.length - 2];
 		}, 
 		function() {
 			console.log("error");

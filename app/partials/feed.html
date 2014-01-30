@@ -519,8 +519,8 @@
                   <div class="detailLeft">
                     Last Change Date:
                   </div>
-                  <div class="detailRight">
-                    {{singleFeed.LAST_CHANGE_DATE}}
+                  <div class="detailRight" ng-controller="EventShowCtrl">
+                    {{lastEvent.CREATED_AT}}
                   </div>
                 </div>
 				<div class="feedDetailRow">
@@ -548,7 +548,4 @@
         </div>
       </div>
     </div>
-	
-	<br>
-	single
-	{{singleFeed}}
+{{singleFeed}}

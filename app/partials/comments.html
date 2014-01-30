@@ -25,7 +25,7 @@
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Error Posting Comment. Please Try Again.</strong> 
 		        </div>
-				<div ng-show="commentForm.$invalid && submitted" class="alert alert-error">
+				<div ng-show="commentForm.$invalid && submitted && commentForm.$pristine" class="alert alert-error">
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Comment Cannot Be Blank!</strong> 
 		        </div>
@@ -63,4 +63,3 @@
         </div>
       </div>
     </div>
-{{commentList}}
