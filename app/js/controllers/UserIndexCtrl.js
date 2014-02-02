@@ -18,7 +18,7 @@
 		UserIndex.post({userName:$scope.user.email, password:$scope.user.password}, 
 		$scope.user, 
 		function() {
-			UserAuth.get(function(){
+			UserIndex.get(function(){
 				$scope.loggedIn = true;
 			});
 			console.log("Authenticating");
