@@ -6,8 +6,6 @@ mftApp.factory('UserAuth', ['$cookieStore', '$resource', function($cookieStore, 
 	var getUserInfo = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/UserAuth', {}, 
 		{ post: {method: 'POST', 
 		transformRequest:function(data, headersGetter){
-			console.log(data);
-			console.log(headersGetter);
 			var result = JSON.stringify(data);
 			console.log("Result:" + result);             
 		}}, 

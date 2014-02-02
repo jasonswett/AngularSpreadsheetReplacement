@@ -1,9 +1,14 @@
 
     <div class="contentWrap row-fluid" ng-controller="FeedShowCtrl">
       <div class="mainWrap clearfix">
+		<ol class="breadcrumb">
+		  <li><a href="index.html#/">Home</a></li>
+		  <li>/&nbsp<a href="index.html#/feeds/{{params.id}}">Feed Details</a></li>
+		  <li class="active">/ Change Log</li>
+		 </ol>
         <div class="page-header">
           <h1>Change Log - Feed ID: {{singleFeed.ID}}</h1>
-          <p class="lead">Active (Y/N)?: <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
+          <p class="lead">Active (Y/N)?: <span class="{{singleFeed.IS_ACTIVE}}">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">

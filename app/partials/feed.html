@@ -1,9 +1,13 @@
 
     <div class="contentWrap row-fluid">
       <div class="mainWrap clearfix">
+		<ol class="breadcrumb">
+		  <li><a href="index.html#/">Home</a></li>
+		  <li class="active">/ Feed Details</li>
+		 </ol>
         <div class="page-header">
           <h1>Feed ID: {{singleFeed.ID}}</h1>
-          <p class="lead">Active (Y/N)? <span class="text-success">{{singleFeed.IS_ACTIVE}}</span></p>
+          <p class="lead">Active (Y/N)? <span class="{{singleFeed.IS_ACTIVE}}">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
