@@ -2,8 +2,8 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuth',
-	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserAuth) {
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth',
+	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
@@ -15,7 +15,7 @@
 		if ($scope.loginForm.$valid) {
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		/*UserAuth.post({userName:$scope.user.email, password:$scope.user.password}, 
+		UserIndex.post({userName:$scope.user.email, password:$scope.user.password}, 
 		$scope.user, 
 		function() {
 			UserAuth.get(function(){
@@ -25,7 +25,7 @@
 		},
 		function() {
 			console.log("error");	
-		});*/
+		});
 		$scope.loginForm.$setPristine();
 		}
 
