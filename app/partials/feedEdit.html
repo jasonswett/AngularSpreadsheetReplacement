@@ -43,7 +43,11 @@
                     In/Out:
                   </div>
                   <div class="detailRight">
-                    <input type="text" name="inOut" ng-model="singleFeed.TD_IN_OUT" ng-maxlength="1"> 	
+                    <select type="text" name="inOut" ng-model="singleFeed.TD_IN_OUT" ng-maxlength="1"> 
+						<option></option>
+						<option>I</option>
+						<option>O</option>
+					</select>	
                   </div>
                 </div>
 					<div ng-show="feedForm.interfaceType.$error.maxlength" class="alert alert-error">
@@ -747,3 +751,4 @@
         </div>
       </div>
     </div>
+{{singleFeed}}

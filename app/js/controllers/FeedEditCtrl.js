@@ -21,6 +21,9 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$rootScope', '$resource', 'SingleF
 				console.log("updated");
 					//Post new data to Events Table
 					SingleFeed.get({id: $routeParams.id}, function(results){
+						$scope.eventData = {};
+						$scope.eventData.InOut = results.TD_IN_OUT;
+						console.log($scope.eventData);
 						Event.post({DATA:results, id:$routeParams.id}, 
 							results, 
 							function() {

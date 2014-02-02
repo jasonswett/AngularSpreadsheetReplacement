@@ -12,9 +12,10 @@
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
-		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
-		UserAuth.post({userName:$scope.user.email, password:$scope.user.password}, 
+			UserAuth.setCredentials($scope.user.email, $scope.user.password);
+			
+		/*UserAuth.post({userName:$scope.user.email, password:$scope.user.password}, 
 		$scope.user, 
 		function() {
 			UserAuth.get(function(){
@@ -24,7 +25,7 @@
 		},
 		function() {
 			console.log("error");	
-		});
+		});*/
 		$scope.loginForm.$setPristine();
 		}
 
