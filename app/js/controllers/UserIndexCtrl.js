@@ -9,26 +9,27 @@
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
 	$cookies.loggedIn = $scope.loggedIn;
-	UserAuth.clearCredentials();
+	//UserAuth.clearCredentials();
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
+		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
 			$rootScope.user.email = $scope.user.email;
 			$rootScope.user.password = $scope.user.password;
-			$rootScope.auth = UserAuth.setCredentials($scope.user.email, $scope.user.password);
+			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		UserIndex.get({}, 
-		$scope.user, 
-		function() {
-			$rootScope.loggedIn = true;
+		UserIndex.get(function() {
+			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
+			$location.path('/');
 			console.log("Authenticating");
 		},
 		function() {
+			$scope.invalidLogin = true;
+			$scope.loginError = "Invalid Email/Password";
 			console.log("error");	
 		});
-		$scope.loginForm.$setPristine();
 		}
 
 		/*if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
@@ -45,6 +46,9 @@
 	};
 	//Logout Function
 	$scope.logout = function() {
+		UserAuth.clearCredentials();
+		$location.path('/login');
+		
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;

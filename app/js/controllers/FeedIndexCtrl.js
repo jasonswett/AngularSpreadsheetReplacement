@@ -9,7 +9,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.feedList = [];
-	if ($rootScope.loggedIn) {
+
 	Feed.query(function(res) {
 		$scope.keepGoing = false;
 		var listOfFeeds = [];
@@ -75,6 +75,5 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	function() {
 		console.log("error");
 	});
-  }
   }
 ]);

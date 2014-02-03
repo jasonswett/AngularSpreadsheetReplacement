@@ -42,7 +42,7 @@
 </head>
 <body>
 <!--Login Page-->
-    <div class="loginWrap row-fluid blue" ng-hide="loggedIn">
+    <!--<div class="loginWrap row-fluid blue" ng-hide="loggedIn">
       <div class="span12">
         <img class="logo" src="img/disney-logo-large.png" alt="Disney" />
         <form name="loginForm" class="login" novalidate>
@@ -69,7 +69,7 @@
           </div>
         </form>
       </div>
-    </div>
+    </div>-->
 <!--/Login Page-->
 
 <!--Begin Main Feeds Page-->
@@ -80,7 +80,7 @@
           <div class="userControls pull-right">
             Logged in as 
  			<a href="#" ng-click="do(); $event.preventDefault()">{{user.email}}</a>
-			<a href="index.html#/" class="btn btn-inverse btn-mini" ng-click="logout()">Logout</a>
+			<a class="btn btn-inverse btn-mini" ng-click="logout()">Logout</a>
           </div>
           <a class="logo" href="main.html"><img src="img/disney-logo-large.png" alt="Disney" /></a>
 		</div>
@@ -96,8 +96,9 @@
         </ul>
       </div>
     </div>
+</div>
   <!--Load Partial Views-->
   <div ng-view></div>
-</div>
+
 </body>
 </html>

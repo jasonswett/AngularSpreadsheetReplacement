@@ -48,15 +48,15 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/monitoring', {templateUrl: 'partials/monitoring.html', controller: 'MyCtrl1'});
   
 //All other URLs
-  $routeProvider.otherwise({redirectTo: '/'});
+  $routeProvider.otherwise({redirectTo: '/login'});
 }])
 
 //Run on route change to make sure user is logged in
-/*.run( function($rootScope, $location) {
+.run( function($rootScope, $location) {
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
       if ( $rootScope.user.loggedIn == false ) {
-        $location.path("/");
+        $location.path("/login");
       }         
     });
-});*/
+});
