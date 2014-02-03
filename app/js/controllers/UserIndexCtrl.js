@@ -9,13 +9,14 @@
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
 	$cookies.loggedIn = $scope.loggedIn;
+	UserAuth.clearCredentials();
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
 		if ($scope.loginForm.$valid) {
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		UserIndex.post({userName:$scope.user.email, password:$scope.user.password}, 
+		UserIndex.get({userName:$scope.user.email, password:$scope.user.password}, 
 		$scope.user, 
 		function() {
 			UserIndex.get(function(){

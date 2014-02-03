@@ -19,6 +19,9 @@ var mftApp = angular.module('mftApp', [
 ])
 
 .config(['$routeProvider', function($routeProvider) {
+	
+//Login Page
+  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
