@@ -14,11 +14,14 @@
 	$scope.login = function() {
 		$scope.loginAttempt = true;
 		if ($scope.loginForm.$valid) {
-			UserAuth.setCredentials($scope.user.email, $scope.user.password);
+			$rootScope.user.email = $scope.user.email;
+			$rootScope.user.password = $scope.user.password;
+			$rootScope.auth = UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
 		UserIndex.get({}, 
 		$scope.user, 
 		function() {
+			$rootScope.loggedIn = true;
 			$scope.loggedIn = true;
 			console.log("Authenticating");
 		},

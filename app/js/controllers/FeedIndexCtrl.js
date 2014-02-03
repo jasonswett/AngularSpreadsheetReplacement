@@ -2,14 +2,14 @@
 
 /* Query For Feeds Controller */
 
-mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter',  
-  function($scope, $resource, Feed, $routeParams, $route, $location, $filter) {
+mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter', '$rootScope',  
+  function($scope, $resource, Feed, $routeParams, $route, $location, $filter, $rootScope) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
 	$scope.params = $routeParams;
 	$scope.feedList = [];
-	if ($scope.loggedIn) {
+	if ($rootScope.loggedIn) {
 	Feed.query(function(res) {
 		$scope.keepGoing = false;
 		var listOfFeeds = [];
@@ -75,6 +75,6 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	function() {
 		console.log("error");
 	});
-    }
+  }
   }
 ]);

@@ -2,7 +2,8 @@
 
 /* Encode User/Pass into Authorization Header */
 
-mftApp.factory('UserAuth', ['Base64', '$cookieStore', '$resource', '$http', function(Base64, $cookieStore, $resource, $http) {
+mftApp.factory('UserAuth', ['Base64', '$cookieStore', '$resource', '$http',
+  function(Base64, $cookieStore, $resource, $http) {
 	// initialize to whatever is in the cookie, if anything
     $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
     return {
