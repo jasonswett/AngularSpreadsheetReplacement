@@ -24,7 +24,7 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
-  $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
+  $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'UserIndexCtrl'});
 
 //Feeds
   $routeProvider.when('/new', {templateUrl: 'partials/feedNew.html', controller: 'FeedNewCtrl'});

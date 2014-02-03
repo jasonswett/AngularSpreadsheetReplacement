@@ -16,12 +16,10 @@
 		if ($scope.loginForm.$valid) {
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		UserIndex.get({userName:$scope.user.email, password:$scope.user.password}, 
+		UserIndex.get({}, 
 		$scope.user, 
 		function() {
-			UserIndex.get(function(){
-				$scope.loggedIn = true;
-			});
+			$scope.loggedIn = true;
 			console.log("Authenticating");
 		},
 		function() {
