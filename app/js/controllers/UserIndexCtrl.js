@@ -7,8 +7,7 @@
 	console.log($rootScope.loggedIn);
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
-	$scope.credentials = UserAuth.getCredentials();
-	console.log($scope.credentials);
+	
 	/*UserIndex.get(function() {
 		UserAuth.getCredentials();
 		$rootScope.loggedIn = true;

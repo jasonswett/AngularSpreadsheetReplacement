@@ -55,8 +55,8 @@ var mftApp = angular.module('mftApp', [
 //Run on route change to make sure user is logged in
 .run( function($rootScope, $location) {
     // register listener to watch route changes
-    $rootScope.$on( "$routeChangeSuccess", function(event, current, previous) {
-	console.log("app.js")
+    $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+	console.log("app.js");
       if ( !$rootScope.loggedIn ) {
         $location.path("/login");
       }         
