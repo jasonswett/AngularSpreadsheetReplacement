@@ -11,8 +11,8 @@
 	
 	//Login Function
 	$scope.login = function() {
-		$scope.sessionID = $cookieStore.get('ssnid');
-		console.log($scope.sessionID);
+		//$scope.sessionID = $cookieStore.get('ssnid');
+		//console.log($scope.sessionID);
 		
 		$scope.loginAttempt = true;
 		$scope.loginForm.$setPristine();

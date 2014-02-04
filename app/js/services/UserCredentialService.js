@@ -14,8 +14,8 @@ mftApp.factory('UserAuth', ['Base64', '$cookies', '$cookieStore', '$resource', '
             $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
             $cookieStore.put('authdata', encoded);
 			console.log($http.defaults.headers.common);
-			var sessionID = $cookieStore.get('ssnid');
-			console.log(sessionID);
+			//var sessionID = $cookieStore.get('ssnid');
+			//console.log(sessionID);
 			//var session = $cookies.ssnid;
 			//console.log(session);
         },
