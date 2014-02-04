@@ -34,7 +34,6 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		function() {
 			$scope.submitted = false;
 		    Comment.get();
-			});
 			$scope.commentList.COMMENT_FEED = "";
 			$scope.postCommentSuccess = true;
 		},
