@@ -7,7 +7,7 @@
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	//$scope.loggedIn = false;
-	
+	//$rootScope.loggedIn = false;
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;

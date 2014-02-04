@@ -66,7 +66,7 @@ var mftApp = angular.module('mftApp', [
 				$rootScope.loggedIn = false;
 			}
 		}
-      if ( $rootScope.loggedIn == false ) {
+      if ( !$rootScope.loggedIn ) {
         $location.path("/login");
       }         
     });
