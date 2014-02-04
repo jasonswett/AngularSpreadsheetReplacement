@@ -5,7 +5,7 @@
 mftApp.factory('UserAuth', ['Base64', '$cookieStore', '$resource', '$http',
   function(Base64, $cookieStore, $resource, $http) {
 	// initialize to whatever is in the cookie, if anything
-    $http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
+    //$http.defaults.headers.common['Authorization'] = 'Basic ' + $cookieStore.get('authdata');
     return {
         setCredentials: function (username, password) {
             var encoded = Base64.encode(username + ':' + password);
@@ -16,6 +16,7 @@ mftApp.factory('UserAuth', ['Base64', '$cookieStore', '$resource', '$http',
         clearCredentials: function () {
             document.execCommand("ClearAuthenticationCache");
             $cookieStore.remove('authdata');
+			$cookieStore.remove('ssnid');
             $http.defaults.headers.common.Authorization = 'Basic ';
         }
     };

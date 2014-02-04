@@ -8,7 +8,9 @@
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
-	UserAuth.clearCredentials();
+	$scope.sessionID = $cookieStore.get('ssnid');
+	console.log($scope.sessionID);
+
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
@@ -18,8 +20,10 @@
 			$rootScope.user.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		UserIndex.get(function(res, getResponseHeaders) {
-			console.log(getResponseHeaders);
+			$rootScope.user.loggedIn = true;
+			$scope.loggedIn = true;
+			$location.path('/');
+		/*UserIndex.get(function() {
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
 			$location.path('/');
@@ -29,7 +33,7 @@
 			$scope.invalidLogin = true;
 			$scope.loginError = "Invalid Email/Password";
 			console.log("error");	
-		});
+		});*/
 		}
 
 		/*if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
@@ -52,7 +56,7 @@
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;
-		$scope.loginForm.$setDirty();
+		//$scope.loginForm.$setDirty();
 		$rootScope.editFeedSuccess = false;
 	}
   }]);
