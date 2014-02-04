@@ -10,6 +10,10 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams
 	$scope.params = $routeParams;
 	$scope.feedList = [];
 
+	$rootScope.validSessionID = $cookieStore.get('authData');
+	console.log($cookieStore.get('authData'));
+	console.log($rootScope.validSessionID);
+
 	Feed.query(function(res) {
 		$scope.keepGoing = false;
 		var listOfFeeds = [];

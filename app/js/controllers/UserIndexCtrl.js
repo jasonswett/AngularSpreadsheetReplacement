@@ -28,8 +28,6 @@
 			$rootScope.email = $scope.user.email;
 			$rootScope.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
-			$rootScope.validSessionID = $cookieStore.get('authData');
-			console.log($cookieStore.get('authData'));
 		UserIndex.get(function() {
 			$rootScope.loggedIn = true;
 			//$scope.loggedIn = true;
