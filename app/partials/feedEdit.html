@@ -58,7 +58,13 @@
                     Interface Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="interfaceType" ng-model="singleFeed.TD_INTERF_TYPE" ng-maxlength="6">
+					<select name="interfaceType" ng-model="singleFeed.TD_INTERF_TYPE" ng-maxlength="6">
+						<option></option>
+						<option>EDI</option>
+						<option>FI</option>
+						<option>HI</option>
+						<option>HR</option>
+					</select>
                   </div>
                 </div>
 					<div ng-show="feedForm.interfaceName.$error.maxlength" class="alert alert-error">
@@ -69,7 +75,7 @@
                     Interface Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="interfaceName" ng-model="singleFeed.INTERFACE_NAME" ng-maxlength="54">
+					<input type="text" name="interfaceName" ng-model="singleFeed.INTERFACE_NAME" ng-maxlength="54" placeholder="Interface Name">
                   </div>
                 </div>
 				<div ng-show="feedForm.wmInterface.$error.maxlength" class="alert alert-error">
@@ -80,7 +86,11 @@
                     wM Interface:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="wmInterface" ng-model="singleFeed.IS_WM_INTERFACE" ng-maxlength="1">
+					<select name="wmInterface" ng-model="singleFeed.IS_WM_INTERFACE" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.active.$error.maxlength" class="alert alert-error">
@@ -88,10 +98,14 @@
 	        	</div>
                 <div class="feedDetailRow">
                   <div class="detailLeft">
-                    Active (Y/N):
+                    Active:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="active" ng-model="singleFeed.IS_ACTIVE" ng-maxlength="7">
+					<select name="active" ng-model="singleFeed.IS_ACTIVE" ng-maxlength="7">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.pci.$error.maxlength" class="alert alert-error">
@@ -102,7 +116,11 @@
                     PCI:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="pci" ng-model="singleFeed.PCI" ng-maxlength="2">
+					<select name="pci" ng-model="singleFeed.PCI" ng-maxlength="2">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.isPII.$error.maxlength" class="alert alert-error">
@@ -113,7 +131,11 @@
                     PII III?:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="isPII" ng-model="singleFeed.IS_PII_III" ng-maxlength="2">
+					<select name="isPII" ng-model="singleFeed.IS_PII_III" ng-maxlength="2">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.pii.$error.maxlength" class="alert alert-error">
@@ -124,7 +146,7 @@
                     PII III Specific Data:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="pii" ng-model="singleFeed.PII_III_SPECIFIC_DATA" ng-maxlength="43">
+					<input type="text" name="pii" ng-model="singleFeed.PII_III_SPECIFIC_DATA" ng-maxlength="43" placeholder="PII III Specific Data">
                   </div>
                 </div>
 				<div ng-show="feedForm.safeHarbor.$error.maxlength" class="alert alert-error">
@@ -135,7 +157,11 @@
                     Safe Harbor:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="safeHarbor" ng-model="singleFeed.IS_SAFE_HARBOR" ng-maxlength="2">
+					<select name="safeHarbor" ng-model="singleFeed.IS_SAFE_HARBOR" ng-maxlength="2">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.safeHarborSpecific.$error.maxlength" class="alert alert-error">
@@ -146,7 +172,7 @@
                     Safe Harbor Specific Data:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="safeHarborSpecific" ng-model="singleFeed.SAFE_HARBOR_SPECIFIC_DATA" ng-maxlength="43">
+					<input type="text" name="safeHarborSpecific" ng-model="singleFeed.SAFE_HARBOR_SPECIFIC_DATA" ng-maxlength="43" placeholder="Safe Harbor Specific Data">
                   </div>
                 </div>
 				<div ng-show="feedForm.interfaceDataClass.$error.maxlength" class="alert alert-error">
@@ -157,7 +183,7 @@
                     Interface Data Classification:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="interfaceDataClass" ng-model="singleFeed.INTERFACE_DATA_CLASSIF" ng-maxlength="37">
+					<input type="text" name="interfaceDataClass" ng-model="singleFeed.INTERFACE_DATA_CLASSIF" ng-maxlength="37" placeholder="Interface Data Classification">
                   </div>
                 </div>
 				<div ng-show="feedForm.dataClass.$error.maxlength" class="alert alert-error">
@@ -168,7 +194,7 @@
                     Data Classification:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="dataClass" ng-model="singleFeed.DATA_CLASSIF" ng-maxlength="8">
+					<input type="text" name="dataClass" ng-model="singleFeed.DATA_CLASSIF" ng-maxlength="8" placeholder="Data Classification">
                   </div>
                 </div>
 				<div ng-show="feedForm.toOrFrom.$error.maxlength" class="alert alert-error">
@@ -179,7 +205,11 @@
                     To or From Safe Harbor Location:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="toOrFrom" ng-model="singleFeed.IS_TO_OR_FROM_SAFE_HARBOR" ng-maxlength="2">
+					<select name="toOrFrom" ng-model="singleFeed.IS_TO_OR_FROM_SAFE_HARBOR" ng-maxlength="2">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.meetsWhich.$error.maxlength" class="alert alert-error">
@@ -190,7 +220,7 @@
                     Meets Which Policies and Standards:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="meetsWhich" ng-model="singleFeed.MEETS_WHICH_POLICIES" ng-maxlength="4">
+					<input type="text" name="meetsWhich" ng-model="singleFeed.MEETS_WHICH_POLICIES" ng-maxlength="4" placeholder="Meets Which Policies and Standards">
                   </div>
                 </div>
 				<div ng-show="feedForm.hasPolicy.$error.maxlength" class="alert alert-error">
@@ -201,7 +231,11 @@
                     Has Policy or Standards Issue:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="hasPolicy" ng-model="singleFeed.HAS_POLICY_OR_STANDARDS_ISSUE" ng-maxlength="2">
+					<select name="hasPolicy" ng-model="singleFeed.HAS_POLICY_OR_STANDARDS_ISSUE" ng-maxlength="2">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.securityException.$error.maxlength" class="alert alert-error">
@@ -212,7 +246,7 @@
                     Security Exception ID:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="securityException" ng-model="singleFeed.SECURITY_EXCEPTION_ID" ng-maxlength="2">
+					<input type="text" name="securityException" ng-model="singleFeed.SECURITY_EXCEPTION_ID" ng-maxlength="2" placeholder="Security Exception ID">
                   </div>
                 </div>
 				<div ng-show="feedForm.group.$error.maxlength" class="alert alert-error">
@@ -223,26 +257,33 @@
                     Group:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="group" ng-model="singleFeed.GROUP_" ng-maxlength="22">
+					<input type="text" name="group" ng-model="singleFeed.GROUP_" ng-maxlength="22" placeholder="Group">
+                  </div>
+                </div>
+				<div ng-show="feedForm.lastDateAudited.$error.maxlength" class="alert alert-error">
+	          		<strong>Maximum 1 Character.</strong> 
+	        	</div>
+                <div class="feedDetailRow">
+                  <div class="detailLeft">
+                    Last Date Audited:
+                  </div>
+                  <div class="detailRight">
+					<input type="text" name="lastDateAudited" ng-model="singleFeed.LAST_DATE_AUDITED" ng-maxlength="1" placeholder="Last Date Audited">
                   </div>
                 </div>
 				<div ng-show="feedForm.encryptionNeeded.$error.maxlength" class="alert alert-error">
 	          		<strong>Maximum 1 Character.</strong> 
 	        	</div>
-                <!--<div class="feedDetailRow">
-                  <div class="detailLeft">
-                    Last Date Audited:
-                  </div>
-                  <div class="detailRight">
-					<input type="text" name="lastDateAudited" ng-model="singleFeed.LAST_DATE_AUDITED">
-                  </div>
-                </div>-->
                 <div class="feedDetailRow">
                   <div class="detailLeft">
                     Encryption Needed:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="encryptionNeeded" ng-model="singleFeed.IS_ENCRYPTION_NEEDED" ng-maxlength="1">
+					<select name="encryptionNeeded" ng-model="singleFeed.IS_ENCRYPTION_NEEDED" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.fileNameWritten.$error.maxlength" class="alert alert-error">
@@ -250,10 +291,10 @@
 	        	</div>
                 <div class="feedDetailRow">
                   <div class="detailLeft">
-                    File Name Written to Shuttle:
+                    File Name Written To Shuttle:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="fileNameWritten" ng-model="singleFeed.FILE_NAME_WRITTEN_TO_SHUTTLE" ng-maxlength="283">
+					<input type="text" name="fileNameWritten" ng-model="singleFeed.FILE_NAME_WRITTEN_TO_SHUTTLE" ng-maxlength="283" placeholder="File Name Written To Shuttle">
                   </div>
                 </div>
 				<div ng-show="feedForm.ilFile.$error.maxlength" class="alert alert-error">
@@ -264,7 +305,7 @@
                     IL File Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="ilFile" ng-model="singleFeed.IL_FILE_NAME" ng-maxlength="116">
+					<input type="text" name="ilFile" ng-model="singleFeed.IL_FILE_NAME" ng-maxlength="116" placeholder="IL File Name">
                   </div>
                 </div>
 				<div ng-show="feedForm.acknowledgementIL.$error.maxlength" class="alert alert-error">
@@ -275,7 +316,7 @@
                     Acknowledgement IL File Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="acknowledgementIL" ng-model="singleFeed.ACKNOWLEDGEMENT_IL_FILE_NAME" ng-maxlength="39">
+					<input type="text" name="acknowledgementIL" ng-model="singleFeed.ACKNOWLEDGEMENT_IL_FILE_NAME" ng-maxlength="39" placeholder="Acknowledgement IL File Name">
                   </div>
                 </div>
 				<div ng-show="feedForm.istrategy.$error.maxlength" class="alert alert-error">
@@ -286,7 +327,7 @@
                     Istrategy:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="istrategy" ng-model="singleFeed.ISTRATEGY" ng-maxlength="51">
+					<input type="text" name="istrategy" ng-model="singleFeed.ISTRATEGY" ng-maxlength="51" placeholder="Istrategy">
                   </div>
                 </div>
 				<div ng-show="feedForm.eartEntry.$error.maxlength" class="alert alert-error">
@@ -297,7 +338,11 @@
                     EART Entry:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="eartEntry" ng-model="singleFeed.EART_ENTRY" ng-maxlength="3">
+					<select name="eartEntry" ng-model="singleFeed.EART_ENTRY" ng-maxlength="3">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.interfaceDescription.$error.maxlength" class="alert alert-error">
@@ -308,7 +353,7 @@
                     Interface Description:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="interfaceDescription" ng-model="singleFeed.INTERFACE_DESCRIPTION" ng-maxlength="183">
+					<input type="text" name="interfaceDescription" ng-model="singleFeed.INTERFACE_DESCRIPTION" ng-maxlength="183" placeholder="Interface Description">
                   </div>
                 </div>
 				<div ng-show="feedForm.feedDescription.$error.maxlength" class="alert alert-error">
@@ -319,7 +364,7 @@
                     Feed Description:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="feedDescription" ng-model="singleFeed.FEED_DESCRIPTION" ng-maxlength="536">
+					<input type="text" name="feedDescription" ng-model="singleFeed.FEED_DESCRIPTION" ng-maxlength="536" placeholder="Feed Description">
                   </div>
                 </div>
 				<div ng-show="feedForm.buSegment.$error.maxlength" class="alert alert-error">
@@ -330,7 +375,7 @@
                     BU, Segment, Entity:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="buSegment" ng-model="singleFeed.BU_SEGMENT_ENTITY" ng-maxlength="142">
+					<input type="text" name="buSegment" ng-model="singleFeed.BU_SEGMENT_ENTITY" ng-maxlength="142" placeholder="BU, Segment, Entity">
                   </div>
                 </div>
 				<div ng-show="feedForm.implementationPattern.$error.maxlength" class="alert alert-error">
@@ -341,7 +386,7 @@
                     Implementation Pattern: 
                   </div>
                   <div class="detailRight">
-					<input type="text" name="implementationPattern" ng-model="singleFeed.IMPLEMENTATION_PATTERN" ng-maxlength="84">
+					<input type="text" name="implementationPattern" ng-model="singleFeed.IMPLEMENTATION_PATTERN" ng-maxlength="84" placeholder="Implementation Pattern">
                   </div>
                 </div>
 				<div ng-show="feedForm.sourceApplication.$error.maxlength" class="alert alert-error">
@@ -352,7 +397,7 @@
                     Source Application Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="sourceApplication" ng-model="singleFeed.SOURCE_APPLICATION_NAME" ng-maxlength="108">
+					<input type="text" name="sourceApplication" ng-model="singleFeed.SOURCE_APPLICATION_NAME" ng-maxlength="108" placeholder="Source Application Name">
                   </div>
                 </div>
 				<div ng-show="feedForm.sourceData.$error.maxlength" class="alert alert-error">
@@ -363,7 +408,7 @@
                     Source Data Format:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="sourceData" ng-model="singleFeed.SOURCE_DATA_FORMAT" ng-maxlength="97">
+					<input type="text" name="sourceData" ng-model="singleFeed.SOURCE_DATA_FORMAT" ng-maxlength="97" placeholder="Source Data Format">
                   </div>
                 </div>
 				<div ng-show="feedForm.sourceLocation.$error.maxlength" class="alert alert-error">
@@ -374,7 +419,7 @@
                     Source Location:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="sourceLocation" ng-model="singleFeed.SOURCE_LOCATION" ng-maxlength="17">
+					<input type="text" name="sourceLocation" ng-model="singleFeed.SOURCE_LOCATION" ng-maxlength="17" placeholder="Source Location">
                   </div>
                 </div>
               </div>
@@ -387,7 +432,7 @@
                     Target Application Name:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="targetApplication" ng-model="singleFeed.TARGET_APPLICATION_NAME" ng-maxlength="52">
+					<input type="text" name="targetApplication" ng-model="singleFeed.TARGET_APPLICATION_NAME" ng-maxlength="52" placeholder="Target Application Name">
                   </div>
                 </div>
 				<div ng-show="feedForm.targetData.$error.maxlength" class="alert alert-error">
@@ -398,7 +443,7 @@
                     Target Data Format:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="targetData" ng-model="singleFeed.TARGET_DATA_FORMAT" ng-maxlength="35">
+					<input type="text" name="targetData" ng-model="singleFeed.TARGET_DATA_FORMAT" ng-maxlength="35" placeholder="Target Data Format">
                   </div>
                 </div>  
 				<div ng-show="feedForm.targetLocation.$error.maxlength" class="alert alert-error">
@@ -409,7 +454,7 @@
                     Target Location:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="targetLocation" ng-model="singleFeed.TARGET_LOCATION" ng-maxlength="17">
+					<input type="text" name="targetLocation" ng-model="singleFeed.TARGET_LOCATION" ng-maxlength="17" placeholder="Target Location">
                   </div>
                 </div>
 				<div ng-show="feedForm.a2a.$error.maxlength" class="alert alert-error">
@@ -420,7 +465,11 @@
                     A2A or B2B:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="a2a" ng-model="singleFeed.A2A_OR_B2B" ng-maxlength="11">
+					<select name="a2a" ng-model="singleFeed.A2A_OR_B2B" ng-maxlength="11">
+						<option></option>
+						<option>A2A</option>
+						<option>B2B</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.messageType.$error.maxlength" class="alert alert-error">
@@ -431,7 +480,7 @@
                     Message Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="messageType" ng-model="singleFeed.MESSAGE_TYPE_" ng-maxlength="893">
+					<input type="text" name="messageType" ng-model="singleFeed.MESSAGE_TYPE_" ng-maxlength="893" placeholder="Message Type">
                   </div>
                 </div>
 				<div ng-show="feedForm.idocType.$error.maxlength" class="alert alert-error">
@@ -442,7 +491,7 @@
                     IDoc Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="idocType" ng-model="singleFeed.IDOC_TYPE" ng-maxlength="27">
+					<input type="text" name="idocType" ng-model="singleFeed.IDOC_TYPE" ng-maxlength="27" placeholder="IDoc Type">
                   </div>
                 </div>
 				<div ng-show="feedForm.idocExtension.$error.maxlength" class="alert alert-error">
@@ -453,7 +502,7 @@
                     IDoc Extension:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="idocExtension" ng-model="singleFeed.IDOC_EXTENSION" ng-maxlength="10">
+					<input type="text" name="idocExtension" ng-model="singleFeed.IDOC_EXTENSION" ng-maxlength="10" placeholder="IDoc Extension">
                   </div>
                 </div>
 				<div ng-show="feedForm.transformationComplexity.$error.maxlength" class="alert alert-error">
@@ -464,7 +513,12 @@
                     Transformation Complexity:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="transformationComplexity" ng-model="singleFeed.TRANSFORMATION_COMPLEXITY" ng-maxlength="6">
+					<select name="transformationComplexity" ng-model="singleFeed.TRANSFORMATION_COMPLEXITY" ng-maxlength="6">
+						<option></option>
+						<option>Low</option>
+						<option>Medium</option>
+						<option>High</option>
+					</select>	
                   </div>
                 </div>
 				<div ng-show="feedForm.transactionsPer.$error.maxlength" class="alert alert-error">
@@ -475,7 +529,7 @@
                     Transactions Per:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="transactionsPer" ng-model="singleFeed.TRANSACTIONS_PER" ng-maxlength="38">
+					<input type="text" name="transactionsPer" ng-model="singleFeed.TRANSACTIONS_PER" ng-maxlength="38" placeholder="Transactions Per">
                   </div>
                 </div>
 				<div ng-show="feedForm.transferType.$error.maxlength" class="alert alert-error">
@@ -486,7 +540,11 @@
                     Transfer Type:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="transferType" ng-model="singleFeed.TRANSFER_TYPE" ng-maxlength="9">
+					<select name="transferType" ng-model="singleFeed.TRANSFER_TYPE" ng-maxlength="9">
+						<option></option>
+						<option>Batch</option>
+						<option>Real Time</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.sftp.$error.maxlength" class="alert alert-error">
@@ -497,7 +555,11 @@
                     SFTP:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="sftp" ng-model="singleFeed.SFTP" ng-maxlength="1">
+					<select name="sftp" ng-model="singleFeed.SFTP" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.ftp.$error.maxlength" class="alert alert-error">
@@ -508,7 +570,11 @@
                     FTP:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="ftp" ng-model="singleFeed.FTP" ng-maxlength="1">
+					<select name="ftp" ng-model="singleFeed.FTP" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.http.$error.maxlength" class="alert alert-error">
@@ -519,7 +585,11 @@
                     HTTP:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="http" ng-model="singleFeed.HTTP" ng-maxlength="1">
+					<select name="http" ng-model="singleFeed.HTTP" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.https.$error.maxlength" class="alert alert-error">
@@ -530,7 +600,11 @@
                     HTTPS:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="https" ng-model="singleFeed.HTTPS" ng-maxlength="1">
+					<select name="https" ng-model="singleFeed.HTTPS" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.sapAle.$error.maxlength" class="alert alert-error">
@@ -541,7 +615,11 @@
                     SAP ALE API:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="sapAle" ng-model="singleFeed.SAP_ALE_API" ng-maxlength="1">
+					<select name="sapAle" ng-model="singleFeed.SAP_ALE_API" ng-maxlength="1">
+						<option></option>
+						<option>Y</option>
+						<option>N</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.deliveryMechanism.$error.maxlength" class="alert alert-error">
@@ -552,7 +630,7 @@
                     Delivery Mechanism:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="deliveryMechanism" ng-model="singleFeed.DELIVERY_MECHANISM" ng-maxlength="54">
+					<input type="text" name="deliveryMechanism" ng-model="singleFeed.DELIVERY_MECHANISM" ng-maxlength="54" placeholder="Delivery Mechanism">
                   </div>
                 </div>
 				<div ng-show="feedForm.maxMessage.$error.maxlength" class="alert alert-error">
@@ -563,7 +641,7 @@
                     Maximum Message Size:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="maxMessage" ng-model="singleFeed.MAXIMUM_MESSAGE_SIZE" ng-maxlength="83">
+					<input type="text" name="maxMessage" ng-model="singleFeed.MAXIMUM_MESSAGE_SIZE" ng-maxlength="83" placeholder="Maximum Message Size">
                   </div>
                 </div>
 				<div ng-show="feedForm.peakMessage.$error.maxlength" class="alert alert-error">
@@ -574,7 +652,7 @@
                     Peak Message Volume:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="peakMessage" ng-model="singleFeed.PEAK_MESSAGE_VOLUME" ng-maxlength="165">
+					<input type="text" name="peakMessage" ng-model="singleFeed.PEAK_MESSAGE_VOLUME" ng-maxlength="165" placeholder="Peak Message Volume">
                   </div>
                 </div>
 				<div ng-show="feedForm.frequency.$error.maxlength" class="alert alert-error">
@@ -585,7 +663,18 @@
                     Frequency:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="frequency" ng-model="singleFeed.FREQUENCY" ng-maxlength="11">
+					<select name="frequency" ng-model="singleFeed.FREQUENCY" ng-maxlength="11">
+						<option></option>
+						<option>Ad Hoc</option>
+						<option>Hourly</option>
+						<option>Daily</option>
+						<option>Bi-Weekly</option>
+						<option>2 Weeks</option>
+						<option>Monthly</option>
+						<option>Quarterly</option>
+						<option>Semi Yearly</option>
+						<option>Yearly</option>
+					</select>
                   </div>
                 </div>
 				<div ng-show="feedForm.transferDeadline.$error.maxlength" class="alert alert-error">
@@ -596,7 +685,7 @@
                     Transfer Deadline:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="transferDeadline" ng-model="singleFeed.TRANSFER_DEADLINE" ng-maxlength="88">
+					<input type="text" name="transferDeadline" ng-model="singleFeed.TRANSFER_DEADLINE" ng-maxlength="88" placeholder="Transfer Deadline">
                   </div>
                 </div>
 				<div ng-show="feedForm.systemContacts.$error.maxlength" class="alert alert-error">
@@ -607,7 +696,7 @@
                     System Contact(s):
                   </div>
                   <div class="detailRight">
-					<input type="text" name="systemContacts" ng-model="singleFeed.SYSTEM_CONTACTS" ng-maxlength="311">
+					<input type="text" name="systemContacts" ng-model="singleFeed.SYSTEM_CONTACTS" ng-maxlength="311" placeholder="System Contact(s)">
                   </div>
                 </div>
 				<div ng-show="feedForm.siteContact.$error.maxlength" class="alert alert-error">
@@ -618,7 +707,7 @@
                     Site Contact:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="siteContact" ng-model="singleFeed.SITE_CONTACT" ng-maxlength="425">
+					<input type="text" name="siteContact" ng-model="singleFeed.SITE_CONTACT" ng-maxlength="425" placeholder="Site Contact">
                   </div>
                 </div>
 				<div ng-show="feedForm.interfaceOwner.$error.maxlength" class="alert alert-error">
@@ -629,7 +718,7 @@
                     Interface Owner:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="interfaceOwner" ng-model="singleFeed.INTERFACE_OWNER" ng-maxlength="103">
+					<input type="text" name="interfaceOwner" ng-model="singleFeed.INTERFACE_OWNER" ng-maxlength="103" placeholder="Interface Owner">
                   </div>
                 </div>
 				<div ng-show="feedForm.outboundServer.$error.maxlength" class="alert alert-error">
@@ -640,7 +729,7 @@
                     Outbound: Server Host:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="outboundServer" ng-model="singleFeed.OUTBOUND_SERVER_HOST" ng-maxlength="236">
+					<input type="text" name="outboundServer" ng-model="singleFeed.OUTBOUND_SERVER_HOST" ng-maxlength="236" placeholder="Outbound: Server Host">
                   </div>
                 </div>
 				<div ng-show="feedForm.outboundResponsible.$error.maxlength" class="alert alert-error">
@@ -651,7 +740,7 @@
                     Outbound: Platform/Responsible Group:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="outboundResponsible" ng-model="singleFeed.OUTBOUND_RESPONSIBLE_GROUP" ng-maxlength="99">
+					<input type="text" name="outboundResponsible" ng-model="singleFeed.OUTBOUND_RESPONSIBLE_GROUP" ng-maxlength="99" placeholder="Outbound: Platform/Responsible Group">
                   </div>
                 </div>
 				<div ng-show="feedForm.ssn.$error.maxlength" class="alert alert-error">
@@ -662,7 +751,7 @@
                     SSN:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="ssn" ng-model="singleFeed.SSN" ng-maxlength="1">
+					<input type="text" name="ssn" ng-model="singleFeed.SSN" ng-maxlength="1" placeholder="SSN">
                   </div>
                 </div>
 				<div ng-show="feedForm.salary.$error.maxlength" class="alert alert-error">
@@ -673,7 +762,7 @@
                     Salary:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="salary" ng-model="singleFeed.SALARY" ng-maxlength="1">
+					<input type="text" name="salary" ng-model="singleFeed.SALARY" ng-maxlength="1" placeholder="Salary">
                   </div>
                 </div>
 				<div ng-show="feedForm.pgp.$error.maxlength" class="alert alert-error">
@@ -684,7 +773,7 @@
                     PGP:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="pgp" ng-model="singleFeed.PGP" ng-maxlength="11">
+					<input type="text" name="pgp" ng-model="singleFeed.PGP" ng-maxlength="11" placeholder="PGP">
                   </div>
                 </div>
 				<div ng-show="feedForm.cyberDoc.$error.maxlength" class="alert alert-error">
@@ -695,7 +784,7 @@
                     Cyber Doc:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="cyberDoc" ng-model="singleFeed.CYBER_DOC" ng-maxlength="1">
+					<input type="text" name="cyberDoc" ng-model="singleFeed.CYBER_DOC" ng-maxlength="1" placeholder="Cyber Doc">
                   </div>
                 </div>
 				<div ng-show="feedForm.status.$error.maxlength" class="alert alert-error">
@@ -706,7 +795,7 @@
                     Status:
                   </div>
                   <div class="detailRight">
-					<input type="text" name="status" ng-model="singleFeed.STATUS" ng-maxlength="1">
+					<input type="text" name="status" ng-model="singleFeed.STATUS" ng-maxlength="1" placeholder="Status">
                   </div>
                 </div>
 				<!--<div class="feedDetailRow">
