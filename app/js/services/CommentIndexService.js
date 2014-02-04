@@ -12,6 +12,6 @@ mftApp.factory('Comment', ['$resource', '$routeParams', function($resource, $rou
 		}}, 
 		get: {method: 'GET', isArray:false}, 
 		update: {method:'PUT'}, 
-		query: {method:'GET', isArray:false}});	
+		query: {method:'GET', isArray:true}});	
 	return getComment;
 }]);
