@@ -16,8 +16,8 @@ mftApp.factory('UserAuth', ['Base64', '$cookies', '$cookieStore', '$resource', '
 			console.log($http.defaults.headers.common);
 			var sessionID = $cookieStore.get('ssnid');
 			console.log(sessionID);
-			var session = $cookies.ssnid;
-			console.log(session);
+			//var session = $cookies.ssnid;
+			//console.log(session);
         },
         clearCredentials: function () {
             document.execCommand("ClearAuthenticationCache");
