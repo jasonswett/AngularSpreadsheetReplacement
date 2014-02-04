@@ -5,11 +5,14 @@
 mftApp.factory('UserIndex', ['$resource', function($resource) {
    	var getUserInfo = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/UserAuth', {}, 
 		{ post: {method: 'POST', 
-		transformRequest:function(data, headersGetter){
+		  transformRequest:function(data, headersGetter){
 			var result = JSON.stringify(data);
 			console.log("Result:" + result);             
 		}}, 
-		get: {method: 'GET'}, 
+		get: {method: 'GET', 
+		  transformResponse:function(data, headersGetter){
+			console.log(headersGetter);             
+		}}, 
 		update: {method:'PUT'}, 
 		query: {method:'GET', isArray:false}});	
 		return getUserInfo;
