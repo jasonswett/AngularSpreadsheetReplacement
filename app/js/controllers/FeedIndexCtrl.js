@@ -2,8 +2,8 @@
 
 /* Query For Feeds Controller */
 
-mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter', '$rootScope',  
-  function($scope, $resource, Feed, $routeParams, $route, $location, $filter, $rootScope) {
+mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', '$routeParams', '$route', '$location', '$filter', '$rootScope', '$cookieStore',  
+  function($scope, $resource, Feed, $routeParams, $route, $location, $filter, $rootScope, $cookieStore) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;

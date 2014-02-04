@@ -11,7 +11,9 @@ mftApp.factory('UserIndex', ['$resource', function($resource) {
 		}}, 
 		get: {method: 'GET', 
 		  transformResponse:function(data, headersGetter){
-			console.log(headersGetter);             
+			var results = JSON.stringify(headersGetter);
+			console.log(headersGetter); 
+			console.log(results);            
 		}}, 
 		update: {method:'PUT'}, 
 		query: {method:'GET', isArray:false}});	
