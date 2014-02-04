@@ -53,7 +53,7 @@ var mftApp = angular.module('mftApp', [
 }])
 
 //Run on route change to make sure user is logged in
-.run( function($rootScope, $location) {
+.run( function($rootScope, $location, $cookieStore) {
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
 	  $rootScope.testSessionID = $cookieStore.get('authData');
