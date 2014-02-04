@@ -8,8 +8,7 @@
 	$scope.loginAttempt = false;
 	$rootScope.user.loggedIn = false;
 	$scope.loggedIn = false;
-	$cookies.loggedIn = $scope.loggedIn;
-	//UserAuth.clearCredentials();
+	UserAuth.clearCredentials();
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
@@ -19,7 +18,8 @@
 			$rootScope.user.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			
-		UserIndex.get(function() {
+		UserIndex.get(function(res, getResponseHeaders) {
+			console.log(getResponseHeaders);
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
 			$location.path('/');

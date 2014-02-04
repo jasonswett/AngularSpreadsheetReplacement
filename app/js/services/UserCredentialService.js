@@ -11,7 +11,7 @@ mftApp.factory('UserAuth', ['Base64', '$cookieStore', '$resource', '$http',
             var encoded = Base64.encode(username + ':' + password);
             $http.defaults.headers.common.Authorization = 'Basic ' + encoded;
             $cookieStore.put('authdata', encoded);
-console.log($http.defaults.headers.common);
+			console.log($http.defaults.headers.common);
         },
         clearCredentials: function () {
             document.execCommand("ClearAuthenticationCache");

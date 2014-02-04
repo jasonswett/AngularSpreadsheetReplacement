@@ -15,6 +15,7 @@ var mftApp = angular.module('mftApp', [
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		$httpProvider.defaults.withCredentials = true;
+		console.log($httpProvider.defaults.headers);
     }
 ])
 
@@ -48,7 +49,7 @@ var mftApp = angular.module('mftApp', [
   $routeProvider.when('/monitoring', {templateUrl: 'partials/monitoring.html', controller: 'MyCtrl1'});
   
 //All other URLs
-  $routeProvider.otherwise({redirectTo: '/login'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }])
 
 //Run on route change to make sure user is logged in
