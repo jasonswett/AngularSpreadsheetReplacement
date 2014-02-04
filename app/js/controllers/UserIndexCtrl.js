@@ -6,14 +6,19 @@
 	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
-	$rootScope.user.loggedIn = false;
+	$rootScope.testSessionID = $cookieStore.get('authData');
+	console.log($rootScope.testSessionID);
+	if ($rootScope.testSessionID == $rootScope.validSessionID) {
+		$rootScope.user.loggedIn = true;
+	}
+	else {
+		$rootScope.user.loggedIn = false;
+	}
+	
 	$scope.loggedIn = false;
 	
 	//Login Function
 	$scope.login = function() {
-		//$scope.sessionID = $cookieStore.get('ssnid');
-		//console.log($scope.sessionID);
-		
 		$scope.loginAttempt = true;
 		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
@@ -25,6 +30,8 @@
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
 			$location.path('/');
+			$rootScope.validSessionID = $cookieStore.get('authData');
+			console.log($rootScope.sessionID);
 			console.log("Authenticating");
 		},
 		function() {
@@ -54,7 +61,6 @@
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
 		$scope.loggedIn = false;
-		//$scope.loginForm.$setDirty();
 		$rootScope.editFeedSuccess = false;
 	}
   }]);
