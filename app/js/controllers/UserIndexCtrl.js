@@ -11,12 +11,14 @@
 	UserIndex.get(function() {
 		UserAuth.getCredentials();
 		$rootScope.loggedIn = true;
+		console.log("initial credential test");
 	},
 	function() {
 		$rootScope.loggedIn = false;
+		console.log("initial credential test failure");
 	});
 	
-	if($rootScope.loggedIn) {
+	/*if($rootScope.loggedIn) {
 		$rootScope.testSessionID = $cookieStore.get('authData');
 		if ($rootScope.testSessionID == $rootScope.validSessionID) {
 			$rootScope.loggedIn = true;
@@ -24,7 +26,7 @@
 		else {
 			$rootScope.loggedIn = false;
 		}
-	}
+	}*/
 	//$scope.loggedIn = false;
 	//$rootScope.loggedIn = false;
 	//Login Function
