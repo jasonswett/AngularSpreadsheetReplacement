@@ -7,8 +7,9 @@
 	console.log($rootScope.loggedIn);
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
-	
-	UserIndex.get(function() {
+	$scope.credentials = UserAuth.getCredentials();
+	console.log($scope.credentials);
+	/*UserIndex.get(function() {
 		UserAuth.getCredentials();
 		$rootScope.loggedIn = true;
 		console.log("initial credential test");
@@ -16,7 +17,7 @@
 	function() {
 		$rootScope.loggedIn = false;
 		console.log("initial credential test failure");
-	});
+	});*/
 	
 	/*if($rootScope.loggedIn) {
 		$rootScope.testSessionID = $cookieStore.get('authData');
