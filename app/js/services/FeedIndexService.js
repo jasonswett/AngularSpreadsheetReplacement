@@ -8,6 +8,6 @@ mftApp.factory('Feed', ['$resource', function($resource) {
 	{ post: {method: 'POST'}, 
 	get: {method: 'GET'}, 
 	update: {method:'PUT'}, 
-	query: {method:'GET', isArray:false}});
+	query: {method:'GET', isArray:false, cache:true}});
 	return getFeed;
 }]);

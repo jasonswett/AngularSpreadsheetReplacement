@@ -8,6 +8,14 @@
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	
+	UserIndex.get(function() {
+		UserAuth.getCredentials();
+		$rootScope.loggedIn = true;
+	},
+	function() {
+		$rootScope.loggedIn = false;
+	});
+	
 	if($rootScope.loggedIn) {
 		$rootScope.testSessionID = $cookieStore.get('authData');
 		if ($rootScope.testSessionID == $rootScope.validSessionID) {

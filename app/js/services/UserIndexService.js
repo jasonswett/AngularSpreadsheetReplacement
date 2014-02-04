@@ -9,12 +9,7 @@ mftApp.factory('UserIndex', ['$resource', function($resource) {
 			var result = JSON.stringify(data);
 			console.log("Result:" + result);             
 		}}, 
-		get: {method: 'GET', 
-		  transformResponse:function(data, headersGetter){
-			var results = JSON.stringify(headersGetter);
-			console.log(headersGetter); 
-			console.log(results);            
-		}}, 
+		get: {method: 'GET'}, 
 		update: {method:'PUT'}, 
 		query: {method:'GET', isArray:false}});	
 		return getUserInfo;
