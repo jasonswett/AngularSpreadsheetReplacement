@@ -10,7 +10,7 @@ mftApp.factory('Comment', ['$resource', '$routeParams', function($resource, $rou
 			var result = JSON.stringify(data);
 			console.log("Result:" + result);             
 		}}, 
-		get: {method: 'GET'}, 
+		get: {method: 'GET', isArray:false}, 
 		update: {method:'PUT'}, 
 		query: {method:'GET', isArray:false}});	
 	return getComment;

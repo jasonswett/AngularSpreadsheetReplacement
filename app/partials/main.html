@@ -68,7 +68,7 @@
                 {{feed.SYSTEM_CONTACTS | limitTo:25}} <a ng-show='feed.SYSTEM_CONTACTS.length > 25' href="#" tooltip="{{feed.SYSTEM_CONTACTS}}" ng-click="do(); $event.preventDefault()">...</a>
               </td>
               <td class="mainContant">
-                {{feed.INTERFACE_OWNER | limitTo:25}} <a ng-show='feed.SITE_CONTACT.length > 25' href="#" tooltip="{{feed.INTERFACE_OWNER}}" ng-click="do(); $event.preventDefault()">...</a>
+                {{feed.INTERFACE_OWNER | limitTo:25}} <a ng-show='feed.INTERFACE_OWNER.length > 25' href="#" tooltip="{{feed.INTERFACE_OWNER}}" ng-click="do(); $event.preventDefault()">...</a>
               </td>
               <td class="actions">
                 <a href="index.html#/feeds/{{feed.ID}}/edit">Edit</a>
