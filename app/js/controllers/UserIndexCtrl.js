@@ -4,9 +4,9 @@
 //Users Controller
   mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth',
 	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
-	$rootScope.user = {};
+	//$rootScope.user = {};
 	$scope.loginAttempt = false;
-	$scope.loggedIn = false;
+	//$scope.loggedIn = false;
 	
 	//Login Function
 	$scope.login = function() {
@@ -17,10 +17,10 @@
 			$rootScope.user.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			$rootScope.validSessionID = $cookieStore.get('authData');
-			console.log($rootScope.validSessionID);
+			console.log($cookieStore.get('authData'));
 		UserIndex.get(function() {
 			$rootScope.user.loggedIn = true;
-			$scope.loggedIn = true;
+			//$scope.loggedIn = true;
 			$location.path('/');
 			console.log("Authenticating");
 		},
@@ -47,10 +47,9 @@
 	$scope.logout = function() {
 		UserAuth.clearCredentials();
 		$location.path('/login');
-		
 		$rootScope.user = {};
 		$rootScope.user.loggedIn = false;
-		$scope.loggedIn = false;
+		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;
 	}
   }]);
