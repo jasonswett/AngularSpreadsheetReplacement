@@ -4,8 +4,19 @@
 //Users Controller
   mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth',
 	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
+	console.log($rootScope.loggedIn);
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
+	
+	if($rootScope.loggedIn) {
+		$rootScope.testSessionID = $cookieStore.get('authData');
+		if ($rootScope.testSessionID == $rootScope.validSessionID) {
+			$rootScope.loggedIn = true;
+		}
+		else {
+			$rootScope.loggedIn = false;
+		}
+	}
 	//$scope.loggedIn = false;
 	//$rootScope.loggedIn = false;
 	//Login Function
