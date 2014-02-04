@@ -33,7 +33,7 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		$scope.commentList, 
 		function() {
 			$scope.submitted = false;
-			$scope.commentList = Comment.get({id: $routeParams.id}, function(results){
+		    Comment.get({id: $routeParams.id}, function(results){
 				$scope.commentList = results.results;
 				$scope.commentList.sort(function(a,b){
 				  a = new Date(a.CREATED_AT);
