@@ -13,13 +13,13 @@
 		$scope.loginAttempt = true;
 		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
-			$rootScope.user.email = $scope.user.email;
-			$rootScope.user.password = $scope.user.password;
+			$rootScope.email = $scope.user.email;
+			$rootScope.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
 			$rootScope.validSessionID = $cookieStore.get('authData');
 			console.log($cookieStore.get('authData'));
 		UserIndex.get(function() {
-			$rootScope.user.loggedIn = true;
+			$rootScope.loggedIn = true;
 			//$scope.loggedIn = true;
 			$location.path('/');
 			console.log("Authenticating");
@@ -30,25 +30,13 @@
 			console.log("error");	
 		});
 		}
-
-		/*if ( $scope.user.email == "ad" && $scope.user.password == "man" ) { // test
-			$rootScope.user = $scope.user;
-			$rootScope.user.loggedIn = true;
-			$scope.loggedIn = true;
-		} 
-		else {
-			$scope.loginAttempt = true;
-		    $scope.loginError = "Invalid Email/Password";
-			$rootScope.user.loggedIn = false;
-			$scope.loggedIn = false;
-		}*/
 	};
+	
 	//Logout Function
 	$scope.logout = function() {
 		UserAuth.clearCredentials();
 		$location.path('/login');
-		$rootScope.user = {};
-		$rootScope.user.loggedIn = false;
+		$rootScope.loggedIn = false;
 		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;
 	}
