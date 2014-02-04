@@ -6,15 +6,6 @@
 	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
-	$rootScope.testSessionID = $cookieStore.get('authData');
-	console.log($rootScope.testSessionID);
-	if ($rootScope.testSessionID == $rootScope.validSessionID) {
-		$rootScope.user.loggedIn = true;
-	}
-	else {
-		$rootScope.user.loggedIn = false;
-	}
-	
 	$scope.loggedIn = false;
 	
 	//Login Function
@@ -25,13 +16,12 @@
 			$rootScope.user.email = $scope.user.email;
 			$rootScope.user.password = $scope.user.password;
 			UserAuth.setCredentials($scope.user.email, $scope.user.password);
-
+			$rootScope.validSessionID = $cookieStore.get('authData');
+			console.log($rootScope.validSessionID);
 		UserIndex.get(function() {
 			$rootScope.user.loggedIn = true;
 			$scope.loggedIn = true;
 			$location.path('/');
-			$rootScope.validSessionID = $cookieStore.get('authData');
-			console.log($rootScope.sessionID);
 			console.log("Authenticating");
 		},
 		function() {
