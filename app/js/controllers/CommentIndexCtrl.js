@@ -11,7 +11,6 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.dateFormat = new Date().getTime();      //'M/d/yy h:mm:ss a';
 	$scope.commentList = [];
 	Comment.get({id: $routeParams.id}, function(results){
-		console.log("1");
 		$scope.commentList = results.results;
 		$scope.commentList.sort(function(a,b){
 		  a = new Date(a.CREATED_AT);
@@ -24,20 +23,18 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 	$scope.postCommentSuccess = false;
 	$scope.postCommentFailure = false;
 	$scope.submitted = false;
-	console.log("2");
 	$scope.save = function() {
-		console.log("3");
 		$scope.commentForm.$setPristine();
 		$scope.submitted = true;
 		if($scope.commentForm.$valid) {
-		console.log("4");
+		console.log($scope.commentList);
+		console.log($scope.user.email);
+		console.log($scope.commentList.COMMENT_FEED);
 		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentList.COMMENT_FEED},
 		$scope.commentList, 
 		function() {
-			console.log("5");
 			$scope.submitted = false;
 		    Comment.get({id: $routeParams.id}, function(results){
-			console.log("6");
 				$scope.commentList = results.results;
 				$scope.commentList.sort(function(a,b){
 				  a = new Date(a.CREATED_AT);
