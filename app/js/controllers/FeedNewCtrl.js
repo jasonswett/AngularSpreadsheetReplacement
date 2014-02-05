@@ -26,17 +26,18 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 			$route.reload();
 			$scope.newFeedForm.$setPristine();
 			$rootScope.newFeedSuccess = true;
-			$scope.listID = [];
+			$scope.sortID = [];
 			Feed.query(function(res){
 				//Convert ID to an int
 				for (var i = 0; i < res.results.length; i++) {
 					res.results[i].ID = parseInt(res.results[i].ID);
+					$scope.sortID[i] = res.results[i].ID;
 				}
+				console.log(typeof($scope.sortID[1]));
 				console.log(typeof(res.results[1].ID));
-				console.log(res.results);
-				console.log(res.results.sort(ID));
+				console.log($scope.sortID.sort());
 				
-				//$rootScope.lastID = Math.max($scope.listID);	
+				$rootScope.lastID = Math.max($scope.sortID);	
 			});
 			console.log("Saved!");
 		},
