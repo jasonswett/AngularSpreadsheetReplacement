@@ -35,9 +35,8 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 				}
 				console.log(typeof($scope.sortID[1]));
 				console.log(typeof(res.results[1].ID));
-				console.log($scope.sortID.sort());
-				
-				$rootScope.lastID = Math.max($scope.sortID);	
+				$scope.sortID.sort(function(a,b){return a-b});
+				$rootScope.lastID = $scope.sortID[res.results.length - 1]
 			});
 			console.log("Saved!");
 		},
