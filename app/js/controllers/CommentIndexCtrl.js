@@ -32,7 +32,27 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		if($scope.commentForm.$valid) {
 		console.log("4");
 		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentList.COMMENT_FEED},
-		$scope.commentList);
+		$scope.commentList, 
+		function() {
+			console.log("5");
+			$scope.submitted = false;
+		    Comment.get({id: $routeParams.id}, function(results){
+			console.log("6");
+				$scope.commentList = results.results;
+				$scope.commentList.sort(function(a,b){
+				  a = new Date(a.CREATED_AT);
+				  b = new Date(b.CREATED_AT);
+				  return a<b?1:a>b?-1:0;
+				});
+			});
+			$scope.commentList.COMMENT_FEED = "";
+			$scope.postCommentSuccess = true;
+		},
+		function() {
+			$scope.submitted = false;
+			$scope.postCommentFailure = true;
+			$scope.commentList.COMMENT_FEED = "";	
+		});
 		}
 	};
 	
