@@ -29,12 +29,9 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		if($scope.commentForm.$valid) {
 		console.log($scope.commentList);
 		console.log($scope.user.email);
-		console.log($scope.commentList.COMMENT_FEED);
-		$scope.commentData = [];
-		$scope.commentData.push(CURRENT_USER:$scope.user.email);
-		$scope.commentData.push(COMMENT_FEED:$scope.commentList.COMMENT_FEED);
+		console.log($scope.commentData.COMMENT_FEED);
 		console.log($scope.commentData);
-		Comment.post({id:$routeParams.id},
+		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentData.COMMENT_FEED},
 		$scope.commentData, 
 		function() {
 			$scope.submitted = false;
