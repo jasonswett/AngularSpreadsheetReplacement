@@ -27,6 +27,11 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 			$scope.newFeedForm.$setPristine();
 			$rootScope.newFeedSuccess = true;
 			Feed.query(function(res){
+				//Convert ID to an int
+				for (var i = 0; i < res.results.length; i++) {
+					res.results[i].ID = parseInt(res.results[i].ID);
+				}
+				res.results.sort('ID');
 				$rootScope.lastID = res.results[res.results.length - 1].ID;	
 			});
 			console.log("Saved!");
