@@ -31,12 +31,11 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 				//Convert ID to an int
 				for (var i = 0; i < res.results.length; i++) {
 					res.results[i].ID = parseInt(res.results[i].ID);
-					$scope.listID[i] = res.results[i].ID;
 				}
-				parseInt($scope.listID);
-				console.log($scope.listID.sort());
-				console.log($scope.listID);
-				$rootScope.lastID = Math.max($scope.listID);	
+				console.log(res.results);
+				console.log(res.results.sort('ID'));
+				
+				//$rootScope.lastID = Math.max($scope.listID);	
 			});
 			console.log("Saved!");
 		},
