@@ -31,7 +31,6 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 				//Convert ID to an int
 				for (var i = 0; i < res.results.length; i++) {
 					res.results[i].ID = parseInt(res.results[i].ID);
-					res.results[i].ID.sort();
 				}
 				console.log(typeof(res.results[1].ID));
 				console.log(res.results);
