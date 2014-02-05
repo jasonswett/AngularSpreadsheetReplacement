@@ -26,6 +26,7 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 			$route.reload();
 			$scope.newFeedForm.$setPristine();
 			$rootScope.newFeedSuccess = true;
+			$scope.listID = [];
 			Feed.query(function(res){
 				//Convert ID to an int
 				for (var i = 0; i < res.results.length; i++) {
