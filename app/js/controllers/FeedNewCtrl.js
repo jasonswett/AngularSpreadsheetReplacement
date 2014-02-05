@@ -2,8 +2,8 @@
 
 /* Show Single Feed Controller */
 
-mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFeed', '$routeParams', '$route', '$location', '$filter', 
-  function($scope, $rootScope, $resource, SingleFeed, $routeParams, $route, $location, $filter) {
+mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFeed', 'Feed', '$routeParams', '$route', '$location', '$filter', 
+  function($scope, $rootScope, $resource, SingleFeed, Feed, $routeParams, $route, $location, $filter) {
 	$scope.$route = $route;
 	$scope.$location = $location;
 	$scope.$routeParams = $routeParams;
@@ -20,12 +20,15 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 			}
 		});
 		
-		if ($scope.newFeedForm.$dirty) {
+		if ($scope.newFeedForm.$dirty && $scope.newFeedForm.$valid) {
 		SingleFeed.post($scope.singleFeed, 
 		function() {
 			$route.reload();
 			$scope.newFeedForm.$setPristine();
 			$rootScope.newFeedSuccess = true;
+			Feed.query(function(res){
+				$rootScope.lastID = res.results[res.results.length - 1].ID;	
+			});
 			console.log("Saved!");
 		},
 		function() {

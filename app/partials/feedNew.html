@@ -22,7 +22,7 @@
 		<form name="newFeedForm">
        		<div ng-show="newFeedSuccess && newFeedForm.$pristine" class="alert alert-success">
 	          <button type="button" class="close" data-dismiss="alert">&times;</button>
-	          <strong>Successfully Saved!</strong> 
+	          <strong>Successfully Saved With ID: {{lastID}}!</strong> 
 	        </div>
 			<div ng-show="newFeedFailure && newFeedForm.$pristine" class="alert alert-error">
 	          <button type="button" class="close" data-dismiss="alert">&times;</button>

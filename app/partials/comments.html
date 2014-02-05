@@ -22,7 +22,7 @@
           <div class="tabbable-content pull-left">
             <div id="transferContent" class="tab-content">
 				<!--Begin Success and Failure Messages-->
-				<div ng-show="postCommentSuccess && commentForm.$pristine" class="alert alert-success">
+				<div ng-show="postCommentSuccess && commentForm.$pristine && !commentForm.name.$error.required" class="alert alert-success">
 		          <button type="button" class="close" data-dismiss="alert">&times;</button>
 		          <strong>Comment Posted!</strong> 
 		        </div>
