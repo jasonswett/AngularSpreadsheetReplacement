@@ -31,8 +31,10 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		$scope.submitted = true;
 		if($scope.commentForm.$valid) {
 		console.log("4");
-		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentList.COMMENT_FEED}, 
-		//$scope.commentList, 
+		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentList.COMMENT_FEED},
+			console.log("7"); 
+		$scope.commentList, 
+		console.log("8");
 		function() {
 			console.log("5");
 			$scope.submitted = false;
