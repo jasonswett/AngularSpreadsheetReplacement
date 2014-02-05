@@ -33,6 +33,7 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 					res.results[i].ID = parseInt(res.results[i].ID);
 					$scope.listID[i] = res.results[i].ID;
 				}
+				parseInt($scope.listID);
 				console.log($scope.listID.sort());
 				console.log($scope.listID);
 				$rootScope.lastID = Math.max($scope.listID);	
