@@ -27,10 +27,6 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 		$scope.commentForm.$setPristine();
 		$scope.submitted = true;
 		if($scope.commentForm.$valid) {
-		console.log($scope.commentList);
-		console.log($scope.user.email);
-		console.log($scope.commentData.COMMENT_FEED);
-		console.log($scope.commentData);
 		Comment.post({id:$routeParams.id, CURRENT_USER:$scope.user.email, COMMENT_FEED:$scope.commentData.COMMENT_FEED},
 		$scope.commentData, 
 		function() {
@@ -43,13 +39,13 @@ mftApp.controller('CommentIndexCtrl', ['$scope', '$resource', 'Comment', '$route
 				  return a<b?1:a>b?-1:0;
 				});
 			});
-			$scope.commentList.COMMENT_FEED = "";
+			$scope.commentData.COMMENT_FEED = "";
 			$scope.postCommentSuccess = true;
 		},
 		function() {
 			$scope.submitted = false;
 			$scope.postCommentFailure = true;
-			$scope.commentList.COMMENT_FEED = "";	
+			$scope.commentData.COMMENT_FEED = "";	
 		});
 		}
 	};
