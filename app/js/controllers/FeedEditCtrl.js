@@ -24,7 +24,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$rootScope', '$resource', 'SingleF
 						$scope.eventData = {};
 						$scope.eventData.InOut = results.TD_IN_OUT;
 						console.log($scope.eventData);
-						Event.post({DATA:results, id:$routeParams.id}, 
+						Event.post({DATA:results, id:$routeParams.id, USER_NAME:$scope.user.email}, 
 							results, 
 							function() {
 								$route.reload();
@@ -58,7 +58,7 @@ mftApp.controller('FeedEditCtrl', ['$scope', '$rootScope', '$resource', 'SingleF
 		SingleEvent.get({id: $routeParams.id}, function(results) {
 			if ($scope.feedForm.$valid && !angular.equals($scope.master, $scope.singleFeed)){
 				if (results.results.length == 0) {
-					Event.post({DATA:$scope.master, id:$routeParams.id}, 
+					Event.post({DATA:$scope.master, id:$routeParams.id, USER_NAME:$scope.user.email}, 
 						$scope.master, 
 						function() {
 							console.log("1st Change!");
