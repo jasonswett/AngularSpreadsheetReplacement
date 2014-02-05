@@ -21,15 +21,12 @@
 	  <div class="tabbable-content pull-left">
 		<form name="newFeedForm">
        		<div ng-show="newFeedSuccess && newFeedForm.$pristine" class="alert alert-success">
-	          <button type="button" class="close" data-dismiss="alert">&times;</button>
-	          <strong>Feed ID {{lastID}} Successfully Saved!</strong> 
+	          <strong>New Feed With ID {{lastID}} Successfully Saved!</strong> 
 	        </div>
 			<div ng-show="newFeedFailure && newFeedForm.$pristine" class="alert alert-error">
-	          <button type="button" class="close" data-dismiss="alert">&times;</button>
 	          <strong>Error Saving Content. Please Try Again.</strong> 
 	        </div>
 			<div ng-show="noChange && newFeedForm.$pristine" class="alert alert-error">
-	          <button type="button" class="close" data-dismiss="alert">&times;</button>
 	          <strong>Please Make Changes Before Saving!</strong> 
 	        </div>
 			<div id="feedContent" class="tab-content">

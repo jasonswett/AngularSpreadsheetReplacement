@@ -11,7 +11,10 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 	$scope.singleFeed = {};
 	$scope.newFeedFailure = false;
 	$scope.noChange = false;
+	
+	//Save New Feeds
 	$scope.save = function() {
+		//If User types then deletes, don't count as a change
 		angular.forEach(Object.keys($scope.singleFeed), function(key){
 			if ($scope.singleFeed[key] == "") {
 				$scope.newFeedForm.$setPristine();
@@ -19,13 +22,14 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 				$scope.noChange = true;
 			}
 		});
-		
+		//If Form is Valid and Changed, Submit It
 		if ($scope.newFeedForm.$dirty && $scope.newFeedForm.$valid) {
 		SingleFeed.post($scope.singleFeed, 
 		function() {
 			$route.reload();
 			$scope.newFeedForm.$setPristine();
 			$rootScope.newFeedSuccess = true;
+			//Display the new ID of the feed
 			$scope.sortID = [];
 			Feed.query(function(res){
 				//Convert ID to an int
@@ -33,8 +37,6 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 					res.results[i].ID = parseInt(res.results[i].ID);
 					$scope.sortID[i] = res.results[i].ID;
 				}
-				console.log(typeof($scope.sortID[1]));
-				console.log(typeof(res.results[1].ID));
 				$scope.sortID.sort(function(a,b){return a-b});
 				$rootScope.lastID = $scope.sortID[res.results.length - 1]
 			});
