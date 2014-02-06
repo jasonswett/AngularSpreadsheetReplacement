@@ -2,8 +2,8 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuthEndpoint', 'UserAuth', 'UserSession',
-	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserAuthEndpoint, UserAuth, UserSession) {
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$window', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuthEndpoint', 'UserAuth', 'UserSession',
+	function($scope, $resource, $routeParams, $window, $location, $rootScope, $cookies, $cookieStore, UserAuthEndpoint, UserAuth, UserSession) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$scope.user.email = UserSession.username();
@@ -37,7 +37,8 @@
 			$rootScope.email = $scope.user.email;
 			$rootScope.password = $scope.user.password;
 			UserSession.create($scope.user.email, $scope.user.password, function(){
-				$location.path('/');
+				$window.location.href = 'index.html#/';
+				//$location.path('index.html#/');
 			},
 			function() {
 				$scope.invalidLogin = true;
@@ -60,7 +61,8 @@
 	//Logout Function
 	$scope.logout = function() {
 		UserSession.destroy();
-		$location.path('/login');
+		$window.location.href = 'indexLogin.html#/';
+		//$location.path('indexLogin.html#/');
 		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;
 	}

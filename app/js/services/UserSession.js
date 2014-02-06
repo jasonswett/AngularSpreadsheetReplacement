@@ -29,6 +29,7 @@ mftApp.service('UserSession', ['$cookieStore', 'UserAuthEndpoint', 'UserAuth', f
 	};
 	this.destroy = function() {
 	    $cookieStore.put('Authorized', "");
+		$cookieStore.remove('Username');
 		UserAuth.clearCredentials();
 	};
 	this.username = function() {

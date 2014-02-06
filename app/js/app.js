@@ -20,7 +20,8 @@ var mftApp = angular.module('mftApp', [
 .config(['$routeProvider', function($routeProvider) {
 	
 //Login Page
-  $routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
+  //$routeProvider.when('/login', {templateUrl: 'AngularSpreadsheetReplacement/indexLogin.html', controller: 'UserIndexCtrl'});
+  //$routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
   $routeProvider.when('/', {templateUrl: 'partials/main.html', controller: 'FeedIndexCtrl'});
@@ -52,17 +53,17 @@ var mftApp = angular.module('mftApp', [
 }])
 
 //Run on route change to make sure user is logged in
-.run( function($rootScope, $location, UserSession) {
+.run( function($rootScope, $location, $window, UserSession) {
 	$rootScope.username = UserSession.username();
     // register listener to watch route changes
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
 	console.log(UserSession.isValid());
 		$rootScope.loggedIn = UserSession.isValid();
-	  if ( UserSession.isValid() && $location.path() == '/login') {
-	    $location.path('/');
+	  if ( UserSession.isValid() && $window.location == 'indexLogin.html#/') {
+	    $window.location.href = 'index.html#/';
 	  }
-      if ( !UserSession.isValid() && $location.path() != '/login') {
-        $location.path('/login');
+      if ( !UserSession.isValid() && $window.location != 'indexLogin.html#/') {
+        $window.location.href = 'indexLogin.html#/';
       }         
     });
 });
