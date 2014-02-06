@@ -2,8 +2,8 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth',
-	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth) {
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth', 'UserSession',
+	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth, UserSession) {
 	console.log($rootScope.loggedIn);
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
@@ -34,6 +34,7 @@
 		$scope.loginAttempt = true;
 		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
+			UserSession.create();
 			$rootScope.user.email = $scope.user.email;
 			$rootScope.email = $scope.user.email;
 			$rootScope.password = $scope.user.password;
@@ -54,6 +55,7 @@
 	
 	//Logout Function
 	$scope.logout = function() {
+		UserSession.destroy();
 		UserAuth.clearCredentials();
 		$location.path('/login');
 		$rootScope.loggedIn = false;

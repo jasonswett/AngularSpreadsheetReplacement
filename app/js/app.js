@@ -7,7 +7,6 @@ var mftApp = angular.module('mftApp', [
   'ngResource',
   'ngCookies',
   'mftApp.directives',
-  'mftController',
   'infinite-scroll',
   'ui.bootstrap' 
 ])
@@ -15,7 +14,6 @@ var mftApp = angular.module('mftApp', [
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		$httpProvider.defaults.withCredentials = true;
-		console.log($httpProvider.defaults.headers);
     }
 ])
 
@@ -38,26 +36,32 @@ var mftApp = angular.module('mftApp', [
 
 //User Profile
   $routeProvider.when('/users/:userId', {templateUrl: 'partials/user.html', controller: 'EventShowCtrl'});
+    $routeProvider.when('/users/:userId/changeDetail/:userIndex', {templateUrl: 'partials/user.html', controller: 'EventCompareCtrl'});
 
 //Alerts and Warnings
-  $routeProvider.when('/alerts', {templateUrl: 'partials/alerts.html', controller: 'MyCtrl1'});
+  //$routeProvider.when('/alerts', {templateUrl: 'partials/alerts.html', controller: 'MyCtrl1'});
 
 //Query Config Admin
-  $routeProvider.when('/query', {templateUrl: 'partials/query.html', controller: 'MyCtrl1'});
+  //$routeProvider.when('/query', {templateUrl: 'partials/query.html', controller: 'MyCtrl1'});
 
 //Monitoring
-  $routeProvider.when('/monitoring', {templateUrl: 'partials/monitoring.html', controller: 'MyCtrl1'});
+  //$routeProvider.when('/monitoring', {templateUrl: 'partials/monitoring.html', controller: 'MyCtrl1'});
   
 //All other URLs
   $routeProvider.otherwise({redirectTo: '/'});
 }])
 
 //Run on route change to make sure user is logged in
-.run( function($rootScope, $location) {
+.run( function($rootScope, $location, UserSession) {
+
+	console.log(UserSession.isValid());
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
-      if ( !$rootScope.loggedIn ) {
-        $location.path("/login");
+	  if ( UserSession.isValid() && $location.path() == '/login') {
+	    $location.path('/');
+	  }
+      if ( !UserSession.isValid() && $location.path() != '/login') {
+        $location.path('/login');
       }         
     });
 });
