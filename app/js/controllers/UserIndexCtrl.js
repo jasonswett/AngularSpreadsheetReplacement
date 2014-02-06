@@ -38,6 +38,10 @@
 			$rootScope.password = $scope.user.password;
 			UserSession.create($scope.user.email, $scope.user.password, function(){
 				$location.path('/');
+			},
+			function() {
+				$scope.invalidLogin = true;
+				$scope.loginError = "Invalid Email/Password";
 			});
 			/*UserAuthEndpoint.get(function() {
 				$rootScope.loggedIn = true;
@@ -56,7 +60,6 @@
 	//Logout Function
 	$scope.logout = function() {
 		UserSession.destroy();
-		UserAuth.clearCredentials();
 		$location.path('/login');
 		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;

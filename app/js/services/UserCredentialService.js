@@ -18,6 +18,7 @@ mftApp.factory('UserAuth', ['Base64', '$cookies', '$cookieStore', '$resource', '
         clearCredentials: function () {
             document.execCommand("ClearAuthenticationCache");
             $cookieStore.remove('authdata');
+			$cookieStore.put('ssnid', "");
 			$cookieStore.remove('ssnid');
             $http.defaults.headers.common.Authorization = 'Basic ';
         }
