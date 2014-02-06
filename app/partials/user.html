@@ -8,87 +8,47 @@
           <div class="contactInfo span8">
             <h1>{{params.userId}}</h1>
             <p class="lead">Contact Information</p>
-            <p><strong>Contact Group: </strong>Some Group</p>
-            <p><strong>Contact Email: </strong>somename@email.com</p>
-            <p><strong>Contact Phone: </strong>(111)222-3333</p>
+            <p><strong>Contact Group: </strong>N/A</p>
+            <p><strong>Contact Email: </strong>N/A</p>
+            <p><strong>Contact Phone: </strong>N/A</p>
           </div>
         </div>
         <div class="userFeed clearfix">
           <hr />
-          <h2 class="text-center">Bill's Feed <span class="badge badge-inverse">6</span></h2>
+          <h2 class="text-center">{{params.userID}}'s Feed <span class="badge badge-inverse">{{numberOfChanges}}</span></h2>
           <div class="pull-right">
             <button class="btn">Export All</button>
           </div>
           <div class="pull-left">
             <form class="span2 form-search">
               <div class="input-append">
-                <input type="text" class="span search-query" ng-model="queryUser">
+                <input type="text" class="search-query" ng-model="queryUser" placeholder="Search Changes">
                 <button type="submit" class="btn">Search</button>
               </div>
             </form>
           </div>
           <table id="changeLogTable" class="table table-striped table-bordered">
             <thead>
-              <tr filter:queryUser>
-                <th>Date <i class="icon-chevron-down icon-white"></th>
-                <th>Change by <i class="icon-chevron-down icon-white"></th>
-                <th>Description <i class="icon-chevron-down icon-white"></th>
+              <tr>
+                <th>Date <i class="icon-chevron-down icon-white" ng-click="sort('UPDATED_AT')"></i></th>
+                <th>Feed Attribute Changed <i class="icon-chevron-down icon-white"ng-click="sort('ATTRIBUTE')"></i></th>
+                <th>Old Value <i class="icon-chevron-down icon-white" ng-click="sort('OLD')"></i></th>
+				<th>New Value <i class="icon-chevron-down icon-white" ng-click="sort('NEW')"></i></th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr ng-repeat="user in users | filter:queryUser">
                 <td>
-                  05/29/2013 08:54:23 AM UTC
+                  {{users.UPDATED_AT}}
                 </td>
                 <td>
                   name@email.com
                 </td>
                 <td>
-                  <a href="changeDetail.html">Click for full description</a>
+                  Click for full description
                 </td>
-              </tr>
-              <tr>
-                <td>
-                  05/30/2013 08:54:23 AM UTC
-                </td>
-                <td>
-                  Aaron@email.com
-                </td>
-                <td>
-                  <a href="changeDetail.html">Click for full description</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  05/28/2013 08:54:23 AM UTC
-                </td>
-                <td>
-                  Tim@email.com
-                </td>
-                <td>
-                  <a href="changeDetail.html">Click for full description</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  05/27/2013 08:54:23 AM UTC
-                </td>
-                <td>
-                  Rob@email.com
-                </td>
-                <td>
-                  <a href="changeDetail.html">Click for full description</a>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  05/28/2013 08:54:23 AM UTC
-                </td>
-                <td>
-                  Kapil@email.com
-                </td>
-                <td>
-                  <a href="changeDetail.html">Click for full description</a>
+				<td>
+                  Click for full description
                 </td>
               </tr>
             </tbody>
