@@ -2,7 +2,7 @@
 
 /* Encode User/Pass into Authorization Header */
 
-mftApp.factory('UserIndex', ['$resource', function($resource) {
+mftApp.factory('UserAuthEndpoint', ['$resource', function($resource) {
    	var getUserInfo = $resource('http://dev.bigcompass.com\:2222/rest/AaronL/UserAuth', {}, 
 		{ post: {method: 'POST', 
 		  transformRequest:function(data, headersGetter){

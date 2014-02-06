@@ -53,10 +53,10 @@ var mftApp = angular.module('mftApp', [
 
 //Run on route change to make sure user is logged in
 .run( function($rootScope, $location, UserSession) {
-
-	console.log(UserSession.isValid());
+	$rootScope.username = UserSession.username();
     // register listener to watch route changes
     $rootScope.$on( "$routeChangeStart", function(event, next, current) {
+		$rootScope.loggedIn = UserSession.isValid();
 	  if ( UserSession.isValid() && $location.path() == '/login') {
 	    $location.path('/');
 	  }

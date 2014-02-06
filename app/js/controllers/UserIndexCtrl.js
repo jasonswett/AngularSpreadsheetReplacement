@@ -2,12 +2,11 @@
 
 
 //Users Controller
-  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserIndex', 'UserAuth', 'UserSession',
-	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserIndex, UserAuth, UserSession) {
-	console.log($rootScope.loggedIn);
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuthEndpoint', 'UserAuth', 'UserSession',
+	function($scope, $resource, $routeParams, $location, $rootScope, $cookies, $cookieStore, UserAuthEndpoint, UserAuth, UserSession) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
-	
+	$scope.user.email = UserSession.username();
 	/*UserIndex.get(function() {
 		UserAuth.getCredentials();
 		$rootScope.loggedIn = true;
@@ -34,22 +33,23 @@
 		$scope.loginAttempt = true;
 		$scope.loginForm.$setPristine();
 		if ($scope.loginForm.$valid) {
-			UserSession.create();
 			$rootScope.user.email = $scope.user.email;
 			$rootScope.email = $scope.user.email;
 			$rootScope.password = $scope.user.password;
-			UserAuth.setCredentials($scope.user.email, $scope.user.password);
-		UserIndex.get(function() {
-			$rootScope.loggedIn = true;
-			//$scope.loggedIn = true;
-			$location.path('/');
-			console.log("Authenticating");
-		},
+			UserSession.create($scope.user.email, $scope.user.password, function(){
+				$location.path('/');
+			});
+			/*UserAuthEndpoint.get(function() {
+				$rootScope.loggedIn = true;
+				//$scope.loggedIn = true;
+				$location.path('/');
+				console.log("Authenticating");
+			},
 		function() {
 			$scope.invalidLogin = true;
 			$scope.loginError = "Invalid Email/Password";
 			console.log("error");	
-		});
+		});*/
 		}
 	};
 	
@@ -58,7 +58,6 @@
 		UserSession.destroy();
 		UserAuth.clearCredentials();
 		$location.path('/login');
-		$rootScope.loggedIn = false;
 		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;
 	}
