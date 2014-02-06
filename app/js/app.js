@@ -20,7 +20,6 @@ var mftApp = angular.module('mftApp', [
 .config(['$routeProvider', function($routeProvider) {
 	
 //Login Page
-  //$routeProvider.when('/login', {templateUrl: 'AngularSpreadsheetReplacement/indexLogin.html', controller: 'UserIndexCtrl'});
   //$routeProvider.when('/login', {templateUrl: 'partials/login.html', controller: 'UserIndexCtrl'});
 
 //Default main page
