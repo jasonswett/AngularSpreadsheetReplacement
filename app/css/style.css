@@ -116,6 +116,7 @@ body {
 
 .headerWrap .header a.logo {
   display: block;
+  max-width:80%;
 }
 
 .headerWrap .header .userControls {
