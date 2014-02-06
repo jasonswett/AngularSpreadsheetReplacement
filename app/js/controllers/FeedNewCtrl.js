@@ -11,7 +11,10 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 	$scope.singleFeed = {};
 	$scope.newFeedFailure = false;
 	$scope.noChange = false;
-	
+	$scope.timestamp = new Date().getTime();
+	console.log($scope.timestamp);
+	console.log(+new Date);
+	console.log(Date.now());
 	//Save New Feeds
 	$scope.save = function() {
 		//If User types then deletes, don't count as a change
@@ -24,7 +27,7 @@ mftApp.controller('FeedNewCtrl', ['$scope', '$rootScope', '$resource', 'SingleFe
 		});
 		//If Form is Valid and Changed, Submit It
 		if ($scope.newFeedForm.$dirty && $scope.newFeedForm.$valid) {
-		SingleFeed.post($scope.singleFeed, 
+		SingleFeed.post({LAST_CHANGE_BY:$scope.user.email}, $scope.singleFeed, 
 		function() {
 			$route.reload();
 			$scope.newFeedForm.$setPristine();
