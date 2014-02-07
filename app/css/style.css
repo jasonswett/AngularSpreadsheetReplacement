@@ -25,6 +25,9 @@ html {
   text-shadow: none;
 }
 body {
+  background: #fff;
+}
+body.blue {
   background: #0c75c8;
 }
 /* @end */
@@ -240,6 +243,10 @@ body > div {
 #feedContent .feedDetailRow {
   overflow: hidden;
   border: 0;
+}
+
+#feedContent .feedDetailRow:nth-of-type(odd) {
+  background: #F9F9F9;
 }
 
 #feedContent .feedDetailColLeft .feedDetailRow .detailLeft,

@@ -48,7 +48,7 @@ mftApp.controller('FeedIndexCtrl', ['$scope', '$resource', 'Feed', 'UserAuth', '
 			$scope.keepGoing = true;
 		};
 		//var sortOrder = 'ID';
-		//$scope.sortOrder = sortOrder;
+		$scope.sortOrder = '-IS_ACTIVE';
 		$scope.reverse = false;
 		//Order the Feeds by each column
 		$scope.sort = function(newSortOrder) {
