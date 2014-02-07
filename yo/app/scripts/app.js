@@ -7,7 +7,8 @@ var mftApp = angular.module('mftApp', [
   'ngResource',
   'ngCookies',
   'mftApp.directives',
-  'infinite-scroll'
+  'infinite-scroll',
+  'ui.bootstrap' 
 ])
 .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;

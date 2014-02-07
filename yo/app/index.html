@@ -12,11 +12,10 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/sass-bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
     <link rel="stylesheet" href="styles/style.css">
     <!-- endbuild -->
   </head>
@@ -45,7 +44,6 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/sass-bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
@@ -64,6 +62,7 @@
     <script src="scripts/controllers/UserIndexCtrl.js"></script>
     <script src="scripts/controllers/FeedIndexCtrl.js"></script>
     <script src="scripts/ng-infinite-scroll.js"></script>
+    <script src="scripts/ui-bootstrap-custom-tpls-0.10.0.js"></script>
     <!-- endbuild -->
 
   <div>
@@ -74,7 +73,7 @@
  			<a href="index.html#/users/{{user.email}}">{{user.email}}</a>
 			<a class="btn btn-inverse btn-mini" ng-click="logout()">Logout</a>
           </div>
-          <a class="logo" href="index.html#/"><img src="images/disney-logo-large.png" alt="Disney" /></a>
+          <a class="logo" href="index.html#/"><img src="img/disney-logo-large.png" alt="Disney" /></a>
 		</div>
       </div>
     </div>
