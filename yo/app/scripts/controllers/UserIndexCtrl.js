@@ -1,11 +1,33 @@
 'use strict';
 
+
 //Users Controller
-mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$window', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuthEndpoint', 'UserAuth', 'UserSession',
-    function($scope, $resource, $routeParams, $window, $location, $rootScope, $cookies, $cookieStore, UserAuthEndpoint, UserAuth, UserSession) {
+  mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$window', '$location', '$rootScope', '$cookies', '$cookieStore', 'UserAuthEndpoint', 'UserAuth', 'UserSession',
+	function($scope, $resource, $routeParams, $window, $location, $rootScope, $cookies, $cookieStore, UserAuthEndpoint, UserAuth, UserSession) {
 	$rootScope.user = {};
 	$scope.loginAttempt = false;
 	$scope.user.email = UserSession.username();
+	/*UserIndex.get(function() {
+		UserAuth.getCredentials();
+		$rootScope.loggedIn = true;
+		console.log("initial credential test");
+	},
+	function() {
+		$rootScope.loggedIn = false;
+		console.log("initial credential test failure");
+	});*/
+	
+	/*if($rootScope.loggedIn) {
+		$rootScope.testSessionID = $cookieStore.get('authData');
+		if ($rootScope.testSessionID == $rootScope.validSessionID) {
+			$rootScope.loggedIn = true;
+		}
+		else {
+			$rootScope.loggedIn = false;
+		}
+	}*/
+	//$scope.loggedIn = false;
+	//$rootScope.loggedIn = false;
 	//Login Function
 	$scope.login = function() {
 		$scope.loginAttempt = true;
@@ -16,11 +38,23 @@ mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$win
 			$rootScope.password = $scope.user.password;
 			UserSession.create($scope.user.email, $scope.user.password, function(){
 				$window.location.href = 'index.html#/';
+				//$location.path('index.html#/');
 			},
 			function() {
 				$scope.invalidLogin = true;
 				$scope.loginError = "Invalid Email/Password";
 			});
+			/*UserAuthEndpoint.get(function() {
+				$rootScope.loggedIn = true;
+				//$scope.loggedIn = true;
+				$location.path('/');
+				console.log("Authenticating");
+			},
+		function() {
+			$scope.invalidLogin = true;
+			$scope.loginError = "Invalid Email/Password";
+			console.log("error");	
+		});*/
 		}
 	};
 	
@@ -28,6 +62,8 @@ mftApp.controller('UserIndexCtrl', ['$scope', '$resource', '$routeParams', '$win
 	$scope.logout = function() {
 		UserSession.destroy();
 		$window.location.href = 'indexLogin.html#/';
+		//$location.path('indexLogin.html#/');
+		//$scope.loggedIn = false;
 		$rootScope.editFeedSuccess = false;
 	}
-}]);
+  }]);
