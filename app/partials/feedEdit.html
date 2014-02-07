@@ -7,9 +7,13 @@
 		  <li class="active">/ Edit Feed</li>
 		 </ol>
         <div class="page-header">
-          <h1>Feed ID: {{singleFeed.ID}}</h1>
+          <h1>IStrategy: {{singleFeed.ISTRATEGY}}</h1>
           <p class="lead">Active (Y/N)?: <span class="{{singleFeed.IS_ACTIVE}}">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
+		<p ng-controller="EventShowCtrl">Last Change: <span>{{lastEvent.CREATED_AT}}</span></p>
+        <p>Last Change Made By: <span>{{singleFeed.LAST_CHANGE_BY}}</span><a class="cancelBtn btn btn-inverse" href="index.html#/feeds/{{singleFeed.ID}}"><i class="icon-arrow-left icon-white"></i>Cancel</a></p>
+        <hr />
+		  
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">
@@ -832,7 +836,7 @@
                 </div>-->
               </div><!--/FeedDetailColumnRight-->
 			  <div class="userControls text-center">
-                <button ng-click="save()" class="editBtn btn btn-large btn-success">Save</button>
+                <button ng-click="save()" class="btn btn-large btn-success">Save</button>
               </div>
             </div>
 			</form>
@@ -840,4 +844,3 @@
         </div>
       </div>
     </div>
-{{singleFeed}}

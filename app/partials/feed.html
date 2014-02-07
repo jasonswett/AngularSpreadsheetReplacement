@@ -6,9 +6,12 @@
 		  <li class="active">/ Feed Details</li>
 		 </ol>
         <div class="page-header">
-          <h1>Feed ID: {{singleFeed.ID}}</h1>
+          <h1>IStrategy: {{singleFeed.ISTRATEGY}}</h1>
           <p class="lead">Active (Y/N)? <span class="{{singleFeed.IS_ACTIVE}}">{{singleFeed.IS_ACTIVE}}</span></p>
         </div>
+		<p ng-controller="EventShowCtrl">Last Change: <span>{{lastEvent.CREATED_AT}}</span></p>
+        <p>Last Change Made By: <span>{{singleFeed.LAST_CHANGE_BY}}</span><a class="cancelBtn btn btn-inverse" href="index.html#/"><i class="icon-arrow-left icon-white"></i>Back</a></p>
+        <hr />
         <div class="tabbale-wrap clearfix">
           <div class="tabbable tabs-left pull-left">
             <ul id="inventorySubnavTab" class="nav nav-tabs">
@@ -276,17 +279,17 @@
                   <div class="detailRight">
                     {{singleFeed.TARGET_APPLICATION_NAME}}
                   </div>
-                </div>
-                <div class="feedDetailRow">
+                </div>                
+              </div>
+              <div class="feedDetailColRight span6"> 
+				<div class="feedDetailRow">
                   <div class="detailLeft">
                     Target Data Format:
                   </div>
                   <div class="detailRight">
                     {{singleFeed.TARGET_DATA_FORMAT}}
                   </div>
-                </div>
-              </div>
-              <div class="feedDetailColRight span6">            
+                </div>           
                 <div class="feedDetailRow">
                   <div class="detailLeft">
                     Target Location:
@@ -519,14 +522,14 @@
                     <a href="index.html#/comments/{{singleFeed.ID}}">Comments</a>
                   </div>
                 </div>
-				<div class="feedDetailRow">
+				<!--<div class="feedDetailRow">
                   <div class="detailLeft">
                     Last Change Date:
                   </div>
                   <div class="detailRight" ng-controller="EventShowCtrl">
                     {{lastEvent.CREATED_AT}}
                   </div>
-                </div>
+                </div>-->
 				<div class="feedDetailRow">
                   <div class="detailLeft">
                     Last Change Comment:
@@ -535,17 +538,17 @@
                     {{commentList[0].COMMENT_FEED}}
                   </div>
                 </div>
-				<div class="feedDetailRow">
+				<!--<div class="feedDetailRow">
                   <div class="detailLeft">
                     Last Change By:
                   </div>
                   <div class="detailRight">
                     {{singleFeed.LAST_CHANGE_BY}}
                   </div>
-                </div>
+                </div>-->
               </div><!--/FeedDetailColumnRight-->
               <div class="userControls text-center">
-                <a href="index.html#/feeds/{{singleFeed.ID}}/edit" class="editBtn btn btn-large btn-success">Edit</a>
+                <a href="index.html#/feeds/{{singleFeed.ID}}/edit" class="btn btn-large btn-success">Edit</a>
               </div>
             </div>
           </div>

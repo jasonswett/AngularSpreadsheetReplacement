@@ -57,12 +57,13 @@ var mftApp = angular.module('mftApp', [
     // register listener to watch route changes
     $rootScope.$on("$routeChangeStart", function(event, next, current) {
 	console.log(UserSession.isValid());
+	
 		$rootScope.loggedIn = UserSession.isValid();
 	  if ( UserSession.isValid() && $window.location == 'indexLogin.html#/') {
 	    $window.location.href = 'index.html#/';
 	  }
       if ( !UserSession.isValid() && $window.location != 'indexLogin.html#/') {
         $window.location.href = 'indexLogin.html#/';
-      }         
+      }
     });
 });
